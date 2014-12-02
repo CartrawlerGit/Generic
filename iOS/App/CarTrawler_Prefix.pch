@@ -1,0 +1,39 @@
+//
+// Prefix header for all source files of the 'CarTrawler' target in the 'CarTrawler' project
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+
+	#include "TargetConditionals.h"
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+	#import <CoreLocation/CoreLocation.h>
+	#import <MapKit/MapKit.h>
+	#import "JSON.h"
+	#import "Constants.h"
+	#import "CTHelper.h"
+	#import "ASIHTTPRequest.h"
+	#import "CTRQBuilder.h"
+	#import "CTError.h"
+	#import "CTHudViewController.h"
+	#import "FTAnimation.h"
+	#import "UIColor-Expanded.h"
+//	#import "FlurryAPI.h"
+#endif
+
+#define DEBUG
+
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define Info(format, ...) NSLog(@"<Info>: " format, ##__VA_ARGS__)
+#define Warn(format, ...)  NSLog(@"<Warning>: " format, ##__VA_ARGS__)
+#define Error(format, ...)  NSLog(@"<Error>: " format, ##__VA_ARGS__)

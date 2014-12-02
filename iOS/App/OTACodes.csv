@@ -1,0 +1,280 @@
+NameCode,Value,Name
+VEC,19,Monospace
+VEC,17,Special offer
+VEC,22,Crossover
+VEC,23,Commercial van/truck
+VEC,18,Coupe
+VEC,15,Extended cab pickup
+VEC,16,Regular cab pickup
+VEC,13,Sport
+VEC,14,Special
+VEC,11,All-Terrain
+VEC,12,Recreational
+VEC,3,SUV
+VEC,21,Roadster
+VEC,2,Van
+VEC,20,2 wheel vehicle
+VEC,1,Car
+VEC,10,Motorhome
+VEC,7,Limo
+VEC,6,Motorcycle
+VEC,5,Truck
+VEC,4,Convertible
+VEC,9,Pickup
+VEC,8,Station wagon
+VCT,35,Personal effects protection
+VCT,36,Personal effects coverage
+VCT,33,Personal accident coverage
+VCT,34,Personal accident and effects coverage
+VCT,39,Rental liability protection
+VCT,37,Personal passenger protection
+VCT,38,Personal property insurance
+VCT,43,Super personal accidental and effects coverage
+VCT,42,Supplemental liability insurance
+VCT,41,Special coverage
+VCT,40,Super collision damage waiver (SDW)
+VCT,22,Liability deductible coverage
+VCT,23,Loss damage waiver
+VCT,24,Loss damage waiver
+VCT,25,LDW deductible waiver
+VCT,26,Loss damage waiver reduced liability
+VCT,27,Liability insurance supplement
+VCT,28,Mexican insurance
+VCT,29,Non-waiverable responsibility
+VCT,3,Accident protection insurance
+VCT,2,Accident liability waiver
+VCT,1,Additional liability insurance
+VCT,7,Collision damage waiver (CDW)
+VCT,30,Partial coverage
+VCT,6,Collision damage waiver (CDW)
+VCT,5,Complete cover package
+VCT,32,Personal accident insurance
+VCT,4,Baggage coverage
+VCT,31,Partial damage waiver
+VCT,9,Collision damage waiver reduced liability
+VCT,8,Collision damage waiver plus
+VCT,59,Super cover
+VCT,58,AER (Accident Excess Reduction)
+VCT,57,AER (Accident Excess Reduction) plus
+VCT,19,Insurance deductible waiver plus
+VCT,56,Max cover
+VCT,55,Young drivers insurance
+VCT,17,Glass/Tyre waiver
+VCT,18,Insurance deductible waiver
+VCT,15,Damage waiver plus
+VCT,16,Full coverage
+VCT,13,Damage excess reduction
+VCT,14,Damage waiver
+VCT,11,Collision damage waiver LDW combo
+VCT,12,Collision damage waiver LDW combo plus
+VCT,21,Insurance
+VCT,20,Insurance deductible waiver reduced liability
+VCT,60,Zero deductible option
+VCT,61,Protection package
+VCT,49,Third party coverage
+VCT,48,Theft protection
+VCT,45,Super theft protection
+VCT,44,Super personal accident insurance
+VCT,47,Theft waiver (TW)
+VCT,46,Theft protection waiver
+VCT,10,Compulsory insurance
+VCT,51,Third party plus
+VCT,52,Uninsured motorist coverage
+VCT,53,Unlimited mileage waiver
+VCT,54,Waiver
+VCT,50,Third party liability protection (TP)
+RUL,3,Deposit
+RUL,2,Prepay
+RUL,1,Cancel
+RUL,4,Guarantee
+PMT,19,Travel agency IATA number
+PMT,35,Airline payment card
+PMT,17,Miscellaneous charge order
+PMT,18,Travel agency name/address
+PMT,36,Air travel card
+PMT,15,Redemption
+PMT,33,Override guarantee information
+PMT,34,Corporate
+PMT,16,Barter
+PMT,13,Personal check
+PMT,14,Money order
+PMT,11,Coupon
+PMT,12,Business check
+PMT,21,Club membership ID
+PMT,20,Certified check
+PMT,22,Frequent guest number
+PMT,23,Frequent traveler number
+PMT,24,Guest name/address
+PMT,25,Special industry program
+PMT,26,Tour order
+PMT,27,Traveler's check
+PMT,28,Wire payment
+PMT,29,Company name/address
+PMT,3,Voucher
+PMT,2,Direct bill
+PMT,10,Central bill
+PMT,1,Cash
+PMT,30,Corporte ID/CD number
+PMT,7,Check
+PMT,6,Debit card
+PMT,5,Credit card
+PMT,32,Other information
+PMT,4,Pre-pay
+PMT,31,Guarantee
+PMT,9,Business account
+PMT,8,Deposit
+VCP,19,Vehicle collection
+VCP,17,Customer drop off
+VCP,35,Base rate
+VCP,18,Vehicle delivery
+VCP,36,Mandatory
+VCP,33,Vehicle license fee
+VCP,15,Senior
+VCP,34,Winter service charge
+VCP,16,Customer pickup
+VCP,13,Young driver
+VCP,14,Younger driver
+VCP,11,Additional hour
+VCP,12,Additional driver
+VCP,21,Equipment
+VCP,20,Fuel
+VCP,22,Prepay amount
+VCP,23,Pay on arrival amount
+VCP,24,Prepaid fuel
+VCP,25,Adjustment
+VCP,26,Mandatory charges total
+VCP,27,Subtotal
+VCP,28,Optional
+VCP,29,Contract fee
+VCP,3,Discount
+VCP,2,Drop
+VCP,1,Vehicle rental
+VCP,10,Additional day
+VCP,7,Tax
+VCP,30,Airport fee
+VCP,6,Fee
+VCP,5,Surcharge
+VCP,32,Registration fee
+VCP,4,Coverage
+VCP,31,Air conditioning surcharge
+VCP,9,Additional week
+VCP,8,Additional distance
+INF,17,Short description
+INF,18,Advisory
+INF,15,Services
+INF,16,Transportation
+INF,13,Recreation
+INF,14,Safety
+INF,11,Driving directions
+INF,12,Facilities
+INF,3,Marketing
+INF,2,Policy
+INF,1,Description
+INF,10,Dining
+INF,7,Attractions
+INF,6,Amenities
+INF,5,Other
+INF,4,Special instructions
+INF,9,Corporate locations
+INF,8,Awards
+SIZ,19,26 foot truck
+SIZ,35,Compact elite
+SIZ,17,20 foot truck
+SIZ,18,24 foot truck
+SIZ,36,Intermediate elite
+SIZ,33,Mini elite
+SIZ,15,Cargo van
+SIZ,34,Economy elite
+SIZ,16,12 foot truck
+SIZ,39,Premium elite
+SIZ,13,Moving van
+SIZ,14,15 passenger van
+SIZ,37,Standard elite
+SIZ,11,Minivan
+SIZ,12,12 passenger van
+SIZ,38,Fullsize elite
+SIZ,21,Stretch
+SIZ,20,Moped
+SIZ,41,Oversize
+SIZ,40,Luxury elite
+SIZ,22,Regular
+SIZ,23,Unique
+SIZ,24,Exotic
+SIZ,25,Small/medium truck
+SIZ,26,Large truck
+SIZ,27,Small SUV
+SIZ,28,Medium SUV
+SIZ,29,Large SUV
+SIZ,3,Economy
+SIZ,2,Subcompact
+SIZ,10,Premium
+SIZ,1,Mini
+SIZ,7,Standard
+SIZ,30,Exotic SUV
+SIZ,6,Intermediate
+SIZ,32,Special
+SIZ,5,Midsize
+SIZ,4,Compact
+SIZ,31,Four wheel drive
+SIZ,9,Luxury
+SIZ,8,Fullsize
+EQP,35,Ski rental
+EQP,36,Ski equipped
+EQP,33,FM radio
+EQP,34,Navigational phone
+EQP,39,Other
+EQP,37,Cassette player
+EQP,38,Television
+EQP,43,Motorcycle helmet
+EQP,42,Flag holder
+EQP,41,Multimedia centre
+EQP,40,Portable DVD/CD/picture player
+EQP,22,Hand truck
+EQP,23,Cargo barrier front
+EQP,24,Cargo barrier rear
+EQP,25,Luggage trailer
+EQP,26,Camping equipment
+EQP,27,Satellite radio
+EQP,28,Wheelchair accessible van
+EQP,29,Seat belt extensions
+EQP,3,Luggage rack
+EQP,2,Bike rack
+EQP,1,Mobile phone
+EQP,30,Winter package
+EQP,7,Infant child seat
+EQP,6,Automatic locks
+EQP,5,Trailer hitch
+EQP,32,Computerized directions
+EQP,31,Citizen band radio
+EQP,4,Ski rack
+EQP,9,Booster seat
+EQP,8,Child toddler seat
+EQP,59,Carbon offset
+EQP,58,Trolley
+EQP,57,Booster cushion
+EQP,19,Furniture pads
+EQP,56,Road/congestion payment scheme
+EQP,55,WiFi Access
+EQP,17,VCR player monitor
+EQP,18,Spinner knob
+EQP,15,Baby stroller
+EQP,16,DVD player monitor
+EQP,13,GPS - Satellite Navigational System
+EQP,14,Snow tires
+EQP,11,Hand control right
+EQP,12,Hand Control Right
+EQP,21,Auto transport
+EQP,20,Car dolly
+EQP,60,Security devices
+EQP,49,Surf rack
+EQP,48,Ski box
+EQP,45,Luggage roof case
+EQP,44,Jerrycan
+EQP,47,Snow board rack
+EQP,46,Hand-held navigation system
+EQP,10,Snow chains
+EQP,51,Car telephone
+EQP,52,Toll payment tag/pass
+EQP,53,Additional spare tire
+EQP,54,Wheelchair
+EQP,50,Scooter case
