@@ -14,15 +14,11 @@
 // limitations under the License.
 //
 
-@interface CTImageCacheObject : NSObject {
-    NSUInteger size;    // size in bytes of image data
-    NSDate *timeStamp;  // time of last access
-    UIImage *image;     // cached image
-}
+@interface CTImageCacheObject : NSObject
 
 @property (nonatomic, readonly) NSUInteger size;
-@property (nonatomic, retain, readonly) NSDate *timeStamp;
-@property (nonatomic, retain, readonly) UIImage *image;
+@property (nonatomic, strong, readonly) NSDate *timeStamp;
+@property (nonatomic, strong, readonly) UIImage *image;
 
 - (id) initWithSize:(NSUInteger)sz Image:(UIImage*)anImage;
 - (void) resetTimeStamp;

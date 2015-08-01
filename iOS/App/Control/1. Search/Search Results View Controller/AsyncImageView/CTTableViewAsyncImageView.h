@@ -14,11 +14,7 @@
 // limitations under the License.
 //
 
-@interface CTTableViewAsyncImageView : UIView {
-    NSURLConnection *connection;
-    NSMutableData *data;
-    NSString *urlString;
-}
+@interface CTTableViewAsyncImageView : UIView
 
 -(void)loadImageFromURL:(NSURL*)url;
 

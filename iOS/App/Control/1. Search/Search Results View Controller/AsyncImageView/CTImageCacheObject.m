@@ -3,22 +3,17 @@
 
 @implementation CTImageCacheObject
 
-@synthesize size;
-@synthesize timeStamp;
-@synthesize image;
-
 - (id) initWithSize:(NSUInteger)sz Image:(UIImage*)anImage{
     if ((self = [super init])) {
-        size = sz;
-        timeStamp = [NSDate date];
-        image = anImage;
+        _size = sz;
+        _timeStamp = [NSDate date];
+        _image = anImage;
     }
     return self;
 }
 
 - (void) resetTimeStamp {
-    //[timeStamp release];
-    timeStamp = [NSDate date];
+    _timeStamp = [NSDate date];
 }
 
 @end
