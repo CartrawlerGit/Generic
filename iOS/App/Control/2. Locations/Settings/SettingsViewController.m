@@ -234,7 +234,7 @@
 //		mileKMSegment.segmentedControlStyle = UISegmentedControlStyleBar;
 		self.mileKMSegment.tag = 1;
 		self.mileKMSegment.enabled = YES;
-		[self.mileKMSegment addTarget:self action:@selector(mileKMSegment) forControlEvents:UIControlEventValueChanged];
+		[self.mileKMSegment addTarget:self action:@selector(mileKMSegmentChanged) forControlEvents:UIControlEventValueChanged];
 		[cell addSubview: self.mileKMSegment];
 		[self.view bringSubviewToFront:self.mileKMSegment];
 		[cell.textLabel setText:@"Distance Metric"];
@@ -249,10 +249,9 @@
 #pragma mark -
 #pragma mark Segment Control
 
-- (UISegmentedControl *) mileKMSegment{
+- (void) mileKMSegmentChanged{
 	self.metric = self.mileKMSegment.selectedSegmentIndex;
 	[self saveUserPrefs];
-	return self.mileKMSegment;
 }
 
 - (void) radiusSegment:(id)sender{
