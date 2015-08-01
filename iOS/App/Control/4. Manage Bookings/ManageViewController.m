@@ -4,7 +4,7 @@
 //
 
 #import "ManageViewController.h"
-#import "Booking.h"
+#import "Booking+RetrievedBooking.h"
 #import "ReceiptView.h"
 #import "CarTrawlerAppDelegate.h"
 #import "CTHudViewController.h"

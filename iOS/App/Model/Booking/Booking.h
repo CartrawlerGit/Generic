@@ -18,79 +18,7 @@
 //  CarTrawler
 //
 
-@interface Booking : NSObject 
-{
-	
-	NSString	*customerGivenName;
-	NSString	*customerSurname;
-	NSString	*customerEmail;
-	NSString	*confType;
-	NSString	*confID;
-	NSString	*vendorBookingRef;
-	NSString	*vendorName;
-	NSString	*vendorCode;
-	NSString	*vendorImageURL;
-	
-	NSString	*puDateTime;
-	NSString	*doDateTime;
-	NSString	*puLocationCode;
-	NSString	*doLocationCode;
-	NSString	*puLocationName;
-	NSString	*doLocationName;
-	
-	// Vehicle
-	
-	BOOL		vehIsAirConditioned;
-	NSString	*vehTransmissionType;
-	NSString	*vehFuelType;
-	NSString	*vehDriveType;
-	NSString	*vehPassengerQty;
-	NSString	*vehBaggageQty;
-	NSString	*vehCode;
-	NSString	*vehCategory;
-	NSString	*vehDoorCount;
-	NSString	*vehClassSize;
-	NSString	*vehMakeModelName;
-	NSString	*vehMakeModelCode;
-	NSString	*vehPictureUrl;
-	NSString	*vehAssetNumber;
-	
-	NSMutableArray	*fees;
-	
-	NSString	*totalChargeAmount;
-	NSString	*estimatedTotalAmount;
-	NSString	*currencyCode;
-	
-	// TPA_Extensions
-	
-	NSString	*tpaFeeAmount;
-	NSString	*tpaFeeCurrencyCode;
-	NSString	*tpaFeePurpose;
-	NSString	*tpaConfType;
-	NSString	*tpaConfID;
-	
-	// Payment Rules
-	NSString	*paymentRuleType;
-	NSString	*paymentAmount;
-	NSString	*paymentCurrencyCode;
-	
-	NSString	*rentalPaymentTransactionCode;
-	NSString	*rentalPaymentCardType;
-	// There is more repitition of the payment in the payload here, i'm skipping over it.
-	
-	BOOL		isAtAirport;
-	NSString	*locationCode;
-	NSString	*locationName;
-	NSString	*locationAddress;
-	NSString	*locationCountryName;
-	NSString	*locationPhoneNumber;
-	NSString	*supportNumber;
-	NSString	*coordString;
-	
-	// Properties added for retrieved bookings made on web.
-	NSString	*wasRetrievedFromWeb;
-	BOOL		wasRetrievedFromWebBOOL;
-}
+@interface Booking : NSObject <NSCoding>
 
 @property (nonatomic, assign) BOOL wasRetrievedFromWebBOOL;
 @property (nonatomic, copy) NSString *wasRetrievedFromWeb;
@@ -145,8 +73,5 @@
 @property (nonatomic, copy) NSString *locationAddress;
 @property (nonatomic, copy) NSString *locationCountryName;
 @property (nonatomic, copy) NSString *locationPhoneNumber;
-
-- (id) initFromVehReservationDictionary:(NSDictionary *)vehReservationDictionary;
-- (id) initFromRetrievedBookingDictionary:(NSDictionary *)dict;
 
 @end

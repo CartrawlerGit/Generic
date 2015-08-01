@@ -112,6 +112,8 @@
 		C2A0F39B183C16DD00B0ACEE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */; };
 		E2226D9F1B6D8521007FA854 /* CTError+ResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */; };
 		E2226DA41B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */; };
+		E2226DAA1B6D8B1A007FA854 /* Booking+VehReservation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226DA91B6D8B1A007FA854 /* Booking+VehReservation.m */; };
+		E2226DAD1B6D8B8F007FA854 /* Booking+RetrievedBooking.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226DAC1B6D8B8F007FA854 /* Booking+RetrievedBooking.m */; };
 		E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */; };
 		E24A07671B6D368E00D7C41F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07641B6D368E00D7C41F /* NSObject+SBJSON.m */; };
 		E24A07681B6D368E00D7C41F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07661B6D368E00D7C41F /* NSString+SBJSON.m */; };
@@ -317,6 +319,10 @@
 		E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTError+ResponseValidator.m"; path = "Network/ResponseValidator/CTError+ResponseValidator.m"; sourceTree = "<group>"; };
 		E2226DA21B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTVehMatchedLocsResponseValidator.h; path = Network/ResponseValidator/CTVehMatchedLocsResponseValidator.h; sourceTree = "<group>"; };
 		E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTVehMatchedLocsResponseValidator.m; path = Network/ResponseValidator/CTVehMatchedLocsResponseValidator.m; sourceTree = "<group>"; };
+		E2226DA81B6D8B1A007FA854 /* Booking+VehReservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Booking+VehReservation.h"; sourceTree = "<group>"; };
+		E2226DA91B6D8B1A007FA854 /* Booking+VehReservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Booking+VehReservation.m"; sourceTree = "<group>"; };
+		E2226DAB1B6D8B8F007FA854 /* Booking+RetrievedBooking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Booking+RetrievedBooking.h"; sourceTree = "<group>"; };
+		E2226DAC1B6D8B8F007FA854 /* Booking+RetrievedBooking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Booking+RetrievedBooking.m"; sourceTree = "<group>"; };
 		E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fee+NSDictionary.h"; sourceTree = "<group>"; };
 		E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fee+NSDictionary.m"; sourceTree = "<group>"; };
 		E24A07621B6D35C600D7C41F /* JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -992,6 +998,10 @@
 			children = (
 				66EE750A121294EF00B9E972 /* Booking.h */,
 				66EE750B121294EF00B9E972 /* Booking.m */,
+				E2226DA81B6D8B1A007FA854 /* Booking+VehReservation.h */,
+				E2226DA91B6D8B1A007FA854 /* Booking+VehReservation.m */,
+				E2226DAB1B6D8B8F007FA854 /* Booking+RetrievedBooking.h */,
+				E2226DAC1B6D8B8F007FA854 /* Booking+RetrievedBooking.m */,
 			);
 			path = Booking;
 			sourceTree = "<group>";
@@ -1349,6 +1359,7 @@
 				66EE750C121294EF00B9E972 /* Booking.m in Sources */,
 				6609841D1222A188009ABA0B /* RentalSession.m in Sources */,
 				66F524BA122FFC2900361BC4 /* MapSearchViewController.m in Sources */,
+				E2226DAD1B6D8B8F007FA854 /* Booking+RetrievedBooking.m in Sources */,
 				E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */,
 				66757F4B1234E2EE0010F930 /* CTGoogleV2KmlParser.m in Sources */,
 				66757F4C1234E2EE0010F930 /* CTGoogleV3KmlParser.m in Sources */,
@@ -1361,6 +1372,7 @@
 				663534B61292D4B20082B29F /* CustomExtrasCell.m in Sources */,
 				66C0893A12B905F200A68A76 /* HomeViewController.m in Sources */,
 				664A8CEB12BD25BC00E3DA70 /* AdvancedFilterViewController.m in Sources */,
+				E2226DAA1B6D8B1A007FA854 /* Booking+VehReservation.m in Sources */,
 				3B8E687812BF92C20049355F /* CTSearchDefaults.m in Sources */,
 				66C76B4E12C0AE1200D804FA /* CTSearchFilters.m in Sources */,
 				6653763612C2486600D27203 /* CallUsViewController.m in Sources */,
