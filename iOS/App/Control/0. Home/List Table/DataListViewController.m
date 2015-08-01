@@ -6,7 +6,7 @@
 
 #import "DataListViewController.h"
 #import "CTCurrency.h"
-#import "CTCountry.h"
+#import "CTCountry+Factory.h"
 
 @interface DataListViewController (Private)
 
@@ -166,13 +166,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	// Open up defaults
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	CTCountry *ctCountry = [CTHelper loadCountry];
 	
 	if (self.currencyMode) {
 		CTCurrency *currency = (CTCurrency *)[self.tableContents objectAtIndex:indexPath.row];
-		
-		[prefs setObject:currency.currencyCode forKey:@"ctCountry.currencyCode"];
+		ctCountry = [ctCountry countryWithCurrencyCode:currency.currencyCode];
+		[CTHelper saveCountry:ctCountry];
 		// We don't actually have access to the symbol unless we use locale detection, which is a bit dodgy.
 		//[prefs setObject:currency.currencySymbol forKey:@"ctCountry.currencySymbol"];
 		[self dismissView];
@@ -181,9 +180,8 @@
 	if (self.countryMode) {
 		CTCountry *country = (CTCountry *)[[[self.indexedTableContents objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
 		//CTCountry *country = (CTCountry *)[self.tableContents objectAtIndex:indexPath.row];
-		[prefs setObject:country.isoCountryName forKey:@"ctCountry.isoCountryName"];
-		[prefs setObject:country.isoCountryCode forKey:@"ctCountry.isoCountryCode"];
-		[prefs setObject:country.isoDialingCode forKey:@"ctCountry.isoDialingCode"];
+		ctCountry = [ctCountry countryWithIsoCountryName:country.isoCountryName isoCountryCode:country.isoCountryCode andIsoDailingCode:country.isoDialingCode];
+		[CTHelper saveCountry:ctCountry];
 		[self dismissView];
 	}
 }

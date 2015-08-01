@@ -67,9 +67,8 @@
 	CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)[[UIApplication sharedApplication] delegate];
 	self.numbers = appDelegate.customerCareNumbers;
     
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	self.ctCountry = [[CTCountry alloc] init];
-	self.ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
+	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"ctCountry.userPrefs"];
+	self.ctCountry =  [NSKeyedUnarchiver unarchiveObjectWithData:data];
 
 	self.selectedNumber = nil;
 	CTCareNumber *num = (CTCareNumber *)[self.numbers objectAtIndex:0];

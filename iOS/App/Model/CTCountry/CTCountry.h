@@ -20,25 +20,17 @@
 //
 
 
-@interface CTCountry : NSObject {
+@interface CTCountry : NSObject
 
-	NSString	*isoCountryName;
-	NSString	*isoCountryCode;
-	NSString	*isoDialingCode;
-	
-	NSString	*currencyName;
-	NSString	*currencyCode;
-	NSString	*currencySymbol;
+@property (nonatomic, copy, readonly) NSString *currencyName;
+@property (nonatomic, copy, readonly) NSString *currencyCode;
+@property (nonatomic, copy, readonly) NSString *currencySymbol;
+@property (nonatomic, copy, readonly) NSString *isoCountryName;
+@property (nonatomic, copy, readonly) NSString *isoCountryCode;
+@property (nonatomic, copy, readonly) NSString *isoDialingCode;
 
-}
+- (instancetype) initWithIsoCountryName:(NSString *)isoCountryName isoCountryCode:(NSString *)isoCountryCode andIsoDialingCode:(NSString *)isoDailingCode;
 
-- (id) initFromArray:(NSMutableArray *)csvRow;
-
-@property (nonatomic, copy) NSString *currencyName;
-@property (nonatomic, copy) NSString *currencyCode;
-@property (nonatomic, copy) NSString *currencySymbol;
-@property (nonatomic, copy) NSString *isoCountryName;
-@property (nonatomic, copy) NSString *isoCountryCode;
-@property (nonatomic, copy) NSString *isoDialingCode;
+- (instancetype) initWithCurrencyName:(NSString *)currencyName currencyCode:(NSString *)currencyCode currencySymbol:(NSString *)currencySymbol isoCountryName:(NSString *)isoCountryName isoCountryCode:(NSString *)isoCountryCode andIsoDialingCode:(NSString *)isoDailingCode;
 
 @end

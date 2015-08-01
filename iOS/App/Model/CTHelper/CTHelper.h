@@ -18,7 +18,7 @@
 //  CarTrawler
 //
 //
-@class ASIHTTPRequest, VehAvailRSCore, Booking, Fee, CTError, RentalSession;
+@class ASIHTTPRequest, VehAvailRSCore, Booking, Fee, CTError, RentalSession, CTCountry;
 
 @interface CTHelper : NSObject { }
 
@@ -69,6 +69,10 @@
 + (NSMutableArray *) rentalTermsAndConditions:(NSDictionary *) theTermsAndConditions;
 
 // Local Detection
+
++ (void)saveCountry:(CTCountry *)country;
+
++ (CTCountry *)loadCountry;
 
 + (NSString *) getCurrencyNameForCode:(NSString *)isoCurrencyCode;
 

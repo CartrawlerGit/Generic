@@ -1396,9 +1396,11 @@ CTHudViewController *hud;
 - (void) loadHomeCountryFromMemory { // call when reset is called or when SearchViewController starts
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];	
-	self.ctCountry.isoCountryName = [prefs objectForKey:@"ctCountry.isoCountryName"];
-	self.ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
-	self.ctCountry.isoDialingCode = [prefs objectForKey:@"ctCountry.isoDialingCode"];
+	NSString* isoCountryName = [prefs objectForKey:@"ctCountry.isoCountryName"];
+	NSString* isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
+	NSString* isoDialingCode = [prefs objectForKey:@"ctCountry.isoDialingCode"];
+	
+	self.ctCountry = [[CTCountry alloc] initWithIsoCountryName:isoCountryName isoCountryCode:isoCountryCode andIsoDialingCode:isoDialingCode];
 	
 	self.session.homeCountry = [prefs objectForKey:@"ctCountry.isoCountryCode"];
 	
@@ -1462,9 +1464,7 @@ CTHudViewController *hud;
 		self.session.driverAge = self.ctSearchDefaults.lastAge;
 	}
 	
-	CTCountry *c = [[CTCountry alloc] init];
-	c.currencyCode = [prefs objectForKey:@"ctCountry.currencyCode"];
-	self.session.activeCurrency = c.currencyCode;
+	self.session.activeCurrency = [prefs objectForKey:@"ctCountry.currencyCode"];
 	//[c release];
 	
 	[self updateFieldColors];

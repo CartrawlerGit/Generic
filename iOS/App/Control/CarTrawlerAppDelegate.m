@@ -8,7 +8,7 @@
 #import "NSString+CSVParser.h"
 #import "CTCurrency.h"
 #import "CTLocation.h"
-#import "CTCountry.h"
+#import "CTCountry+NSArray.h"
 #import "CTCareNumber.h"
 #import "ASIHTTPRequest.h"
 #import "UIColor-Expanded.h"
@@ -128,8 +128,8 @@
 	NSMutableArray *numbers = self.customerCareNumbers;
 
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    self.ctCountry = [[CTCountry alloc] init];
-    self.ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
+	NSString *countryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
+    self.ctCountry = [[CTCountry alloc] initWithIsoCountryName:nil isoCountryCode:nil andIsoDialingCode:countryCode];
     
     CTCareNumber *defnum = (CTCareNumber *)[numbers objectAtIndex:0];
 	NSString *ret = defnum.careNumber;
@@ -233,7 +233,7 @@
     NSString *dataFile = [[NSString alloc] initWithContentsOfFile:bundlePath encoding:NSUTF8StringEncoding error:&error ];
 	NSArray *csvDump = [dataFile csvRows];
 	for (int i = 0; i < [csvDump count]; i++) {
-		CTCountry *country = [[CTCountry alloc] initFromArray:[csvDump objectAtIndex:i]];
+		CTCountry *country = [CTCountry countryFromArray:[csvDump objectAtIndex:i]];
 		[self.preloadedCountryList addObject:country];
 		//[country release];
 	}

@@ -8,6 +8,8 @@
 #import "CTHelper.h"
 #import "CTLocation.h"
 #import "CTCountry.h"
+#import "CTCountry+Coding.h"
+#import "CTCountry+Factory.h"
 #import "CTCurrency.h"
 #import "VehAvailRSCore.h"
 #import "Booking.h"
@@ -212,31 +214,37 @@
 	return request;
 }
 
++ (void)saveCountry:(CTCountry *)country {
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:country];
+	[prefs setObject:data forKey:@"ctCountry.userPrefs"];
+	[prefs synchronize];
+}
+
++ (CTCountry *)loadCountry {
+	NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"ctCountry.userPrefs"];
+	CTCountry *ctCountry =  [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	
+	if (ctCountry == nil) {
+		ctCountry = [[CTCountry alloc] init];
+	}
+	
+	if (ctCountry.isoCountryName == nil){
+		ctCountry = [ctCountry countryWithIsoCountryName:[CTHelper getLocaleDisplayName] andIsoCountryCode:[CTHelper getLocaleCode]];
+	}
+	
+	if (ctCountry.currencyCode == nil) {
+		ctCountry = [ctCountry countryWithCurrencyCode:[CTHelper getLocaleCurrencyCode] andCurrencySymbol:[CTHelper getLocaleCurrencySymbol]];
+	}
+	return ctCountry;
+}
+
 + (ASIHTTPRequest *) makeRequest:(NSString *)rqCommand tail:(NSString *)rqTail {
 	
 	// The currency is being set here, so we have to deviate from the kMobileHeader.
 	
 	CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)([[UIApplication sharedApplication] delegate]);
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	
-	CTCountry *ctCountry = [[CTCountry alloc] init];
-	ctCountry.isoCountryName = [prefs objectForKey:@"ctCountry.isoCountryName"];
-	ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
-	ctCountry.isoDialingCode = [prefs objectForKey:@"ctCountry.isoDialingCode"];
-	
-	ctCountry.currencyCode = [prefs objectForKey:@"ctCountry.currencyCode"];
-	// The code here is the most important, the symbol is only for display.
-	ctCountry.currencySymbol = [prefs objectForKey:@"ctCountry.currencySymbol"];
-	
-	if (ctCountry.isoCountryName == nil){
-		ctCountry.isoCountryName = [CTHelper getLocaleDisplayName];
-		ctCountry.isoCountryCode = [CTHelper getLocaleCode];
-	}
-	
-	if (ctCountry.currencyCode == nil) {
-		ctCountry.currencyCode = [CTHelper getLocaleCurrencyCode];
-		ctCountry.currencySymbol = [CTHelper getLocaleCurrencySymbol];
-	}
+	CTCountry *ctCountry = [CTHelper loadCountry];
 	// Header string takes a specific currency with this line.
 	
 	NSString *headerString = [NSString stringWithFormat:@"\"@xmlns\":\"http://www.opentravel.org/OTA/2003/05\",\"@xmlns:xsi\": \"http://www.w3.org/2001/XMLSchema-instance\",\"@Version\": \"1.005\",\"@Target\": \"%@\",\"POS\": {\"Source\": {\"@ERSP_UserID\": \"MO\",\"@ISOCurrency\":\"%@\",\"RequestorID\": {\"@Type\": \"16\",\"@ID\": \"%@\",\"@ID_Context\": \"CARTRAWLER\"}}},", kTarget, ctCountry.currencyCode, appDelegate.clientID];

@@ -14,6 +14,8 @@
 #import "BookingViewController.h"
 #import "AdvancedFilterViewController.h"
 #import "DataListViewController.h"
+#import "CTCountry+Factory.h"
+#import "CTCurrency.h"
 
 #define kLocaleLabelStringFormat @"%@ (%@)"
 
@@ -52,23 +54,6 @@
 - (void) viewDidUnload {
     [super viewDidUnload];
 }
-/*
-- (void) dealloc {
-	[localeLabel release];
-	localeLabel = nil;
-
-	[self.localeCurrencyLabel release];
-	self.localeCurrencyLabel = nil;
-	[localeCurrencyButton release];
-	localeCurrencyButton = nil;
-
-	[currencyPicker release];
-	currencyPicker = nil;
-
-    [super dealloc];
-}
- */
-
 #pragma mark -
 #pragma mark IBActions
 
@@ -222,13 +207,12 @@
 	
 	if (thePickerView == self.countryPicker) {
 		CTCountry *temp = (CTCountry *)[self.preloadedCountryList objectAtIndex:row];
-		self.ctCountry.isoCountryCode = temp.isoCountryCode;
-		self.ctCountry.isoCountryName = temp.isoCountryName;
+		self.ctCountry = [self.ctCountry countryWithIsoCountryName:temp.isoCountryName andIsoCountryCode:temp.isoCountryCode];
 		// We purposely don't check currency here as country and currency can be different.
 		
 	} else {
 		CTCurrency *currency = (CTCurrency *)[appDelegate.preloadedCurrencyList objectAtIndex:row];
-		self.ctCountry.currencyCode = currency.currencyCode;
+		self.ctCountry = [self.ctCountry countryWithCurrencyCode:currency.currencyCode];
 		DLog(@"You selected %@", currency.currencyName);
 	}
 
@@ -239,39 +223,14 @@
 
 - (void) saveUserPrefs {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	
-	[prefs setObject:self.ctCountry.isoCountryName forKey:@"ctCountry.isoCountryName"];
-	[prefs setObject:self.ctCountry.isoCountryCode forKey:@"ctCountry.isoCountryCode"];
-	[prefs setObject:self.ctCountry.isoDialingCode forKey:@"ctCountry.isoDialingCode"];
-	[prefs setObject:self.ctCountry.currencyCode forKey:@"ctCountry.currencyCode"];
-	[prefs setObject:self.ctCountry.currencySymbol forKey:@"ctCountry.currencySymbol"];
-	
+	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.ctCountry];
+	[prefs setObject:data forKey:@"ctCountry.userPrefs"];
 	[prefs synchronize];
 }
 
 - (void) loadUserPrefs {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	self.ctCountry = [[CTCountry alloc] init];
-	self.ctCountry.isoCountryName = [prefs objectForKey:@"ctCountry.isoCountryName"];
-	self.ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
-	self.ctCountry.isoDialingCode = [prefs objectForKey:@"ctCountry.isoDialingCode"];
-	
-	self.ctCountry.currencyCode = [prefs objectForKey:@"ctCountry.currencyCode"];
-	// The code here is the most important, the symbol is only for display.
-	self.ctCountry.currencySymbol = [prefs objectForKey:@"ctCountry.currencySymbol"];
-
-	if (self.ctCountry.isoCountryName == nil){
-		self.ctCountry.isoCountryName = [CTHelper getLocaleDisplayName];
-		self.ctCountry.isoCountryCode = [CTHelper getLocaleCode];
-		[self saveUserPrefs];
-	}
-	
-	if (self.ctCountry.currencyCode == nil) {
-		self.ctCountry.currencyCode = [CTHelper getLocaleCurrencyCode];
-		self.ctCountry.currencySymbol = [CTHelper getLocaleCurrencySymbol];
-		
-		[self saveUserPrefs];
-	}
+	self.ctCountry = [CTHelper loadCountry];
+	[CTHelper saveCountry:self.ctCountry];
 	
 	[self.localeLabel setText:[NSString stringWithFormat:kLocaleLabelStringFormat, self.ctCountry.isoCountryName, self.ctCountry.isoCountryCode]];
 	[self.localeCurrencyLabel setText:self.ctCountry.currencyCode];

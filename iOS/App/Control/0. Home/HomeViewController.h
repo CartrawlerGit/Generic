@@ -19,15 +19,9 @@
 //
 //
 
-#import "CTCountry.h"
-#import "CTCurrency.h"
+@class CTCountry;
 
-@interface HomeViewController : UIViewController {
-
-	/*CTCountry			*ctCountry;
-	CTCurrency			*ctCurrency;*/
-
-}
+@interface HomeViewController : UIViewController
 
 @property (nonatomic, strong) CTCountry *ctCountry;
 
