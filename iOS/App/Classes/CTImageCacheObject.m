@@ -21,10 +21,4 @@
     timeStamp = [NSDate date];
 }
 
-- (void) dealloc {
-    /*[timeStamp release];
-    [image release];
-    [super dealloc];*/
-}
-
 @end

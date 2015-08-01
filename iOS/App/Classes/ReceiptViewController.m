@@ -10,11 +10,6 @@
 
 @implementation ReceiptViewController
 
-@synthesize refLabel;
-@synthesize exitBtn;
-@synthesize theBooking;
-@synthesize emailLabel;
-
 #pragma mark -
 #pragma mark Exit button
 
@@ -45,12 +40,12 @@
 	self.navigationItem.titleView = [CTHelper getNavBarLabelWithTitle:@"Thank you"];
 	self.navigationItem.hidesBackButton = YES;
 	
-	[emailLabel setText:theBooking.customerEmail];
+	[self.emailLabel setText:self.theBooking.customerEmail];
     
-    if (theBooking.vendorBookingRef) {
-        [refLabel setText:theBooking.vendorBookingRef];
+    if (self.theBooking.vendorBookingRef) {
+        [self.refLabel setText:self.theBooking.vendorBookingRef];
     } else {
-        [refLabel setText:theBooking.confID];
+        [self.refLabel setText:self.theBooking.confID];
     }
 
 	
@@ -66,25 +61,6 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-}
-
-- (void)dealloc {
-    /*
-	[emailLabel release];
-	emailLabel = nil;
-
-	[theBooking release];
-	theBooking = nil;
-
-	[exitBtn release];
-	exitBtn = nil;
-
-	[refLabel release];
-	refLabel = nil;
-
-    [super dealloc];
-    //self=nil;
-     */
 }
 
 

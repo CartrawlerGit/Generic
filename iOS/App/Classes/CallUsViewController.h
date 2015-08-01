@@ -19,20 +19,14 @@
 //
 #import "CTCountry.h"
 
-@interface CallUsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-	UIButton		*callUsButton;
-	
-	NSMutableArray	*numbers;
-	NSString		*selectedNumber;
-    
-	CTCountry			*ctCountry;
-}
-@property (nonatomic, retain) CTCountry *ctCountry;
+@interface CallUsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (nonatomic, strong) CTCountry *ctCountry;
 @property (nonatomic, copy) NSString *selectedNumber;
 @property (nonatomic, weak) IBOutlet UIView *numberPickerView;
 @property (nonatomic, copy) NSMutableArray *numbers;
 @property (nonatomic, weak) IBOutlet UIPickerView *numberPicker;
-@property (nonatomic, retain) UIButton *callUsButton;
+@property (nonatomic, strong) UIButton *callUsButton;
 
 - (IBAction) callUs:(id)sender;
 

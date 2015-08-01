@@ -24,36 +24,15 @@
 - (void) showCountryPickerView;
 - (void) resetTableOffset;
 
+@property (nonatomic, strong) UISegmentedControl *mileKMSegment;
+@property (nonatomic, strong) UISegmentedControl *radiusSegment;
+@property (nonatomic, assign) NSInteger searchRadius;
+@property (nonatomic, assign) NSInteger metric;
+@property (nonatomic, assign) NSInteger radius;
+
 @end
 
 @implementation SettingsViewController
-
-@synthesize modalNavbar;
-@synthesize modalDoneButton;
-@synthesize infoLabel;
-@synthesize fromMap;
-@synthesize pickerView;
-@synthesize aSwitch;
-@synthesize aSlider;
-@synthesize metricSlider;
-@synthesize radiusLabel;
-@synthesize countryLabel;
-@synthesize currencyLabel;
-@synthesize kmLabel;
-@synthesize milesLabel;
-@synthesize settingsTable;
-@synthesize preloadedCountryList;
-@synthesize preloadedCurrencyList;
-@synthesize countryPickerView;
-@synthesize currencyPickerView;
-@synthesize countryPicker;
-@synthesize currencyPicker;
-@synthesize pickerModeLabel;
-@synthesize homeCountryCode;
-@synthesize homeCurrencyCode;
-@synthesize ctCurrency;
-@synthesize ctCountry;
-
 
 - (id) init {
     self=[super initWithNibName:@"SettingsViewController" bundle:nil];
@@ -74,16 +53,16 @@
 }
 
 - (void) viewDidLoad {
-	radiusSegment = [[UISegmentedControl alloc] initWithFrame: CGRectMake(135, 8, 140, 30)];
-	mileKMSegment = [[UISegmentedControl alloc] initWithFrame: CGRectMake(135, 8, 140, 30)];
+	self.radiusSegment = [[UISegmentedControl alloc] initWithFrame: CGRectMake(135, 8, 140, 30)];
+	self.mileKMSegment = [[UISegmentedControl alloc] initWithFrame: CGRectMake(135, 8, 140, 30)];
     CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [mileKMSegment setTintColor:appDelegate.governingTintColor];
-	[radiusSegment setTintColor:appDelegate.governingTintColor];
+    [self.mileKMSegment setTintColor:appDelegate.governingTintColor];
+	[self.radiusSegment setTintColor:appDelegate.governingTintColor];
 	
-	modalNavbar.frame = CGRectMake(0, 0, 320, 44);
+	self.modalNavbar.frame = CGRectMake(0, 0, 320, 44);
 	
 	CGRect frame = self.settingsTable.frame;
-	if (fromMap)
+	if (self.fromMap)
 	{		
 		frame.origin.y = 60;
 	}
@@ -101,38 +80,16 @@
 	
 	[self loadUserPrefs];
 	
-	aSlider.value = searchRadius;
-	metricSlider.value = metric; 
+	self.aSlider.value = self.searchRadius;
+	self.metricSlider.value = self.metric;
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
-	fromMap = NO;
+	self.fromMap = NO;
 }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void) dealloc {
-    /*
-	[radiusSegment release];
-	[mileKMSegment release];
-	[settingsTable release];
-	[radiusLabel release];
-	[aSwitch release];
-	[aSlider release];
-	[ctCountry release]; // ok?
-	[ctCurrency release]; // ok?
-	[infoLabel release];
-	infoLabel = nil;
-
-	[modalNavbar release];
-	modalNavbar = nil;
-	[modalDoneButton release];
-	modalDoneButton = nil;
-
-    [super dealloc];
-     */
 }
 
 - (IBAction) dismissModalView:(id)sender {
@@ -147,8 +104,8 @@
 	NSInteger tag = slider.tag;
 	if (tag == 1)
 	{
-	radiusLabel.text = [NSString stringWithFormat:@"Search Radius (%.fkm)", slider.value];
-	searchRadius = slider.value;
+	self.radiusLabel.text = [NSString stringWithFormat:@"Search Radius (%.fkm)", slider.value];
+	self.searchRadius = slider.value;
 	[self saveUserPrefs];
 	}
 }
@@ -233,50 +190,50 @@
 	if (indexPath.row == 0 )
 	{
 		
-		[ radiusSegment insertSegmentWithTitle: @"10" atIndex: 0 animated: NO ];
-		[ radiusSegment insertSegmentWithTitle: @"20" atIndex: 1 animated: NO ];
-		[ radiusSegment insertSegmentWithTitle: @"50" atIndex: 2 animated: NO ];
-		[ radiusSegment insertSegmentWithTitle: @"100" atIndex: 3 animated: NO ];
+		[ self.radiusSegment insertSegmentWithTitle: @"10" atIndex: 0 animated: NO ];
+		[ self.radiusSegment insertSegmentWithTitle: @"20" atIndex: 1 animated: NO ];
+		[ self.radiusSegment insertSegmentWithTitle: @"50" atIndex: 2 animated: NO ];
+		[ self.radiusSegment insertSegmentWithTitle: @"100" atIndex: 3 animated: NO ];
 		
-		radiusSegment.autoresizesSubviews = YES;
+		self.radiusSegment.autoresizesSubviews = YES;
 		
-		if (radius == 10)
+		if (self.radius == 10)
 		{
-			radiusSegment.selectedSegmentIndex = 0;
+			self.radiusSegment.selectedSegmentIndex = 0;
 		}
-		else if (radius == 20)
+		else if (self.radius == 20)
 		{
-			radiusSegment.selectedSegmentIndex = 1;
+			self.radiusSegment.selectedSegmentIndex = 1;
 		}
-		else if (radius == 50)
+		else if (self.radius == 50)
 		{
-			radiusSegment.selectedSegmentIndex = 2;
+			self.radiusSegment.selectedSegmentIndex = 2;
 		}
 		else 
 		{
-			radiusSegment.selectedSegmentIndex = 3;
+			self.radiusSegment.selectedSegmentIndex = 3;
 		}
 		 
 //		radiusSegment.segmentedControlStyle = UISegmentedControlStyleBar;
-		radiusSegment.tag = 1;
-		radiusSegment.enabled = YES;
-		[radiusSegment addTarget:self action:@selector(radiusSegment:) forControlEvents:UIControlEventValueChanged];
-		[cell addSubview: radiusSegment];
-		[self.view bringSubviewToFront:radiusSegment];		
+		self.radiusSegment.tag = 1;
+		self.radiusSegment.enabled = YES;
+		[self.radiusSegment addTarget:self action:@selector(radiusSegment:) forControlEvents:UIControlEventValueChanged];
+		[cell addSubview: self.radiusSegment];
+		[self.view bringSubviewToFront:self.radiusSegment];
 		
 		[cell.textLabel setText:@"Search Radius"];
 	}
 	else if (indexPath.row == 1 )
 	{
-		[ mileKMSegment insertSegmentWithTitle: @"Miles" atIndex: 0 animated: NO ];
-		[ mileKMSegment insertSegmentWithTitle: @"KM" atIndex: 1 animated: NO ];
-		mileKMSegment.selectedSegmentIndex = metric;
+		[ self.mileKMSegment insertSegmentWithTitle: @"Miles" atIndex: 0 animated: NO ];
+		[ self.mileKMSegment insertSegmentWithTitle: @"KM" atIndex: 1 animated: NO ];
+		self.mileKMSegment.selectedSegmentIndex = self.metric;
 //		mileKMSegment.segmentedControlStyle = UISegmentedControlStyleBar;
-		mileKMSegment.tag = 1;
-		mileKMSegment.enabled = YES;
-		[mileKMSegment addTarget:self action:@selector(mileKMSegment) forControlEvents:UIControlEventValueChanged];
-		[cell addSubview: mileKMSegment];
-		[self.view bringSubviewToFront:mileKMSegment];
+		self.mileKMSegment.tag = 1;
+		self.mileKMSegment.enabled = YES;
+		[self.mileKMSegment addTarget:self action:@selector(mileKMSegment) forControlEvents:UIControlEventValueChanged];
+		[cell addSubview: self.mileKMSegment];
+		[self.view bringSubviewToFront:self.mileKMSegment];
 		[cell.textLabel setText:@"Distance Metric"];
 	}
 
@@ -289,33 +246,34 @@
 #pragma mark -
 #pragma mark Segment Control
 
-- (void) mileKMSegment{
-	metric = mileKMSegment.selectedSegmentIndex;
+- (UISegmentedControl *) mileKMSegment{
+	self.metric = self.mileKMSegment.selectedSegmentIndex;
 	[self saveUserPrefs];
+	return self.mileKMSegment;
 }
 
 - (void) radiusSegment:(id)sender{
-	if (radiusSegment.selectedSegmentIndex == 0)
+	if (self.radiusSegment.selectedSegmentIndex == 0)
 	{
-		radius = 10;
+		self.radius = 10;
 		//radius = 20;
 	}
-	else 	if (radiusSegment.selectedSegmentIndex == 1)
+	else if (self.radiusSegment.selectedSegmentIndex == 1)
 	{
 		//radius = 10;
-		radius = 20;
+		self.radius = 20;
 	
 	}
-	else 	if (radiusSegment.selectedSegmentIndex == 2)
+	else if (self.radiusSegment.selectedSegmentIndex == 2)
 	{
 		//radius = 50;
-		radius = 50;
+		self.radius = 50;
 		
 	}
-	else 	if (radiusSegment.selectedSegmentIndex == 3)
+	else if (self.radiusSegment.selectedSegmentIndex == 3)
 	{
 		//radius = 100;
-		radius = 100;
+		self.radius = 100;
 
 	}
 	[self saveUserPrefs];
@@ -324,8 +282,8 @@
 - (void) saveUserPrefs {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-	[prefs setInteger:radius forKey:@"searchRadius"];
-	[prefs setInteger:metric forKey:@"metric"];
+	[prefs setInteger:self.radius forKey:@"searchRadius"];
+	[prefs setInteger:self.metric forKey:@"metric"];
 	
 	[prefs synchronize];
 }
@@ -333,8 +291,8 @@
 - (void) loadUserPrefs {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-	metric = [prefs integerForKey:@"metric"];
-	radius = [prefs integerForKey:@"searchRadius"];
+	self.metric = [prefs integerForKey:@"metric"];
+	self.radius = [prefs integerForKey:@"searchRadius"];
 	
 }
 

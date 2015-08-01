@@ -22,22 +22,22 @@
 @class CTCountry;
 
 @interface DataListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
-	NSMutableArray	*tableContents;
+	/*NSMutableArray	*tableContents;
 	NSMutableArray	*indexedTableContents;
 	
 	BOOL			countryMode;
 	BOOL			currencyMode;
 	
 	NSMutableArray	*tableIndex;
-	NSMutableArray	*data;
+	NSMutableArray	*data;*/
 	
 }
 
-@property (nonatomic, retain) NSMutableArray *indexedTableContents;
-@property (nonatomic, retain) NSMutableArray *tableIndex;
-@property (nonatomic, retain) NSMutableArray *data;
+@property (nonatomic, strong) NSMutableArray *indexedTableContents;
+@property (nonatomic, strong) NSMutableArray *tableIndex;
+@property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, weak) IBOutlet UILabel *aTitleLabel;
-@property (nonatomic, retain) NSMutableArray *tableContents;
+@property (nonatomic, strong) NSMutableArray *tableContents;
 @property (nonatomic, assign) BOOL countryMode;
 @property (nonatomic, assign) BOOL currencyMode;
 @property (nonatomic, weak) IBOutlet UITableView *dataTable;

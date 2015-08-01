@@ -15,11 +15,6 @@
     return self;
 }
 
-- (void) dealloc {
-    /*[myDictionary release];
-    [super dealloc];*/
-}
-
 - (void) insertImage:(UIImage*)image withSize:(NSUInteger)sz forKey:(NSString*)key{
     CTImageCacheObject *object = [[CTImageCacheObject alloc] initWithSize:sz Image:image];
     while (totalSize + sz > maxSize) {

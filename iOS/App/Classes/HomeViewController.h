@@ -24,12 +24,12 @@
 
 @interface HomeViewController : UIViewController {
 
-	CTCountry			*ctCountry;
-	CTCurrency			*ctCurrency;
+	/*CTCountry			*ctCountry;
+	CTCurrency			*ctCurrency;*/
 
 }
 
-@property (nonatomic, retain) CTCountry *ctCountry;
+@property (nonatomic, strong) CTCountry *ctCountry;
 
 @property (nonatomic, weak) IBOutlet UILabel *localeCurrencyLabel;
 @property (nonatomic, weak) IBOutlet UIButton *localeCurrencyButton;

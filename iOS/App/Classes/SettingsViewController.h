@@ -23,22 +23,16 @@
 
 @interface SettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>  
 {
-	NSMutableArray		*preloadedCountryList;
+	/*NSMutableArray		*preloadedCountryList;
 	NSMutableArray		*preloadedCurrencyList;
 	NSString			*homeCountryCode;
 	NSString			*homeCurrencyCode;
 	
-	UISegmentedControl *mileKMSegment;
-	UISegmentedControl *radiusSegment;
-	
 	//vars for holding the users prefs. Saved to user defaults
 	CTCountry *ctCountry;
 	CTCurrency *ctCurrency;
-	NSInteger searchRadius;
-	NSInteger metric;
-	NSInteger radius;
 	bool airports;
-	bool fromMap;
+	bool fromMap;*/
 	
 }
 
@@ -48,8 +42,8 @@
 @property (nonatomic, assign) bool fromMap;
 @property (nonatomic, copy) NSString *homeCountryCode;
 @property (nonatomic, copy) NSString *homeCurrencyCode;
-@property (nonatomic, retain) CTCountry *ctCountry;
-@property (nonatomic, retain) CTCurrency *ctCurrency;
+@property (nonatomic, strong) CTCountry *ctCountry;
+@property (nonatomic, strong) CTCurrency *ctCurrency;
 @property (nonatomic, weak) IBOutlet UISwitch *aSwitch;
 @property (nonatomic, weak) IBOutlet UISlider *aSlider;
 @property (nonatomic, weak) IBOutlet UISlider *metricSlider;
@@ -59,8 +53,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *countryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *currencyLabel;
 @property (nonatomic, weak) IBOutlet UITableView *settingsTable;
-@property (nonatomic, retain) NSMutableArray		*preloadedCountryList;
-@property (nonatomic, retain) NSMutableArray		*preloadedCurrencyList;
+@property (nonatomic, strong) NSMutableArray		*preloadedCountryList;
+@property (nonatomic, strong) NSMutableArray		*preloadedCurrencyList;
 @property (nonatomic, weak) IBOutlet UIView *pickerView;
 @property (nonatomic, weak) IBOutlet UIView *countryPickerView;
 @property (nonatomic, weak) IBOutlet UIView *currencyPickerView;

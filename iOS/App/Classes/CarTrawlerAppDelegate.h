@@ -21,7 +21,7 @@
 
 @interface CarTrawlerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, ASIHTTPRequestDelegate>  {
 	
-	NSMutableArray		*preloadedCountryList;
+	/*NSMutableArray		*preloadedCountryList;
 	NSMutableArray		*preloadedCurrencyList;
 	
 	NSString			*countryCode;
@@ -30,7 +30,7 @@
 	NSMutableArray		*customerCareNumbers;
 	NSDictionary		*infoJSON;
 	
-	// General App Control from the INFO.json
+	 General App Control from the INFO.json
 	
 	BOOL				canAmendBookings;
 	NSString			*amendBookingsLink;
@@ -38,25 +38,25 @@
 	NSString			*engineConditionsURL;
 	NSString			*companyName;
 	NSString			*clientID;
-    UIColor             *governingTintColor;
+    UIColor             *governingTintColor;*/
 }
 
 - (NSString *) getSupportNumber;
 
-@property (nonatomic, retain) UIColor *governingTintColor, *barTintColor;
+@property (nonatomic, strong) UIColor *governingTintColor, *barTintColor;
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *companyName;
 @property (nonatomic, copy) NSString *amendBookingsLink;
 @property (nonatomic, copy) NSString *engineConditionsURL;
-@property (nonatomic, retain) NSMutableArray *insuranceRegions;
+@property (nonatomic, strong) NSMutableArray *insuranceRegions;
 @property (nonatomic, assign) BOOL canAmendBookings;
 
 @property (nonatomic, copy) NSDictionary *infoJSON;
 
 @property (nonatomic, copy) NSString *countryCode;
-@property (nonatomic, retain) NSMutableArray *customerCareNumbers;
-@property (nonatomic, retain) NSMutableArray *preloadedCountryList;
-@property (nonatomic, retain) NSMutableArray *preloadedCurrencyList;
+@property (nonatomic, strong) NSMutableArray *customerCareNumbers;
+@property (nonatomic, strong) NSMutableArray *preloadedCountryList;
+@property (nonatomic, strong) NSMutableArray *preloadedCurrencyList;
 @property (nonatomic, weak) IBOutlet UITabBarController *tabBarController;
 
 @end

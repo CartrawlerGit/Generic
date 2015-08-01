@@ -18,15 +18,6 @@
 
 @implementation DataListViewController
 
-@synthesize indexedTableContents;
-@synthesize tableIndex;
-@synthesize data;
-@synthesize aTitleLabel;
-@synthesize tableContents;
-@synthesize countryMode;
-@synthesize currencyMode;
-@synthesize dataTable;
-
 - (id) init {
     self=[super initWithNibName:@"DataListViewController" bundle:nil];
 	self.tableIndex = [[NSMutableArray alloc] init];
@@ -43,12 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	if (countryMode) {
+	if (self.countryMode) {
 		self.indexedTableContents = [self arrangeIndex];
-		[aTitleLabel setText:@"Country of Residence"];
+		[self.aTitleLabel setText:@"Country of Residence"];
 	}
-	if (currencyMode) {
-		[aTitleLabel setText:@"Your Currency"];
+	if (self.currencyMode) {
+		[self.aTitleLabel setText:@"Your Currency"];
 	}
 }
 
@@ -62,58 +53,16 @@
 	self.tableContents = nil;
 	self.aTitleLabel = nil;
 }
-/*
-- (void)dealloc {
-	[dataTable release];
-	[tableContents release];
-	[aTitleLabel release];
-
-	[tableIndex release];
-	tableIndex = nil;
-	[data release];
-	data = nil;
-	[indexedTableContents release];
-	indexedTableContents = nil;
-    [super dealloc];
-}
-*/
 #pragma mark -
 #pragma mark Table Index Formation
-/*
-static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
-
-+ (NSArray *) wordsFromLetters {
-    NSMutableArray *content = [NSMutableArray new];
-	
-    for (int i = 0; i < [letters length]; i++ ) {
-        
-		NSMutableDictionary *row = [[[NSMutableDictionary alloc] init] autorelease];
-		
-        char currentWord[WORD_LENGTH + 1];
-        
-		NSMutableArray *words = [[[NSMutableArray alloc] init] autorelease];
-		
-        for (int j = 0; j < WORD_LENGTH; j++ ) {
-            
-            [words addObject:[NSString stringWithCString:currentWord encoding:NSASCIIStringEncoding]];
-        }
-        char currentLetter[2] = { toupper([letters characterAtIndex:i]), '\0'};
-		
-        [row setValue:[NSString stringWithCString:currentLetter encoding:NSASCIIStringEncoding] forKey:@"headerTitle"];
-        [row setValue:words forKey:@"rowValues"];
-        [content addObject:row];
-    }
-	
-    return content;
-}*/
 
 - (void) buildIndex {
-	[tableIndex removeAllObjects];
-	for (CTCountry *c in tableContents) {
+	[self.tableIndex removeAllObjects];
+	for (CTCountry *c in self.tableContents) {
 		NSString *firstLetter = [c.isoCountryName substringToIndex:1];
 		
-		if (![tableIndex containsObject:firstLetter]) {
-			[tableIndex addObject:firstLetter];
+		if (![self.tableIndex containsObject:firstLetter]) {
+			[self.tableIndex addObject:firstLetter];
 		} 
 	}
 	// DLog(@"Index array is %@", index);
@@ -125,12 +74,12 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
 	
 	[self buildIndex];
 	
-	for (NSString *indexLetter in tableIndex) {
+	for (NSString *indexLetter in self.tableIndex) {
 		
 		NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
 		NSMutableArray		*countries = [[NSMutableArray alloc] init];
 		
-		for (CTCountry *c in tableContents) {
+		for (CTCountry *c in self.tableContents) {
 			NSString *firstLetter = [c.isoCountryName substringToIndex:1];
 			
 			if ([firstLetter isEqualToString:indexLetter]) {
@@ -150,42 +99,42 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
 #pragma mark Table view data source
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    if (countryMode) {
-		return [indexedTableContents valueForKey:@"headerTitle"];
+    if (self.countryMode) {
+		return [self.indexedTableContents valueForKey:@"headerTitle"];
 	} else {
 		return nil;
 	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    if (countryMode) {
-		return [tableIndex indexOfObject:title];
+    if (self.countryMode) {
+		return [self.tableIndex indexOfObject:title];
 	} else {
 		return 0;
 	}
 }
 
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
-	if (countryMode) {
-		return [[indexedTableContents objectAtIndex:section] objectForKey:@"headerTitle"];
+	if (self.countryMode) {
+		return [[self.indexedTableContents objectAtIndex:section] objectForKey:@"headerTitle"];
 	} else {
 		return nil;
 	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (countryMode) {
-		return [indexedTableContents count];
+    if (self.countryMode) {
+		return [self.indexedTableContents count];
 	} else {
 		return 1;
 	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (countryMode) {
-		return [[[indexedTableContents objectAtIndex:section] objectForKey:@"rowValues"] count] ;
+	if (self.countryMode) {
+		return [[[self.indexedTableContents objectAtIndex:section] objectForKey:@"rowValues"] count] ;
 	} else {
-		return [tableContents count];
+		return [self.tableContents count];
 	}
 }
 
@@ -198,13 +147,13 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-	if (currencyMode) {
-		CTCurrency *currency = (CTCurrency *)[tableContents objectAtIndex:indexPath.row];
+	if (self.currencyMode) {
+		CTCurrency *currency = (CTCurrency *)[self.tableContents objectAtIndex:indexPath.row];
 		cell.textLabel.text = currency.currencyName;
 	} 
 	
-	if (countryMode) {
-		CTCountry *country = (CTCountry *)[[[indexedTableContents objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
+	if (self.countryMode) {
+		CTCountry *country = (CTCountry *)[[[self.indexedTableContents objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
 		cell.textLabel.text = country.isoCountryName;
 	}
 
@@ -220,8 +169,8 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
 	// Open up defaults
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-	if (currencyMode) {
-		CTCurrency *currency = (CTCurrency *)[tableContents objectAtIndex:indexPath.row];
+	if (self.currencyMode) {
+		CTCurrency *currency = (CTCurrency *)[self.tableContents objectAtIndex:indexPath.row];
 		
 		[prefs setObject:currency.currencyCode forKey:@"ctCountry.currencyCode"];
 		// We don't actually have access to the symbol unless we use locale detection, which is a bit dodgy.
@@ -229,9 +178,9 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
 		[self dismissView];
 	}
 	
-	if (countryMode) {
-		CTCountry *country = (CTCountry *)[[[indexedTableContents objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
-		//CTCountry *country = (CTCountry *)[tableContents objectAtIndex:indexPath.row];
+	if (self.countryMode) {
+		CTCountry *country = (CTCountry *)[[[self.indexedTableContents objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
+		//CTCountry *country = (CTCountry *)[self.tableContents objectAtIndex:indexPath.row];
 		[prefs setObject:country.isoCountryName forKey:@"ctCountry.isoCountryName"];
 		[prefs setObject:country.isoCountryCode forKey:@"ctCountry.isoCountryCode"];
 		[prefs setObject:country.isoDialingCode forKey:@"ctCountry.isoDialingCode"];

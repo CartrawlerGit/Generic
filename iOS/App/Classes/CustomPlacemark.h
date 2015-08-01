@@ -25,7 +25,7 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly) MKCoordinateRegion coordinateRegion;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, retain) NSString *message;
+@property (nonatomic, strong) NSString *message;
 
 -(id)initWithRegion:(MKCoordinateRegion) coordRegion;
 @end

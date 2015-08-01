@@ -20,12 +20,12 @@
 //
 
 @interface LocationListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-	NSMutableArray	*filteredResults;
-	BOOL			noResults;
+	/*NSMutableArray	*filteredResults;
+	BOOL			noResults;*/
 }
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
-@property (nonatomic, retain) NSMutableArray *filteredResults;
+@property (nonatomic, strong) NSMutableArray *filteredResults;
 @property (nonatomic, weak) IBOutlet UITableView *locationsTable;
 
 - (void) updateResults:(NSMutableArray *)results;

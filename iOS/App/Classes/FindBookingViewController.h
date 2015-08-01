@@ -20,11 +20,9 @@
 
 @class Booking;
 
-@interface FindBookingViewController : UIViewController <UIWebViewDelegate> {
-	Booking *b;
-}
+@interface FindBookingViewController : UIViewController <UIWebViewDelegate>
 
-@property (nonatomic, retain) Booking *b;
+@property (nonatomic, strong) Booking *b;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 
 - (IBAction) dismissView;

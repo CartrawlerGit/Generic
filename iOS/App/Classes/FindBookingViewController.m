@@ -15,23 +15,20 @@
 
 @implementation FindBookingViewController
 
-@synthesize b;
-@synthesize spinner;
-
 - (void)webViewDidStartLoad:(UIWebView *)wv {
     DLog (@"webViewDidStartLoad");
-    [spinner startAnimating];
+    [self.spinner startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)wv {
     DLog (@"webViewDidFinishLoad");
-    [spinner stopAnimating];
-	[spinner setHidden:YES];
+    [self.spinner stopAnimating];
+	[self.spinner setHidden:YES];
 }
 
 - (void)webView:(UIWebView *)wv didFailLoadWithError:(NSError *)error {
     DLog (@"webView:didFailLoadWithError");
-    [spinner stopAnimating];
+    [self.spinner stopAnimating];
     if (error != NULL) {
         UIAlertView *errorAlert = [[UIAlertView alloc]
 								   initWithTitle: [error localizedDescription]
@@ -42,7 +39,7 @@
         [errorAlert show];
         //[errorAlert release];
     }
-	[spinner setHidden:YES];
+	[self.spinner setHidden:YES];
 }
 
 #pragma mark -
@@ -56,8 +53,8 @@
 	CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)([[UIApplication sharedApplication] delegate]);
 
 	NSString *urlString = appDelegate.amendBookingsLink;
-	urlString = [urlString stringByReplacingOccurrencesOfString:@"CT_RESID" withString:b.confID];
-	urlString = [urlString stringByReplacingOccurrencesOfString:@"CT_EMAIL" withString:b.customerEmail];
+	urlString = [urlString stringByReplacingOccurrencesOfString:@"CT_RESID" withString:self.b.confID];
+	urlString = [urlString stringByReplacingOccurrencesOfString:@"CT_EMAIL" withString:self.b.customerEmail];
 	NSURL *targetURL = [NSURL URLWithString:urlString];
 	NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
 	[webView loadRequest:request];
@@ -89,14 +86,6 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-}
-
-- (void)dealloc {
-	/*[spinner release];
-	spinner = nil;
-	[b release];
-	b = nil;
-    [super dealloc];*/
 }
 
 #pragma mark -

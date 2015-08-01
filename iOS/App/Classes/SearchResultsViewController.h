@@ -36,7 +36,7 @@
 @class VehAvailRSCore, Car, RentalSession,UISegmentedControl,CTSearchFilters,AdvancedFilterViewController;
 
 @interface SearchResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-	VehAvailRSCore			*resultsCore;
+	/*VehAvailRSCore			*resultsCore;
 	Car						*activeCar;
 	RentalSession			*session;
 	
@@ -54,7 +54,7 @@
 	BOOL					sortedPriceAsc;
 	BOOL					sortedPriceDesc;
 	BOOL					sortedTypeAsc;
-	BOOL					sortedTypeDesc;
+	BOOL					sortedTypeDesc;*/
 }
 
 @property (nonatomic, assign) BOOL sortedPriceAsc;
@@ -65,13 +65,13 @@
 @property (nonatomic, weak) IBOutlet UILabel *noresultsLabel;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, assign) NSTimeInterval dayCount;
-@property (nonatomic, retain) NSMutableArray *carResultsArray;
+@property (nonatomic, strong) NSMutableArray *carResultsArray;
 @property (nonatomic, weak) IBOutlet UITableViewCell *noResultsCell;
-@property (nonatomic, retain) RentalSession *session;
-@property (nonatomic, retain) Car *activeCar;
-@property (nonatomic, retain) VehAvailRSCore *resultsCore;
+@property (nonatomic, strong) RentalSession *session;
+@property (nonatomic, strong) Car *activeCar;
+@property (nonatomic, strong) VehAvailRSCore *resultsCore;
 @property (nonatomic, weak) IBOutlet UITableView *resultsTable;
-@property (nonatomic, retain) CTSearchFilters *searchFilters;
+@property (nonatomic, strong) CTSearchFilters *searchFilters;
 
 //- (NSComparisonResult)compareObject:(id)object1 toObject:(id)object2;
 

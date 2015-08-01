@@ -22,25 +22,24 @@
 
 @interface ManageViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
 	
-    BOOL			pageControlIsChangingPage;
+    /*BOOL			pageControlIsChangingPage;
 	NSMutableArray	*arrayOfBookings;
 	NSMutableArray	*arrayOfReceiptViewControllers;
-	NSInteger		numBookings;
 	
 	UIBarButtonItem *storedBtn;
 	UIBarButtonItem *downloadBtn;
 	
-	NSNotification *n;
+	NSNotification *n;*/
 }
 
-@property (nonatomic, retain) NSNotification *n;
-@property (nonatomic, retain) UIBarButtonItem *storedBtn;
-@property (nonatomic, retain) UIBarButtonItem *downloadBtn;
+@property (nonatomic, strong) NSNotification *n;
+@property (nonatomic, strong) UIBarButtonItem *storedBtn;
+@property (nonatomic, strong) UIBarButtonItem *downloadBtn;
 @property (nonatomic, weak) IBOutlet UITextField *bookingEmailTB;
 @property (nonatomic, weak) IBOutlet UITextField *bookingIDTB;
 @property (nonatomic, weak) IBOutlet UIView *getBookingView;
-@property (nonatomic, retain) NSMutableArray *arrayOfReceiptViewControllers;
-@property (nonatomic, retain) NSMutableArray *arrayOfBookings;
+@property (nonatomic, strong) NSMutableArray *arrayOfReceiptViewControllers;
+@property (nonatomic, strong) NSMutableArray *arrayOfBookings;
 
 @property (nonatomic, weak) IBOutlet UILabel *noBookingsLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;

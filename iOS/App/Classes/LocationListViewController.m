@@ -10,12 +10,8 @@
 
 @implementation LocationListViewController
 
-@synthesize spinner;
-@synthesize filteredResults;
-@synthesize locationsTable;
-
 - (void) viewDidLoad {
-	filteredResults = [[NSMutableArray alloc] init];
+	self.filteredResults = [[NSMutableArray alloc] init];
 	
     [super viewDidLoad];
 }
@@ -25,32 +21,22 @@
 }
 
 - (void) viewDidUnload {
-	self.filteredResults = nil;
+	self.self.filteredResults = nil;
 	self.locationsTable = nil;
     [super viewDidUnload];
 }
 
-- (void) dealloc {
-    /*
-	[locationsTable release];
-	[filteredResults release];
-	[spinner release];
-	spinner = nil;
-    [super dealloc];
-     */
-}
-
 - (void) updateResults:(NSMutableArray *)results {
-	self.filteredResults = results;
-	[locationsTable reloadData];
+	self.self.filteredResults = results;
+	[self.locationsTable reloadData];
 }
 
 #pragma mark -
 #pragma mark UITableView Stuff
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if ([filteredResults count] > 0) {
-		return [filteredResults count];
+	if ([self.filteredResults count] > 0) {
+		return [self.filteredResults count];
 	} else {
 		return 1;
 	}
@@ -71,28 +57,28 @@
 	[[cell textLabel] setFont:[UIFont boldSystemFontOfSize:14.0]];
 
 	// the reson we're checking for 1 before checking to see if we're greater than 0 is that sometimes
-	// a rogue entry ends up in the filteredResults with null values
+	// a rogue entry ends up in the self.filteredResults with null values
 
-	if ([filteredResults count] == 0 || filteredResults == nil) {
+	if ([self.filteredResults count] == 0 || self.filteredResults == nil) {
 		[cell.textLabel setText:@"No results, try again."];
 		cell.userInteractionEnabled = NO;
 	} else {
 		cell.userInteractionEnabled = YES;
-		CTLocation *loc = (CTLocation *)[filteredResults objectAtIndex:indexPath.row];
+		CTLocation *loc = (CTLocation *)[self.filteredResults objectAtIndex:indexPath.row];
 		[cell.textLabel setText:[loc.locationName capitalizedString]];
 	}
 
 /*
-	if ([filteredResults count] > 0) {
-		if ([filteredResults count] == 1) {
-			CTLocation *loc = (CTLocation *)[filteredResults objectAtIndex:0];
+	if ([self.filteredResults count] > 0) {
+		if ([self.filteredResults count] == 1) {
+			CTLocation *loc = (CTLocation *)[self.filteredResults objectAtIndex:0];
 			if (loc.title == nil) {
 				[cell.textLabel setText:@"No results, try again."];
 				cell.userInteractionEnabled = NO;
 			}
 		} else {
 			cell.userInteractionEnabled = YES;
-			CTLocation *loc = (CTLocation *)[filteredResults objectAtIndex:indexPath.row];
+			CTLocation *loc = (CTLocation *)[self.filteredResults objectAtIndex:indexPath.row];
 			[cell.textLabel setText:[loc.locationName capitalizedString]];
 		}
 	} else {
@@ -106,7 +92,7 @@
 	
 			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			
-			CTLocation *loc = (CTLocation *)[filteredResults objectAtIndex:indexPath.row];
+			CTLocation *loc = (CTLocation *)[self.filteredResults objectAtIndex:indexPath.row];
 			
 			NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 			

@@ -13,23 +13,12 @@
 @interface ManageViewController()
 
 @property (nonatomic, strong) CTHudViewController *hud;
+@property (nonatomic, assign) NSInteger		numBookings;
+@property (nonatomic, assign) BOOL pageControlIsChangingPage;
 
 @end
 
 @implementation ManageViewController
-
-@synthesize n;
-@synthesize storedBtn;
-@synthesize downloadBtn;
-@synthesize bookingEmailTB;
-@synthesize bookingIDTB;
-@synthesize getBookingView;
-@synthesize noBookingsLabel;
-@synthesize arrayOfBookings;
-@synthesize scrollView;
-@synthesize pageControl;
-@synthesize numBookingsLabel;
-@synthesize arrayOfReceiptViewControllers;
 
 #pragma mark -
 #pragma mark CT API Calls
@@ -112,7 +101,7 @@
 				Booking *b = [[Booking alloc] initFromRetrievedBookingDictionary:[[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"]];
 				[b setCustomerEmail:self.bookingEmailTB.text];
 				[self saveCustomObject:b];
-				[arrayOfBookings addObject:b];
+				[self.arrayOfBookings addObject:b];
 				DLog(@"Break");
 				[self setupPage];
 				[self hideGetBookingInfoView];
@@ -140,18 +129,18 @@
 }
 
 - (IBAction) getBookingInfo {
-	//DLog(@"Requesting %@ & %@", self.bookingIDTB.text, self.bookingEmailTB.text);
+	//DLog(@"Requesting %@ & %@", self.self.bookingIDTB.text, self.bookingEmailTB.text);
 	
 	//[self getBookingDetails:@"ahicks@cartrawler.com" bookingID:@"AU265413880"];
 	//[self getBookingDetails:@"PEPSOLA@PEPSOLA.JAZZTEL.ES" bookingID:@"IE226600320"];
 	
-	if ([bookingIDTB.text isEqualToString:@""]) {
+	if ([self.bookingIDTB.text isEqualToString:@""]) {
 		[CTHelper showAlert:@"Reference number required." message:@"Your reference number is required to use this facility."];
-	} else if ([bookingEmailTB.text isEqualToString:@""]){
+	} else if ([self.bookingEmailTB.text isEqualToString:@""]){
 		[CTHelper showAlert:@"Email address required." message:@"Your email address is required to use this facility."];
-	} else if ([bookingEmailTB.text isEqualToString:@""] && [bookingIDTB.text isEqualToString:@""]) {
+	} else if ([self.bookingEmailTB.text isEqualToString:@""] && [self.bookingIDTB.text isEqualToString:@""]) {
 		[CTHelper showAlert:@"Information missing." message:@"Enter your reference number & email address to download your booking details."];
-	} else if (!([bookingEmailTB.text isEqualToString:@""] && [bookingIDTB.text isEqualToString:@""])) {
+	} else if (!([self.bookingEmailTB.text isEqualToString:@""] && [self.bookingIDTB.text isEqualToString:@""])) {
 		[self getBookingDetails:self.bookingEmailTB.text bookingID:self.bookingIDTB.text];
 		
 	//	[FlurryAPI logEvent:@"Manage Booking: Has retrieved booking from web."];
@@ -160,29 +149,29 @@
 }
 
 - (IBAction) showGetBookingInfoView {
-	[bookingIDTB setReturnKeyType:UIReturnKeyNext];
-	[bookingEmailTB setReturnKeyType:UIReturnKeyGo];
-	[bookingIDTB setText:@""];
-	[bookingEmailTB setText:@""];
+	[self.bookingIDTB setReturnKeyType:UIReturnKeyNext];
+	[self.bookingEmailTB setReturnKeyType:UIReturnKeyGo];
+	[self.bookingIDTB setText:@""];
+	[self.bookingEmailTB setText:@""];
 	
-	[scrollView slideOutTo:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
-	[pageControl slideOutTo:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
-	[getBookingView slideInFrom:0 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.scrollView slideOutTo:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.pageControl slideOutTo:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.getBookingView slideInFrom:0 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
 	
-	self.navigationItem.rightBarButtonItem = storedBtn;
+	self.navigationItem.rightBarButtonItem = self.storedBtn;
 	//self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (IBAction) hideGetBookingInfoView {
-	[getBookingView slideOutTo:0 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
-	[scrollView slideInFrom:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
-	[pageControl slideInFrom:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.getBookingView slideOutTo:0 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.scrollView slideInFrom:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
+	[self.pageControl slideInFrom:2 duration:0.5 delegate:nil startSelector:nil stopSelector:nil];
 	
-	self.navigationItem.rightBarButtonItem = downloadBtn;
+	self.navigationItem.rightBarButtonItem = self.downloadBtn;
 	
 	//self.navigationItem.rightBarButtonItem.enabled = YES;
-	[bookingIDTB resignFirstResponder];
-	[bookingEmailTB resignFirstResponder];
+	[self.bookingIDTB resignFirstResponder];
+	[self.bookingEmailTB resignFirstResponder];
 }
 
 #pragma mark -
@@ -242,7 +231,7 @@
 	
 	// Flush the array first
 	
-	[arrayOfBookings removeAllObjects];
+	[self.arrayOfBookings removeAllObjects];
 	
 	// Check for bookings
 	
@@ -252,7 +241,7 @@
 		NSDictionary *bookingsDictionary = [defaults objectForKey:@"Bookings"];
 		for (id key in bookingsDictionary) {
 			Booking *b = [self loadCustomObjectWithKey:key dictionary:[defaults objectForKey:@"Bookings"]];
-			[arrayOfBookings addObject:b];
+			[self.arrayOfBookings addObject:b];
 		}
 	}
 }
@@ -261,7 +250,7 @@
 #pragma mark UIViewController Lifecycle
 
 - (void) awakeFromNib {
-	arrayOfBookings = [[NSMutableArray alloc] init];
+	self.arrayOfBookings = [[NSMutableArray alloc] init];
 	
 	[self checkForBookings];
 }
@@ -281,42 +270,18 @@
     self.navigationController.navigationBar.tintColor = appDelegate.governingTintColor;
     
 	self.navigationItem.titleView = [CTHelper getNavBarLabelWithTitle:@"My Bookings"];
-	[getBookingView setHidden:YES];
+	[self.getBookingView setHidden:YES];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteReceipt:) name:@"deleteReceipt" object:nil];
 	
-	storedBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cabinetIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(hideGetBookingInfoView)];
+	self.storedBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cabinetIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(hideGetBookingInfoView)];
 	
-	downloadBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"inboxIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showGetBookingInfoView)];
-	self.navigationItem.rightBarButtonItem = downloadBtn;
+	self.downloadBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"inboxIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showGetBookingInfoView)];
+	self.navigationItem.rightBarButtonItem = self.downloadBtn;
 }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void) dealloc {
-    /*
-	[scrollView release];
-	[pageControl release];
-	[arrayOfBookings release];
-	[arrayOfReceiptViewControllers release];
-	[noBookingsLabel release];
-	noBookingsLabel = nil;
-	[getBookingView release];
-	getBookingView = nil;
-	[bookingEmailTB release];
-	bookingEmailTB = nil;
-	[bookingIDTB release];
-	bookingIDTB = nil;
-	[storedBtn release];
-	storedBtn = nil;
-	[downloadBtn release];
-	downloadBtn = nil;
-	[n release];
-	n = nil;
-    [super dealloc];
-     */
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -342,15 +307,15 @@
 - (void) resetArrayofReceiptViewControllers {
 
 	//[self.arrayOfReceiptViewControllers release];
-	self.arrayOfReceiptViewControllers = [[NSMutableArray alloc] initWithCapacity:[arrayOfBookings count]];
+	self.arrayOfReceiptViewControllers = [[NSMutableArray alloc] initWithCapacity:[self.arrayOfBookings count]];
 	
-	for (UIView *view in [scrollView subviews]) //remove all receipts from the view
+	for (UIView *view in [self.scrollView subviews]) //remove all receipts from the view
 	{
 		[view removeFromSuperview];
 	} 
 
 	CGFloat cx = 0;
-	for (Booking *b in arrayOfBookings) // add receipts to the view
+	for (Booking *b in self.arrayOfBookings) // add receipts to the view
 	{
 		ReceiptView *rv = [[ReceiptView alloc] init];
 		rv.theBooking = b;
@@ -359,40 +324,40 @@
 		//rect.size.height = 320.0;
 		rect.size.height = 290.0;
 		rect.size.width = 320.0;
-		rect.origin.x = ((scrollView.frame.size.width - 290.0) / 2) + cx;
-		rect.origin.y = ((scrollView.frame.size.height - 290.0) / 2);
+		rect.origin.x = ((self.scrollView.frame.size.width - 290.0) / 2) + cx;
+		rect.origin.y = ((self.scrollView.frame.size.height - 290.0) / 2);
 		
 		rv.view.frame = rect;
-		[scrollView addSubview:rv.view];
+		[self.scrollView addSubview:rv.view];
 		[self.arrayOfReceiptViewControllers addObject:rv];
 		//[rv release];
-		cx += scrollView.frame.size.width;
+		cx += self.scrollView.frame.size.width;
 		
 	}
-	self.pageControl.numberOfPages = [arrayOfBookings count];
-	[scrollView setContentSize:CGSizeMake(cx, [scrollView bounds].size.height)];
+	self.pageControl.numberOfPages = [self.arrayOfBookings count];
+	[self.scrollView setContentSize:CGSizeMake(cx, [self.scrollView bounds].size.height)];
 }
 
 - (void) setupPage {
-	scrollView.delegate = self;
+	self.scrollView.delegate = self;
 	
 	[self.scrollView setBackgroundColor:[UIColor clearColor]];
-	[scrollView setCanCancelContentTouches:NO];
+	[self.scrollView setCanCancelContentTouches:NO];
 	
-	scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-	scrollView.showsHorizontalScrollIndicator = NO;
-	scrollView.clipsToBounds = YES;
-	scrollView.scrollEnabled = YES;
-	scrollView.pagingEnabled = YES;
+	self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+	self.scrollView.showsHorizontalScrollIndicator = NO;
+	self.scrollView.clipsToBounds = YES;
+	self.scrollView.scrollEnabled = YES;
+	self.scrollView.pagingEnabled = YES;
 	CGFloat cx = 0;
 	
-	CGFloat pageWidth = scrollView.frame.size.width;
-	int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+	CGFloat pageWidth = self.scrollView.frame.size.width;
+	int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 	
-	numBookingsLabel.text = [NSString stringWithFormat:@"Page %d of %ld saved bookings",page+1 ,(long)numBookings ];
+	self.numBookingsLabel.text = [NSString stringWithFormat:@"Page %d of %ld saved bookings",page+1 ,(long)self.numBookings ];
 
-	self.arrayOfReceiptViewControllers = [[NSMutableArray alloc] initWithCapacity:[arrayOfBookings count]];
-	for (Booking *b in arrayOfBookings) 
+	self.arrayOfReceiptViewControllers = [[NSMutableArray alloc] initWithCapacity:[self.arrayOfBookings count]];
+	for (Booking *b in self.arrayOfBookings) 
 	{
 		ReceiptView *rv = [[ReceiptView alloc] init];
 		rv.theBooking = b;
@@ -401,24 +366,24 @@
 		//rect.size.height = 320.0;
 		rect.size.height = 290.0;
 		rect.size.width = 320.0;
-		rect.origin.x = ((scrollView.frame.size.width - 290.0) / 2) + cx;
-		rect.origin.y = ((scrollView.frame.size.height - 320.0) / 2);
+		rect.origin.x = ((self.scrollView.frame.size.width - 290.0) / 2) + cx;
+		rect.origin.y = ((self.scrollView.frame.size.height - 320.0) / 2);
 		
 		rv.view.frame = rect;
-		[scrollView addSubview:rv.view];
+		[self.scrollView addSubview:rv.view];
 		[self.arrayOfReceiptViewControllers addObject:rv];
 		//[rv release];
-		cx += scrollView.frame.size.width;
+		cx += self.scrollView.frame.size.width;
 		
 	}
 
-	self.pageControl.numberOfPages = [arrayOfBookings count];
-	[scrollView setContentSize:CGSizeMake(cx, [scrollView bounds].size.height)];
+	self.pageControl.numberOfPages = [self.arrayOfBookings count];
+	[self.scrollView setContentSize:CGSizeMake(cx, [self.scrollView bounds].size.height)];
 	
-	if ([arrayOfBookings count] == 0) {
-		[noBookingsLabel setHidden:NO];
+	if ([self.arrayOfBookings count] == 0) {
+		[self.noBookingsLabel setHidden:NO];
 	} else {
-		[noBookingsLabel setHidden:YES];
+		[self.noBookingsLabel setHidden:YES];
 	}
 
 }
@@ -426,22 +391,22 @@
 #pragma mark -
 #pragma mark UIScrollViewDelegate stuff
 
-- (void) scrollViewDidScroll:(UIScrollView *)_scrollView {
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     
-	if (pageControlIsChangingPage) {
+	if (self.pageControlIsChangingPage) {
         return;
     }
 	
 	// We switch page at 50% across
 	
-    CGFloat pageWidth = _scrollView.frame.size.width;
-    int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-	numBookingsLabel.text = [NSString stringWithFormat:@"Page %d of %ld saved bookings",page+1 ,(long)numBookings ];
-    pageControl.currentPage = page;
+    CGFloat pageWidth = scrollView.frame.size.width;
+    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+	self.numBookingsLabel.text = [NSString stringWithFormat:@"Page %d of %ld saved bookings",page+1 ,(long)self.numBookings ];
+    self.pageControl.currentPage = page;
 }
 
-- (void) scrollViewDidEndDecelerating:(UIScrollView *)_scrollView {
-    pageControlIsChangingPage = NO;
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.pageControlIsChangingPage = NO;
 }
 
 #pragma mark -
@@ -449,23 +414,23 @@
 
 - (IBAction) changePage:(id)sender {
 	 
-    CGRect frame = scrollView.frame;
-    frame.origin.x = frame.size.width * pageControl.currentPage;
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * self.pageControl.currentPage;
     frame.origin.y = 0;
 	
-    [scrollView scrollRectToVisible:frame animated:YES];
+    [self.scrollView scrollRectToVisible:frame animated:YES];
     
-	pageControlIsChangingPage = YES;
+	self.pageControlIsChangingPage = YES;
 }
 
 #pragma mark UITextView delegate
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
-	if (textField == bookingIDTB) {
-		[bookingIDTB resignFirstResponder];
-		[bookingEmailTB becomeFirstResponder];
+	if (textField == self.bookingIDTB) {
+		[self.bookingIDTB resignFirstResponder];
+		[self.bookingEmailTB becomeFirstResponder];
 	} else {
-		[bookingEmailTB resignFirstResponder];
+		[self.bookingEmailTB resignFirstResponder];
 		[self getBookingInfo];
 	}
 	return YES;

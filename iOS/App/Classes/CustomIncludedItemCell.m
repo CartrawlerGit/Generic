@@ -9,9 +9,6 @@
 
 @implementation CustomIncludedItemCell
 
-@synthesize itemLabel;
-@synthesize isIncludedImage;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -26,14 +23,6 @@
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state.
-}
-
-- (void)dealloc {
-	/*[itemLabel release];
-	itemLabel = nil;
-	[isIncludedImage release];
-	isIncludedImage = nil;
-    [super dealloc];*/
 }
 
 @end

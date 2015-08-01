@@ -19,27 +19,6 @@
 
 @implementation ReceiptView
 
-@synthesize amendBookingButton;
-@synthesize amendBookingLabel;
-@synthesize ammendBookingLabelUnderLine;
-@synthesize selectedNumberToCall;
-@synthesize callCustomerCareBtn;
-@synthesize callDeskBtn;
-@synthesize vendorNameLabel;
-@synthesize vendorImage;
-@synthesize carImage;
-@synthesize vendorReferenceNumberLabel;
-@synthesize ctReferenceNumberLabel;
-@synthesize ctConfNumberLabel;
-@synthesize pickupLocationNameLabel;
-@synthesize pickUpLocationPhoneNumberLabel;
-@synthesize puDateTimeLabel;
-@synthesize doDateTimeLabel;
-@synthesize customCarePhoneNumberLabel;
-@synthesize carTypeLabel;
-@synthesize totalPriceLabel;
-@synthesize theBooking;
-
 - (id) init {
     self=[super initWithNibName:@"ReceiptView" bundle:nil];
     return self;
@@ -76,44 +55,44 @@
 	
 	// The rest
 	
-    vendorNameLabel.numberOfLines = 0;
-    if (theBooking.tpaConfID) {
-        self.vendorReferenceNumberLabel.text = [NSString stringWithFormat:@"Confirmation: \n%@", theBooking.tpaConfID];
+    self.vendorNameLabel.numberOfLines = 0;
+    if (self.theBooking.tpaConfID) {
+        self.vendorReferenceNumberLabel.text = [NSString stringWithFormat:@"Confirmation: \n%@", self.theBooking.tpaConfID];
     } else {
-        self.vendorReferenceNumberLabel.text = [NSString stringWithFormat:@"Reservation: \n%@", theBooking.confID];
+        self.vendorReferenceNumberLabel.text = [NSString stringWithFormat:@"Reservation: \n%@", self.theBooking.confID];
     }
-    if (theBooking.confID) {
-        self.ctReferenceNumberLabel.text = [NSString stringWithFormat:@"(Reservation ID: %@)", theBooking.confID];
+    if (self.theBooking.confID) {
+        self.ctReferenceNumberLabel.text = [NSString stringWithFormat:@"(Reservation ID: %@)", self.theBooking.confID];
     } else {
         self.ctReferenceNumberLabel.text = @"";
     }
 	
 
-	self.vendorNameLabel.text = theBooking.vendorName;
-	self.carTypeLabel.text = theBooking.vehMakeModelName;
+	self.vendorNameLabel.text = self.theBooking.vendorName;
+	self.carTypeLabel.text = self.theBooking.vehMakeModelName;
 	
-	self.pickupLocationNameLabel.text = [NSString stringWithFormat:@"%@, %@", theBooking.locationName, theBooking.locationAddress];
+	self.pickupLocationNameLabel.text = [NSString stringWithFormat:@"%@, %@", self.theBooking.locationName, self.theBooking.locationAddress];
 	
-	self.pickUpLocationPhoneNumberLabel.text = theBooking.locationPhoneNumber;
-	self.customCarePhoneNumberLabel.text = theBooking.supportNumber;
+	self.pickUpLocationPhoneNumberLabel.text = self.theBooking.locationPhoneNumber;
+	self.customCarePhoneNumberLabel.text = self.theBooking.supportNumber;
 	
-	self.puDateTimeLabel.text = [NSString stringWithFormat:@"%@ to %@", [self readableDate:theBooking.puDateTime], [self readableDate:theBooking.doDateTime]];
-	self.doDateTimeLabel.text = [self readableDate:theBooking.doDateTime];
+	self.puDateTimeLabel.text = [NSString stringWithFormat:@"%@ to %@", [self readableDate:self.theBooking.puDateTime], [self readableDate:self.theBooking.doDateTime]];
+	self.doDateTimeLabel.text = [self readableDate:self.theBooking.doDateTime];
 	
 	CTTableViewAsyncImageView *thisImage = [[CTTableViewAsyncImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 57.0, 28.0)];
 	thisImage.contentMode = UIViewContentModeScaleAspectFit;
-	vendorImage.contentMode = UIViewContentModeScaleAspectFit;
+	self.vendorImage.contentMode = UIViewContentModeScaleAspectFit;
 	
-	[vendorImage addSubview:thisImage];
-	NSURL *url = [NSURL URLWithString:theBooking.vendorImageURL];
+	[self.vendorImage addSubview:thisImage];
+	NSURL *url = [NSURL URLWithString:self.theBooking.vendorImageURL];
 	[thisImage loadImageFromURL:url];
 	
 	CTTableViewAsyncImageView *carThumb = [[CTTableViewAsyncImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 64.0, 40.0)];
-	[carImage addSubview:carThumb];
-	NSURL *thumbUrl = [NSURL URLWithString:theBooking.vehPictureUrl];
+	[self.carImage addSubview:carThumb];
+	NSURL *thumbUrl = [NSURL URLWithString:self.theBooking.vehPictureUrl];
 	[carThumb loadImageFromURL:thumbUrl];
 	
-	if (theBooking.wasRetrievedFromWebBOOL || [theBooking.wasRetrievedFromWeb isEqualToString:@"YES"]) {
+	if (self.theBooking.wasRetrievedFromWebBOOL || [self.theBooking.wasRetrievedFromWeb isEqualToString:@"YES"]) {
 		carThumb.hidden = YES;
 	}
 }
@@ -127,49 +106,6 @@
 	[super viewDidUnload];
 }
 
-- (void) dealloc {
-    /*
-	[vendorImage release];
-	vendorImage = nil;
-	[carImage release];
-	carImage = nil;
-	[vendorReferenceNumberLabel release];
-	vendorReferenceNumberLabel = nil;
-	[ctReferenceNumberLabel release];
-	ctReferenceNumberLabel = nil;
-	[pickupLocationNameLabel release];
-	pickupLocationNameLabel = nil;
-	[pickUpLocationPhoneNumberLabel release];
-	pickUpLocationPhoneNumberLabel = nil;
-	[puDateTimeLabel release];
-	puDateTimeLabel = nil;
-	[doDateTimeLabel release];
-	doDateTimeLabel = nil;
-	[customCarePhoneNumberLabel release];
-	customCarePhoneNumberLabel = nil;
-	[carTypeLabel release];
-	carTypeLabel = nil;
-	[totalPriceLabel release];
-	totalPriceLabel = nil;
-	[vendorNameLabel release];
-	vendorNameLabel = nil;
-	[callDeskBtn release];
-	callDeskBtn = nil;
-	[callCustomerCareBtn release];
-	callCustomerCareBtn = nil;
-	[selectedNumberToCall release];
-	selectedNumberToCall = nil;
-	[amendBookingLabel release];
-	amendBookingLabel = nil;
-	[ammendBookingLabelUnderLine release];
-	ammendBookingLabelUnderLine = nil;
-	[amendBookingButton release];
-	amendBookingButton = nil; 	    
-     [super dealloc];*/
-
-    
-}
-
 #pragma mark -
 #pragma mark IBActions
 
@@ -179,7 +115,7 @@
 	
 	CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)([[UIApplication sharedApplication] delegate]);
 	FindBookingViewController *fbvc = [[FindBookingViewController alloc] init];
-	[fbvc setB:theBooking];
+	[fbvc setB:self.theBooking];
 	[appDelegate.tabBarController presentViewController:fbvc animated:YES completion:nil];
 	//[fbvc release];
 }
@@ -189,7 +125,7 @@
 //	[FlurryAPI logEvent:@"Manage Booking: Deleted receipt from app."];
 	
 	NSDictionary *theBookingID;
-	theBookingID = [NSDictionary dictionaryWithObject:theBooking.confID forKey:@"bookingID"];
+	theBookingID = [NSDictionary dictionaryWithObject:self.theBooking.confID forKey:@"bookingID"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"deleteReceipt" object:self userInfo:theBookingID];
 }
 
@@ -214,7 +150,7 @@
 	
 //	[FlurryAPI logEvent:@"Manage Booking: Show pickup location on map."];
 	
-	[slmvc setCoordString:theBooking.coordString];
+	[slmvc setCoordString:self.theBooking.coordString];
 	[appDelegate.tabBarController presentViewController:slmvc animated:YES completion:nil];
 	
 	//[slmvc release];
@@ -225,7 +161,7 @@
 
 - (void) emailAlert {
 
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation has been sent" message:[NSString stringWithFormat:@"Your booking confirmation has been sent to %@", theBooking.customerEmail] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation has been sent" message:[NSString stringWithFormat:@"Your booking confirmation has been sent to %@", self.theBooking.customerEmail] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alert show];
 	//[alert release];
 }
@@ -239,7 +175,7 @@
 	
 //	[FlurryAPI logEvent:@"Manage Booking: Requested email confirmation."];
 	
-	NSString *requestString = [CTRQBuilder CT_VehCancelRQ:theBooking.confID emailAddress:theBooking.customerEmail];
+	NSString *requestString = [CTRQBuilder CT_VehCancelRQ:self.theBooking.confID emailAddress:self.theBooking.customerEmail];
 	
 	ASIHTTPRequest *request = [CTHelper makeCancelBookingRequest:@"OTA_VehModifyRQ" tail:requestString];
 	[request setDelegate:self];
@@ -272,8 +208,8 @@
 - (IBAction)showActionSheet:(id)sender {
 	//self.selectedNumberToCall = nil;
 	NSString *number;
-	if (sender == callDeskBtn) {
-		number = theBooking.locationPhoneNumber;
+	if (sender == self.callDeskBtn) {
+		number = self.theBooking.locationPhoneNumber;
 
         //  call first number if more
         if ([number rangeOfString:@","].location != NSNotFound) {
@@ -286,7 +222,7 @@
             NSMutableArray *preloadedCountryList = appDelegate.preloadedCountryList;
             
             for (CTCountry *c in preloadedCountryList) {
-                if ([c.isoCountryCode isEqualToString:theBooking.locationCountryName]) {
+                if ([c.isoCountryCode isEqualToString:self.theBooking.locationCountryName]) {
                     
                     //  if dialing code not at the beginning of string
                     if  ([number rangeOfString:c.isoDialingCode].location != 0 ) {
@@ -300,8 +236,8 @@
         }
         
 	} else {
-        if (theBooking.supportNumber) {
-            number = theBooking.supportNumber;
+        if (self.theBooking.supportNumber) {
+            number = self.theBooking.supportNumber;
             
 
             

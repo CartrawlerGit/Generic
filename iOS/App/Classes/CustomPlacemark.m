@@ -16,17 +16,4 @@
 	return self;
 }
 
-- (void)dealloc {
-    /*
-	if(title != nil){
-		[title release];
-	}
-	if(message != nil){
-		[message release];
-	}
-	
-	
-	[super dealloc];
-     */
-}
 @end

@@ -27,8 +27,8 @@
 	NSArray *types;
 }
 
-@property (nonatomic, retain) NSString *longName;
-@property (nonatomic, retain) NSString *shortName;
-@property (nonatomic, retain) NSArray *types;
+@property (nonatomic, strong) NSString *longName;
+@property (nonatomic, strong) NSString *shortName;
+@property (nonatomic, strong) NSArray *types;
 
 @end

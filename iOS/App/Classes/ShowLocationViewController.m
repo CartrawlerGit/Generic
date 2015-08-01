@@ -11,18 +11,15 @@
 
 @implementation ShowLocationViewController
 
-@synthesize coordString;
-@synthesize locationMap;
-
 #pragma mark -
 #pragma mark UIViewController Methods
 
 - (void) getLocationFromString {
-	if (coordString != nil) {
+	if (self.coordString != nil) {
 		
-		NSLog(@"Coord string is %@", coordString);
+		NSLog(@"Coord string is %@", self.coordString);
 		
-		NSArray *coords = [coordString componentsSeparatedByString: @","];
+		NSArray *coords = [self.coordString componentsSeparatedByString: @","];
 		
 		CLLocation *location = [[CLLocation alloc] initWithLatitude:[[coords objectAtIndex:0] doubleValue] longitude:[[coords objectAtIndex:1] doubleValue]];
 		
@@ -31,12 +28,12 @@
 		loc.coordinate = location.coordinate;
 		loc.iconImage = @"pointer_blue.png";
 		
-		[locationMap addAnnotation:loc];
+		[self.locationMap addAnnotation:loc];
 		
-		[self zoomToFitMapAnnotations:locationMap];
+		[self zoomToFitMapAnnotations:self.locationMap];
 	} else {
 		// Nothing to do yet
-		DLog(@"Doesn't appear to have a coord yet, %@", coordString);
+		DLog(@"Doesn't appear to have a coord yet, %@", self.coordString);
 	}
 	
 }
@@ -67,18 +64,6 @@
 
 - (void) viewDidUnload {
     [super viewDidUnload];
-}
-
-- (void) dealloc {
-/*
-	[locationMap release];
-	locationMap = nil;
-	
-	[coordString release];
-	coordString = nil;
-
-    [super dealloc];
- */
 }
 
 #pragma mark -

@@ -18,9 +18,7 @@
 //  CarTrawler
 //
 
-@interface ShowLocationViewController : UIViewController <MKMapViewDelegate, ASIHTTPRequestDelegate> {
-	NSString	*coordString;
-}
+@interface ShowLocationViewController : UIViewController <MKMapViewDelegate, ASIHTTPRequestDelegate>
 
 @property (nonatomic, copy) NSString *coordString;
 @property (nonatomic, weak) IBOutlet MKMapView *locationMap;

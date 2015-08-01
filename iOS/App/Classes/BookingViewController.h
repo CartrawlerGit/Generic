@@ -23,7 +23,7 @@
 
 @interface BookingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIAlertViewDelegate, ASIHTTPRequestDelegate> {
 	
-	UITextField		*namePrefixTB;
+	/*UITextField		*namePrefixTB;
 	UITextField		*givenNameTB;
 	UITextField		*surnameTB;
 	
@@ -61,7 +61,7 @@
 	
 	BOOL			hasAlternateDropOff;
 	
-	NSString		*selectedCardType;
+	NSString		*selectedCardType;*/
 
 }
 
@@ -102,26 +102,26 @@
 @property (nonatomic, weak) IBOutlet UILabel *pickUpLocationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dropOffLocationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *totalCostLabel;
-@property (nonatomic, retain) UISegmentedControl *visaMasterSegment;
-@property (nonatomic, retain) UIView *footerView;
-@property (nonatomic, retain) RentalSession *session;
+@property (nonatomic, strong) UISegmentedControl *visaMasterSegment;
+@property (nonatomic, strong) UIView *footerView;
+@property (nonatomic, strong) RentalSession *session;
 
-@property (nonatomic, retain) UITextField *givenNameTB;
-@property (nonatomic, retain) UITextField *namePrefixTB;
-@property (nonatomic, retain) UITextField *surnameTB;
+@property (nonatomic, strong) UITextField *givenNameTB;
+@property (nonatomic, strong) UITextField *namePrefixTB;
+@property (nonatomic, strong) UITextField *surnameTB;
 
-@property (nonatomic, retain) UITextField *nameTB;  // The name is being put in as a single box, we can loose the other 3.
+@property (nonatomic, strong) UITextField *nameTB;  // The name is being put in as a single box, we can loose the other 3.
 
-@property (nonatomic, retain) UITextField *phoneAreaCodeTB;
-@property (nonatomic, retain) UITextField *phoneNumberTB;
-@property (nonatomic, retain) UITextField *emailAddressTB;
-@property (nonatomic, retain) UITextField *addressTB;
-@property (nonatomic, retain) UITextField *countryCodeTB;
-@property (nonatomic, retain) UITextField *ccHolderNameTB;
-@property (nonatomic, retain) UITextField *ccNumberTB;
-@property (nonatomic, retain) UITextField *ccExpDateTB;
-@property (nonatomic, retain) UITextField *ccSeriesCodeTB;
-@property (nonatomic, retain) UITextField *flightNumberTB;
+@property (nonatomic, strong) UITextField *phoneAreaCodeTB;
+@property (nonatomic, strong) UITextField *phoneNumberTB;
+@property (nonatomic, strong) UITextField *emailAddressTB;
+@property (nonatomic, strong) UITextField *addressTB;
+@property (nonatomic, strong) UITextField *countryCodeTB;
+@property (nonatomic, strong) UITextField *ccHolderNameTB;
+@property (nonatomic, strong) UITextField *ccNumberTB;
+@property (nonatomic, strong) UITextField *ccExpDateTB;
+@property (nonatomic, strong) UITextField *ccSeriesCodeTB;
+@property (nonatomic, strong) UITextField *flightNumberTB;
 @property (nonatomic, weak) IBOutlet UITableView *bookingTable;
 
 - (void) resetPersonalDetails;

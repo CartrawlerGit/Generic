@@ -23,9 +23,6 @@
 @class Booking;
 
 @interface ReceiptView : UIViewController <UIAlertViewDelegate>
-{
-	Booking		*theBooking;
-}
 
 @property (nonatomic, weak) IBOutlet UIButton *amendBookingButton;
 @property (nonatomic, weak) IBOutlet UILabel *amendBookingLabel;
@@ -46,7 +43,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *customCarePhoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UILabel *carTypeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *totalPriceLabel;
-@property (nonatomic, retain) Booking *theBooking;
+@property (nonatomic, strong) Booking *theBooking;
 
 
 - (IBAction) amendBookingButtonPressed;

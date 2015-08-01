@@ -36,106 +36,53 @@
 - (void) showAccessoryTickForCell:(UITableViewCell*)cell withValue:(NSString*)value enabled:(BOOL)enabled;
 
 @property (nonatomic, strong) CTHudViewController *hud;
+@property (nonatomic, strong) UIButton *visaButton;
+@property (nonatomic, strong) UIButton *mastercardButton;
+@property (nonatomic, strong) CTUserBookingDetails *ctUserBookingDetails;
 
 @end
 
 @implementation BookingViewController
 
-@synthesize selectedCardType;
-@synthesize insuranceCostTitleLabel;
-@synthesize insuranceLabelForCostSection;
-@synthesize dropOffHeaderLabel;
-@synthesize hasAlternateDropOff;
-@synthesize haveGivenName;
-@synthesize haveSurname;
-@synthesize haveEmailAddress;
-@synthesize haveAddress;
-@synthesize haveFlightNumber;
-@synthesize havePhoneNumber;
-@synthesize extrasTitleLabel;
-@synthesize extrasCostLabel;
-@synthesize costCell;
-@synthesize pickUpDateLabel;
-@synthesize dropOffDateLabel;
-@synthesize numberOfPeopleLabel;
-@synthesize baggageLabel;
-@synthesize numberOfDoorsLabel;
-@synthesize extraFeaturesLabel;
-@synthesize depositLabel;
-@synthesize bookingFeeLabel;
-@synthesize extrasLabel;
-@synthesize totalLabel;
-@synthesize arrivalAmountLabel;
-@synthesize acceptConditionsButton;
-@synthesize acceptedConditions;
-@synthesize acceptedRentalTerms;
-@synthesize acceptedEngineTerms;
-@synthesize termsCell;
-@synthesize nameTB;
-@synthesize flightNumberTB;
-@synthesize vendorLogo;
-@synthesize carLogo;
-@synthesize carCategoryLabel;
-@synthesize overViewCell;
-@synthesize pickUpLocationLabel;
-@synthesize dropOffLocationLabel;
-@synthesize totalCostLabel;
-@synthesize visaMasterSegment;
-@synthesize footerView;
-@synthesize session;
-@synthesize givenNameTB;
-@synthesize namePrefixTB;
-@synthesize surnameTB;
-@synthesize phoneAreaCodeTB;
-@synthesize phoneNumberTB;
-@synthesize emailAddressTB;
-@synthesize addressTB;
-@synthesize countryCodeTB;
-@synthesize ccHolderNameTB;
-@synthesize ccNumberTB;
-@synthesize ccExpDateTB;
-@synthesize ccSeriesCodeTB;
-@synthesize bookingTable;
-
 #pragma mark -
 #pragma mark Accessory Mark Stuff
 
 - (void) updateFieldColors {
-	[givenNameTB setTextColor:placeholderTextColor];
-	[surnameTB setTextColor:placeholderTextColor];
-	[emailAddressTB setTextColor:placeholderTextColor];
-	[addressTB setTextColor:placeholderTextColor];
-	[phoneNumberTB setTextColor:placeholderTextColor];
-	[flightNumberTB setTextColor:placeholderTextColor];
+	[self.givenNameTB setTextColor:placeholderTextColor];
+	[self.surnameTB setTextColor:placeholderTextColor];
+	[self.emailAddressTB setTextColor:placeholderTextColor];
+	[self.addressTB setTextColor:placeholderTextColor];
+	[self.phoneNumberTB setTextColor:placeholderTextColor];
+	[self.flightNumberTB setTextColor:placeholderTextColor];
 	
-	if (givenNameTB.text != nil) {
-		haveGivenName = YES;
-		[givenNameTB setTextColor:fieldTextColor];
+	if (self.givenNameTB.text != nil) {
+		self.haveGivenName = YES;
+		[self.givenNameTB setTextColor:fieldTextColor];
 	}
 		
-	if (surnameTB.text != nil) {
-		haveSurname = YES;
-		[surnameTB setTextColor:fieldTextColor];
+	if (self.surnameTB.text != nil) {
+		self.haveSurname = YES;
+		[self.surnameTB setTextColor:fieldTextColor];
 	}
 		
-	if (emailAddressTB.text != nil) {
-		haveEmailAddress = YES;
-		[emailAddressTB setTextColor:fieldTextColor];
+	if (self.emailAddressTB.text != nil) {
+		self.haveEmailAddress = YES;
+		[self.emailAddressTB setTextColor:fieldTextColor];
 	}
 		
-	if (addressTB.text != nil) {
-		haveAddress = YES;
-		[addressTB setTextColor:fieldTextColor];
+	if (self.addressTB.text != nil) {
+		self.haveAddress = YES;
+		[self.addressTB setTextColor:fieldTextColor];
 	}
 		
-	if (phoneNumberTB.text != nil) {
-		havePhoneNumber = YES;
-		[phoneNumberTB setTextColor:fieldTextColor];
+	if (self.phoneNumberTB.text != nil) {
+		self.havePhoneNumber = YES;
+		[self.phoneNumberTB setTextColor:fieldTextColor];
 	}
 		
-	if (flightNumberTB.text != nil) {
-		haveFlightNumber = YES;
-		[flightNumberTB setTextColor:fieldTextColor];
+	if (self.flightNumberTB.text != nil) {
+		self.haveFlightNumber = YES;
+		[self.flightNumberTB setTextColor:fieldTextColor];
 	}
 		
 	
@@ -148,23 +95,23 @@
 	
 	// Section 0 - Personal Details
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:givenNameTB.text enabled:haveGivenName];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.givenNameTB.text enabled:self.haveGivenName];
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:surnameTB.text enabled:haveSurname];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.surnameTB.text enabled:self.haveSurname];
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:emailAddressTB.text enabled:haveEmailAddress];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.emailAddressTB.text enabled:self.haveEmailAddress];
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:addressTB.text enabled:haveAddress];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.addressTB.text enabled:self.haveAddress];
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:phoneNumberTB.text enabled:havePhoneNumber];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.phoneNumberTB.text enabled:self.havePhoneNumber];
 	
-	cell = [bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
-	[self showAccessoryTickForCell:cell withValue:flightNumberTB.text enabled:haveFlightNumber];
+	cell = [self.bookingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+	[self showAccessoryTickForCell:cell withValue:self.flightNumberTB.text enabled:self.haveFlightNumber];
 }
 
 - (void) showAccessoryTickForCell:(UITableViewCell*)cell withValue:(NSString*)value enabled:(BOOL)enabled {
@@ -189,16 +136,16 @@
 - (void) termsAndConditionsAccepted:(NSNotification *)notify  {
 	self.acceptedConditions = YES;
 	
-	if (acceptedConditions && acceptedEngineTerms) {
-		[acceptConditionsButton setSelected:YES];
+	if (self.acceptedConditions && self.acceptedEngineTerms) {
+		[self.acceptConditionsButton setSelected:YES];
 	}
 }
 
 - (void) engineTermsAccepted:(NSNotification *)notify  {
 	self.acceptedEngineTerms = YES;	
 	
-	if (acceptedConditions && acceptedEngineTerms) {
-		[acceptConditionsButton setSelected:YES];
+	if (self.acceptedConditions && self.acceptedEngineTerms) {
+		[self.acceptConditionsButton setSelected:YES];
 	}
 }
 
@@ -226,14 +173,14 @@
 
 - (IBAction) acceptedConditionButtonPressed:(id)sender {
 	
-	if (acceptedConditions && acceptedEngineTerms) {
-		[acceptConditionsButton setSelected:NO];
-		acceptedConditions = NO;
-		acceptedEngineTerms = NO;
+	if (self.acceptedConditions && self.acceptedEngineTerms) {
+		[self.acceptConditionsButton setSelected:NO];
+		self.acceptedConditions = NO;
+		self.acceptedEngineTerms = NO;
 	} else {
-		[acceptConditionsButton setSelected:YES];
-		acceptedConditions = YES;
-		acceptedEngineTerms = YES;
+		[self.acceptConditionsButton setSelected:YES];
+		self.acceptedConditions = YES;
+		self.acceptedEngineTerms = YES;
 	}
 }
 
@@ -278,8 +225,8 @@
 	double extrasTotal;
 	NSString *currency;
 	
-	if ([session.extras count] > 0) {
-		for (ExtraEquipment *e in session.extras) {
+	if ([self.session.extras count] > 0) {
+		for (ExtraEquipment *e in self.session.extras) {
 			extrasTotal = (e.qty * [e.chargeAmount doubleValue]);
 			currency = e.currencyCode;
 		}
@@ -298,7 +245,7 @@
 - (void) getExtras {
 	NSMutableArray *includedExtras = [[NSMutableArray alloc] init];
 	
-	for (ExtraEquipment *e in session.extras) {
+	for (ExtraEquipment *e in self.session.extras) {
 		if (e.qty > 0) {
 			[includedExtras addObject:e];
 		}
@@ -310,15 +257,15 @@
 #pragma mark Success and Failure View Controller creation
 
 - (void) resetTableOffset {
-	[bookingTable setContentOffset:CGPointMake(0, 0) animated:YES];
-	[bookingTable setScrollEnabled:YES];
+	[self.bookingTable setContentOffset:CGPointMake(0, 0) animated:YES];
+	[self.bookingTable setScrollEnabled:YES];
 }
 
 - (void) scrollTableOffset:(NSIndexPath*)indexPath {
-	NSInteger ypos = [indexPath row]*[bookingTable rowHeight];
+	NSInteger ypos = [indexPath row]*[self.bookingTable rowHeight];
 	DLog(@"ypos is %li", (long)ypos);
-	[bookingTable setContentOffset:CGPointMake(0, ypos) animated:YES];
-	[bookingTable setScrollEnabled:YES];
+	[self.bookingTable setContentOffset:CGPointMake(0, ypos) animated:YES];
+	[self.bookingTable setScrollEnabled:YES];
 }
 
 - (void) saveCustomObject:(Booking *)obj {
@@ -358,7 +305,7 @@
 #pragma mark API Calls
 
 - (void) makeTheBooking {
-	if (acceptedConditions) {
+	if (self.acceptedConditions) {
 		
 		NSString *extrasStr = @"";
 		
@@ -394,29 +341,29 @@
 		
 		// If payment is required, fields need to be validated.
 		
-		if (session.theCar.needCCInfo || session.hasBoughtInsurance) {
-			if (ccNumberTB.text == nil) {
+		if (self.session.theCar.needCCInfo || self.session.hasBoughtInsurance) {
+			if (self.ccNumberTB.text == nil) {
 				[CTHelper showAlert:@"Missing Information" message:@"You must include a credit card number."];
-			} else if (ccExpDateTB.text == nil) {
+			} else if (self.ccExpDateTB.text == nil) {
 				[CTHelper showAlert:@"Missing Information" message:@"You must include an expiry date for your credit card."];
-			} else if (ccHolderNameTB.text == nil) {
+			} else if (self.ccHolderNameTB.text == nil) {
 				[CTHelper showAlert:@"Missing Information" message:@"Please include the credit card holder's name."];
-			} else if (ccSeriesCodeTB.text == nil) {
+			} else if (self.ccSeriesCodeTB.text == nil) {
 				[CTHelper showAlert:@"Missing Information" message:@"Please include the credit card's CCV code."];
-			} else if ([selectedCardType isEqualToString:@""]) {
+			} else if ([self.selectedCardType isEqualToString:@""]) {
 				[CTHelper showAlert:@"Missing Information" message:@"You must select a credit card type."];
 			}
 		} 
 		
 		// Personal detail are always required, so go through those and then proceed with the request.
 		
-		if (emailAddressTB.text == nil) {
+		if (self.emailAddressTB.text == nil) {
 			[CTHelper showAlert:@"Missing Information" message:@"An email address is required."];
-		} else if (givenNameTB.text == nil) {
+		} else if (self.givenNameTB.text == nil) {
 			[CTHelper showAlert:@"Missing Information" message:@"Given name is required."];
-		} else if (surnameTB.text == nil) {
+		} else if (self.surnameTB.text == nil) {
 			[CTHelper showAlert:@"Missing Information" message:@"Surname is required."];
-		} else if (emailAddressTB.text == nil) {
+		} else if (self.emailAddressTB.text == nil) {
 			[CTHelper showAlert:@"Missing Information" message:@"An email address is required."];
 		} else {
 			self.hud = [[CTHudViewController alloc] initWithTitle:@"Creating reservation"];
@@ -424,27 +371,27 @@
 			
 			ASIHTTPRequest *request;
 			
-			if (session.theCar.needCCInfo || session.hasBoughtInsurance) {
+			if (self.session.theCar.needCCInfo || self.session.hasBoughtInsurance) {
 				DLog(@"Payment needed");
 				NSString *requestString = [CTRQBuilder OTA_VehResRQ:self.session.puDateTime returnDateTime:self.session.doDateTime 
-												 pickupLocationCode:session.puLocationCode dropoffLocationCode:session.doLocationCode 
+												 pickupLocationCode:self.session.puLocationCode dropoffLocationCode:self.session.doLocationCode 
 														homeCountry:self.session.homeCountry driverAge:self.session.driverAge 
-													  numPassengers:self.session.numPassengers flightNumber:flightNumberTB.text refID:self.session.theCar.refID 
+													  numPassengers:self.session.numPassengers flightNumber:self.flightNumberTB.text refID:self.session.theCar.refID 
 													   refTimeStamp:self.session.theCar.refTimeStamp refURL:self.session.theCar.refURL 
 													   extrasString:extrasStr
 														 namePrefix:@"Mr."
-														  givenName:givenNameTB.text
-															surName:surnameTB.text
-													   emailAddress:emailAddressTB.text
-															address:addressTB.text
-														phoneNumber:phoneNumberTB.text
-														   cardType:selectedCardType
-														 cardNumber:ccNumberTB.text
-													 cardExpireDate:ccExpDateTB.text
-													 cardHolderName:ccHolderNameTB.text
-													  cardCCVNumber:ccSeriesCodeTB.text
-													insuranceObject:session.insurance
-												  isBuyingInsurance:session.hasBoughtInsurance];
+														  givenName:self.givenNameTB.text
+															surName:self.surnameTB.text
+													   emailAddress:self.emailAddressTB.text
+															address:self.addressTB.text
+														phoneNumber:self.phoneNumberTB.text
+														   cardType:self.selectedCardType
+														 cardNumber:self.ccNumberTB.text
+													 cardExpireDate:self.ccExpDateTB.text
+													 cardHolderName:self.ccHolderNameTB.text
+													  cardCCVNumber:self.ccSeriesCodeTB.text
+													insuranceObject:self.session.insurance
+												  isBuyingInsurance:self.session.hasBoughtInsurance];
 				if (kShowRequest) {
 					DLog(@"\n\n%@\n\n", requestString);
 				}
@@ -454,17 +401,17 @@
 			} else {
 				DLog(@"No payment needed");
 				NSString *requestStringNoPayment = [CTRQBuilder OTA_VehResRQNoPayment:self.session.puDateTime returnDateTime:self.session.doDateTime 
-												 pickupLocationCode:session.puLocationCode dropoffLocationCode:session.doLocationCode 
+												 pickupLocationCode:self.session.puLocationCode dropoffLocationCode:self.session.doLocationCode 
 														homeCountry:self.session.homeCountry driverAge:self.session.driverAge 
-													  numPassengers:self.session.numPassengers flightNumber:flightNumberTB.text refID:self.session.theCar.refID 
+													  numPassengers:self.session.numPassengers flightNumber:self.flightNumberTB.text refID:self.session.theCar.refID 
 													   refTimeStamp:self.session.theCar.refTimeStamp refURL:self.session.theCar.refURL 
 													   extrasString:extrasStr
 														 namePrefix:@"Mr."
-														  givenName:givenNameTB.text
-															surName:surnameTB.text
-													   emailAddress:emailAddressTB.text
-														  address:addressTB.text
-													  phoneNumber:phoneNumberTB.text];
+														  givenName:self.givenNameTB.text
+															surName:self.surnameTB.text
+													   emailAddress:self.emailAddressTB.text
+														  address:self.addressTB.text
+													  phoneNumber:self.phoneNumberTB.text];
 				if (kShowRequest) {
 					DLog(@"\n\n%@\n\n", requestStringNoPayment);
 				}
@@ -526,7 +473,7 @@
 	} else {
 		Booking *b = (Booking *)response;
 		
-		[b setCustomerEmail:emailAddressTB.text];
+		[b setCustomerEmail:self.emailAddressTB.text];
 	//	[FlurryAPI logEvent:@"Step 3: Successful Booking made."];
 		[self showSuccessfulViewController:b];
 	}
@@ -549,20 +496,20 @@
 #pragma mark Lifecycle stuff
 
 - (void) setPlaceholders {
-	[givenNameTB setPlaceholder:@"Given name"];
-	[surnameTB setPlaceholder:@"Surname"];
-	[emailAddressTB setPlaceholder:@"me@example.com"];
-	[addressTB setPlaceholder:@"1 My House, My Street, London"];
-	[phoneAreaCodeTB setPlaceholder:@"01"];
-	[phoneNumberTB setPlaceholder:@"Phone number"];
-	[countryCodeTB setPlaceholder:@"Country"];
-	[flightNumberTB setPlaceholder:@"Flight number"];
+	[self.givenNameTB setPlaceholder:@"Given name"];
+	[self.surnameTB setPlaceholder:@"Surname"];
+	[self.emailAddressTB setPlaceholder:@"me@example.com"];
+	[self.addressTB setPlaceholder:@"1 My House, My Street, London"];
+	[self.phoneAreaCodeTB setPlaceholder:@"01"];
+	[self.phoneNumberTB setPlaceholder:@"Phone number"];
+	[self.countryCodeTB setPlaceholder:@"Country"];
+	[self.flightNumberTB setPlaceholder:@"Flight number"];
 	
-	[visaMasterSegment setSelectedSegmentIndex:0];
-	[ccHolderNameTB setPlaceholder:@"Card holder's name"];
-	[ccNumberTB setPlaceholder:@"Card number"];
-	[ccExpDateTB setPlaceholder:@"MMYY"];
-	[ccSeriesCodeTB setPlaceholder:@"123"];
+	[self.visaMasterSegment setSelectedSegmentIndex:0];
+	[self.ccHolderNameTB setPlaceholder:@"Card holder's name"];
+	[self.ccNumberTB setPlaceholder:@"Card number"];
+	[self.ccExpDateTB setPlaceholder:@"MMYY"];
+	[self.ccSeriesCodeTB setPlaceholder:@"123"];
 }
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -576,12 +523,12 @@
     [super viewDidLoad];
 	[self getExtras];
 
-	selectedCardType = @"";
+	self.selectedCardType = @"";
 	
-	if (![session.puLocationNameString isEqualToString:session.doLocationNameString]) {
-		hasAlternateDropOff = YES;
+	if (![self.session.puLocationNameString isEqualToString:self.session.doLocationNameString]) {
+		self.hasAlternateDropOff = YES;
 		DLog(@"There is alternate drop off!");
-		[overViewCell setFrame:CGRectMake(0, 0, overViewCell.frame.size.width, 184)];		
+		[self.overViewCell setFrame:CGRectMake(0, 0, self.overViewCell.frame.size.width, 184)];		
 	}
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(termsAndConditionsAccepted:) name:@"termsAndConditionsAccepted" object:nil];
@@ -591,7 +538,7 @@
 	self.navigationItem.rightBarButtonItem = rightBarButton;
 	//[rightBarButton release];
 	
-	[bookingTable setContentInset:UIEdgeInsetsMake(17,0,0,0)];
+	[self.bookingTable setContentInset:UIEdgeInsetsMake(17,0,0,0)];
 	
 	self.title = @"Place Booking";
 	self.navigationItem.titleView = [CTHelper getNavBarLabelWithTitle:@"Book Car"];
@@ -606,16 +553,16 @@
 	self.surnameTB = [self newTextField];
 	
 	self.emailAddressTB = [self newTextField];
-	[emailAddressTB setKeyboardType:UIKeyboardTypeEmailAddress];
-    [emailAddressTB setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [emailAddressTB setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+	[self.emailAddressTB setKeyboardType:UIKeyboardTypeEmailAddress];
+    [self.emailAddressTB setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [self.emailAddressTB setAutocapitalizationType:UITextAutocapitalizationTypeNone];
 	
-	self.addressTB = [self newTextField];
+	self.self.addressTB = [self newTextField];
 	
 	self.phoneAreaCodeTB = [self newTextField];
 	
 	self.phoneNumberTB = [self newTextField];
-	[phoneNumberTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+	[self.phoneNumberTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 	
 	self.countryCodeTB = [self newTextField];
 	
@@ -624,24 +571,24 @@
 	self.ccHolderNameTB = [self newTextField];
 	
 	self.ccNumberTB = [self newTextField];
-	[ccNumberTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+	[self.ccNumberTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 	
 	self.ccExpDateTB = [self newTextField];
-	[ccExpDateTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+	[self.ccExpDateTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 	
 	self.ccSeriesCodeTB = [self newTextField];
-	[ccSeriesCodeTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+	[self.ccSeriesCodeTB setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 	self.ccSeriesCodeTB.returnKeyType = UIReturnKeyDone;
 	
 	self.flightNumberTB = [self newTextField];
 	self.flightNumberTB.returnKeyType = UIReturnKeyDone;
 	
-	haveGivenName = NO;
-	haveSurname = NO;
-	haveAddress = NO;
-	haveEmailAddress = NO;
-	havePhoneNumber = NO;
-	haveFlightNumber = NO;
+	self.haveGivenName = NO;
+	self.haveSurname = NO;
+	self.haveAddress = NO;
+	self.haveEmailAddress = NO;
+	self.havePhoneNumber = NO;
+	self.haveFlightNumber = NO;
 	
 	[self setPlaceholders];
 	[self loadUserPrefs];
@@ -653,27 +600,27 @@
 	
 	// Clear TBs
 	
-	[nameTB setText:@""];
-	[namePrefixTB setText:@""];
-	[givenNameTB setText:@""];
-	[surnameTB setText:@""];
-	[emailAddressTB setText:@""];
-	[addressTB setText:@""];
-	[phoneAreaCodeTB setText:@""];
-	[phoneNumberTB setText:@""];
-	[countryCodeTB setText:@""];
-	[flightNumberTB setText:@""];
+	[self.nameTB setText:@""];
+	[self.namePrefixTB setText:@""];
+	[self.givenNameTB setText:@""];
+	[self.surnameTB setText:@""];
+	[self.emailAddressTB setText:@""];
+	[self.addressTB setText:@""];
+	[self.phoneAreaCodeTB setText:@""];
+	[self.phoneNumberTB setText:@""];
+	[self.countryCodeTB setText:@""];
+	[self.flightNumberTB setText:@""];
 	
-	[nameTB resignFirstResponder];
-	[namePrefixTB resignFirstResponder];
-	[givenNameTB resignFirstResponder];
-	[surnameTB resignFirstResponder];
-	[emailAddressTB resignFirstResponder];
-	[addressTB resignFirstResponder];
-	[phoneAreaCodeTB resignFirstResponder];
-	[phoneNumberTB resignFirstResponder];
-	[countryCodeTB resignFirstResponder];
-	[flightNumberTB resignFirstResponder];
+	[self.nameTB resignFirstResponder];
+	[self.namePrefixTB resignFirstResponder];
+	[self.givenNameTB resignFirstResponder];
+	[self.surnameTB resignFirstResponder];
+	[self.emailAddressTB resignFirstResponder];
+	[self.addressTB resignFirstResponder];
+	[self.phoneAreaCodeTB resignFirstResponder];
+	[self.phoneNumberTB resignFirstResponder];
+	[self.countryCodeTB resignFirstResponder];
+	[self.flightNumberTB resignFirstResponder];
 	
 	[self setPlaceholders];
 }
@@ -685,96 +632,6 @@
 - (void) viewWillDisappear:(BOOL)animated{
 	[self saveUserPrefs];
 	[super viewWillDisappear:animated];
-}
-
-- (void) viewDidUnload {
-	self.footerView = nil;
-	self.session = nil;
-	self.givenNameTB = nil;
-	self.namePrefixTB = nil;
-	self.surnameTB = nil;
-	self.phoneAreaCodeTB = nil;
-	self.phoneNumberTB = nil;
-	self.emailAddressTB = nil;
-	self.addressTB = nil;
-	self.countryCodeTB = nil;
-	self.ccHolderNameTB = nil;
-	self.ccNumberTB = nil;
-	self.ccExpDateTB = nil;
-	self.ccSeriesCodeTB = nil;
-	self.bookingTable = nil;
-	self.flightNumberTB = nil;
-    [super viewDidUnload];
-}
-
-- (void) dealloc {
-    /*
-	[bookingTable release];
-	[namePrefixTB release];
-	[surnameTB release];
-	[phoneAreaCodeTB release];
-	[phoneNumberTB release];
-	[emailAddressTB release];
-	[addressTB release];
-	[countryCodeTB release];
-	[ccHolderNameTB release];
-	[ccNumberTB release];
-	[ccExpDateTB release];
-	[ccSeriesCodeTB release];
-	[givenNameTB release];
-	[session release];
-	[footerView release];
-	[overViewCell release];
-	[pickUpLocationLabel release];
-	[dropOffLocationLabel release];
-	[totalCostLabel release];
-	[carCategoryLabel release];
-	[vendorLogo release];
-	[carLogo release];
-	[flightNumberTB release];
-	[nameTB release];
-	[termsCell release];
-	[acceptConditionsButton release];
-
-	[pickUpDateLabel release];
-	pickUpDateLabel = nil;
-	[dropOffDateLabel release];
-	dropOffDateLabel = nil;
-	[numberOfPeopleLabel release];
-	numberOfPeopleLabel = nil;
-	[baggageLabel release];
-	baggageLabel = nil;
-	[numberOfDoorsLabel release];
-	numberOfDoorsLabel = nil;
-	[extraFeaturesLabel release];
-	extraFeaturesLabel = nil;
-	[depositLabel release];
-	depositLabel = nil;
-	[bookingFeeLabel release];
-	bookingFeeLabel = nil;
-	[extrasLabel release];
-	extrasLabel = nil;
-	[totalLabel release];
-	totalLabel = nil;
-	[arrivalAmountLabel release];
-	arrivalAmountLabel = nil;
-	[costCell release];
-	costCell = nil;
-	[extrasCostLabel release];
-	extrasCostLabel = nil;
-	[extrasTitleLabel release];
-	extrasTitleLabel = nil;
-	[dropOffHeaderLabel release];
-	dropOffHeaderLabel = nil;
-	[insuranceLabelForCostSection release];
-	insuranceLabelForCostSection = nil;
-	[insuranceCostTitleLabel release];
-	insuranceCostTitleLabel = nil;
-	[selectedCardType release];
-	selectedCardType = nil;
-    [super dealloc];
-    //self=nil;
-     */
 }
 
 #pragma mark -
@@ -822,8 +679,8 @@
 #pragma mark UITextFieldDelegate
 
 - (void) scrolltablePosition:(NSInteger)i {
-	[bookingTable setContentOffset:CGPointMake(0, i) animated:YES];
-	[bookingTable setScrollEnabled:YES];
+	[self.bookingTable setContentOffset:CGPointMake(0, i) animated:YES];
+	[self.bookingTable setScrollEnabled:YES];
 }
 
 #define editHeight 10
@@ -831,25 +688,25 @@
 - (void) textFieldDidBeginEditing:(UITextField *)textField { }
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)textEntered {
-	if (textField == ccNumberTB) {
+	if (textField == self.ccNumberTB) {
 		if (textField.text.length >= 16 && range.length == 0) {
 			[textField resignFirstResponder];
-			[ccExpDateTB becomeFirstResponder];
+			[self.ccExpDateTB becomeFirstResponder];
 			return NO;
 		}
 		else {
 			return YES;
 		}
-	} else if (textField == ccExpDateTB) {
+	} else if (textField == self.ccExpDateTB) {
 		if (textField.text.length >= 4 && range.length == 0) {
 			[textField resignFirstResponder];
-			[ccSeriesCodeTB becomeFirstResponder];
+			[self.ccSeriesCodeTB becomeFirstResponder];
 			return NO;
 		}
 		else {
 			return YES;
 		}
-	} else if (textField == ccSeriesCodeTB) {
+	} else if (textField == self.ccSeriesCodeTB) {
 		if (textField.text.length >= 3 && range.length == 0) {
           //rjh  [self.view endEditing:YES];
 			//rjh[textField resignFirstResponder];
@@ -866,63 +723,63 @@
 
     [self.view endEditing:YES];
     
-	if (textField == givenNameTB) {
+	if (textField == self.givenNameTB) {
 
 		//[textField resignFirstResponder];
-		[surnameTB becomeFirstResponder];
+		[self.surnameTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 44];
 		
-	} else if (textField == surnameTB) {
+	} else if (textField == self.surnameTB) {
 		//[textField resignFirstResponder];
-		[emailAddressTB becomeFirstResponder];
+		[self.emailAddressTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 88];
 		
-	} else if (textField == emailAddressTB) {
+	} else if (textField == self.emailAddressTB) {
 		
 		//[textField resignFirstResponder];
-		[addressTB becomeFirstResponder];
+		[self.addressTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 132];
 		
-	} else if (textField == addressTB) {
+	} else if (textField == self.addressTB) {
 		
 		//[textField resignFirstResponder];
-		[phoneNumberTB becomeFirstResponder];
+		[self.phoneNumberTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 176];
 		
-	} else if (textField == phoneNumberTB) {
+	} else if (textField == self.phoneNumberTB) {
 		
 		//[textField resignFirstResponder];
 		
-		if (session.puLocation.atAirport) {
-			[flightNumberTB becomeFirstResponder];
+		if (self.session.puLocation.atAirport) {
+			[self.flightNumberTB becomeFirstResponder];
 			[self scrolltablePosition:editHeight + 220];
 		} else {
-			[ccHolderNameTB becomeFirstResponder];
+			[self.ccHolderNameTB becomeFirstResponder];
 			[self scrolltablePosition:editHeight + 220];
 		}
 
-	} else if (textField == flightNumberTB) {
+	} else if (textField == self.flightNumberTB) {
 		
 		//[textField resignFirstResponder];
-		[ccHolderNameTB becomeFirstResponder];
+		[self.ccHolderNameTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 264];
 		
-	} else if (textField == ccHolderNameTB) {
+	} else if (textField == self.ccHolderNameTB) {
 		
 		//[textField resignFirstResponder];
-		[ccNumberTB becomeFirstResponder];
+		[self.ccNumberTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 304];
 		
-	} else if (textField == ccNumberTB) {
+	} else if (textField == self.ccNumberTB) {
 		
 		//[textField resignFirstResponder];
-		[ccExpDateTB becomeFirstResponder];
+		[self.ccExpDateTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 348];
 		
-	} else if (textField == ccExpDateTB) {
+	} else if (textField == self.ccExpDateTB) {
 		
 		//[textField resignFirstResponder];
-		[ccSeriesCodeTB becomeFirstResponder];
+		[self.ccSeriesCodeTB becomeFirstResponder];
 		[self scrolltablePosition:editHeight + 392];
 		
 	} else {
@@ -952,7 +809,7 @@
 		height = 121;
 	}
 	else if (indexPath.section == 2) {
-		if (hasAlternateDropOff) {
+		if (self.hasAlternateDropOff) {
 			height = 185;
 		} else {
 			height = 167;
@@ -1010,13 +867,13 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-		if (session.puLocation.atAirport) {
+		if (self.session.puLocation.atAirport) {
 			return 6;
 		} else {
 			return 5;
 		}
 	} else if (section == 1) {
-		if (session.theCar.needCCInfo || session.hasBoughtInsurance) { // Do we need to ask for cc details?
+		if (self.session.theCar.needCCInfo || self.session.hasBoughtInsurance) { // Do we need to ask for cc details?
 			return 5;
 		} else { // If we don't...
 			return 1;
@@ -1048,7 +905,7 @@
 	} else if (indexPath.section == 3) {
 		return 120;
 	} else if (indexPath.section == 2) {
-		if (hasAlternateDropOff) {
+		if (self.hasAlternateDropOff) {
 			return 184;
 		} else {
 			return 166;
@@ -1161,80 +1018,80 @@
 	if (indexPath.section == 0) {
 		
 		if (indexPath.row == 0) {
-			[nameTB setPlaceholder:@"Given name"];
+			[self.nameTB setPlaceholder:@"Given name"];
 			[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-			[cell.contentView addSubview:givenNameTB];
+			[cell.contentView addSubview:self.givenNameTB];
 		} else if (indexPath.row == 1) {
-			[nameTB setPlaceholder:@"Surname"];
+			[self.nameTB setPlaceholder:@"Surname"];
 			[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-			[cell.contentView addSubview:surnameTB];
+			[cell.contentView addSubview:self.surnameTB];
 		} else if (indexPath.row == 2) {
-			[emailAddressTB setPlaceholder:@"Email"];
+			[self.emailAddressTB setPlaceholder:@"Email"];
 			[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-			[cell.contentView addSubview:emailAddressTB];
+			[cell.contentView addSubview:self.emailAddressTB];
 		} else if (indexPath.row == 3) {
-			[addressTB setPlaceholder:@"Address"];
+			[self.addressTB setPlaceholder:@"Address"];
 			[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-			[cell.contentView addSubview:addressTB];
+			[cell.contentView addSubview:self.addressTB];
 		} else if (indexPath.row == 4) {
-			[phoneNumberTB setPlaceholder:@"Phone"];
+			[self.phoneNumberTB setPlaceholder:@"Phone"];
 			[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-			[cell.contentView addSubview:phoneNumberTB];
+			[cell.contentView addSubview:self.phoneNumberTB];
 		} else {
-			if (session.puLocation.atAirport) {
-				[flightNumberTB setPlaceholder:@"Flight number"];
+			if (self.session.puLocation.atAirport) {
+				[self.flightNumberTB setPlaceholder:@"Flight number"];
 				[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-				[cell.contentView addSubview:flightNumberTB];
+				[cell.contentView addSubview:self.flightNumberTB];
 			}
 		}
 	} 
 	else if (indexPath.section == 1) {
-		if (session.theCar.needCCInfo || session.hasBoughtInsurance) { // Do we need to ask for cc details?
+		if (self.session.theCar.needCCInfo || self.session.hasBoughtInsurance) { // Do we need to ask for cc details?
 			if (indexPath.row == 0) {
-				visaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+				self.visaButton = [UIButton buttonWithType:UIButtonTypeCustom];
 				
-				visaButton.frame = CGRectMake(100, 5, 80, 35);
-				[visaButton setImage:[UIImage imageNamed:@"visaIconInactive.png"] forState:UIControlStateNormal];
-				[visaButton setImage:[UIImage imageNamed:@"visaIconActive.png"] forState:UIControlStateSelected];
-				[visaButton setTitle:@"" forState:UIControlStateNormal];
-				[visaButton addTarget:self action:@selector(visaButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+				self.visaButton.frame = CGRectMake(100, 5, 80, 35);
+				[self.visaButton setImage:[UIImage imageNamed:@"visaIconInactive.png"] forState:UIControlStateNormal];
+				[self.visaButton setImage:[UIImage imageNamed:@"visaIconActive.png"] forState:UIControlStateSelected];
+				[self.visaButton setTitle:@"" forState:UIControlStateNormal];
+				[self.visaButton addTarget:self action:@selector(visaButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 				
-				[cell addSubview:visaButton];
-				[self.view bringSubviewToFront:visaButton];
+				[cell addSubview:self.visaButton];
+				[self.view bringSubviewToFront:self.visaButton];
 				
-				mastercardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+				self.mastercardButton = [UIButton buttonWithType:UIButtonTypeCustom];
 				
 				//set the position of the button
-				mastercardButton.frame = CGRectMake(180, 5, 80, 35);
-				[mastercardButton setImage:[UIImage imageNamed:@"mastercardIconInactive.png"] forState:UIControlStateNormal];
-				[mastercardButton setImage:[UIImage imageNamed:@"mastercardIconActive.png"] forState:UIControlStateSelected];
+				self.mastercardButton.frame = CGRectMake(180, 5, 80, 35);
+				[self.mastercardButton setImage:[UIImage imageNamed:@"mastercardIconInactive.png"] forState:UIControlStateNormal];
+				[self.mastercardButton setImage:[UIImage imageNamed:@"mastercardIconActive.png"] forState:UIControlStateSelected];
 				
-				[mastercardButton setTitle:@"" forState:UIControlStateNormal];
-				[mastercardButton addTarget:self action:@selector(mastercardButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+				[self.mastercardButton setTitle:@"" forState:UIControlStateNormal];
+				[self.mastercardButton addTarget:self action:@selector(mastercardButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 				
-				[cell addSubview:mastercardButton];
-				[self.view bringSubviewToFront:mastercardButton];
+				[cell addSubview:self.mastercardButton];
+				[self.view bringSubviewToFront:self.mastercardButton];
 				
 			} 
 			else if (indexPath.row == 1) {
 				// Name on Card
-				[ccHolderNameTB setPlaceholder:@"Cardholder's name"];
+				[self.ccHolderNameTB setPlaceholder:@"Cardholder's name"];
 				[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-				[cell.contentView addSubview:ccHolderNameTB];
+				[cell.contentView addSubview:self.ccHolderNameTB];
 			} else if (indexPath.row == 2) {
 				// Number
-				[ccNumberTB setPlaceholder:@"Card number"];
+				[self.ccNumberTB setPlaceholder:@"Card number"];
 				[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-				[cell.contentView addSubview:ccNumberTB];
+				[cell.contentView addSubview:self.ccNumberTB];
 			} else if (indexPath.row == 3) {
 				// Exp
 				[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-				[cell.contentView addSubview:ccExpDateTB];
+				[cell.contentView addSubview:self.ccExpDateTB];
 			} else if (indexPath.row == 4) {
 				// Security Number
-				[ccSeriesCodeTB setPlaceholder:@"CVS"];
+				[self.ccSeriesCodeTB setPlaceholder:@"CVS"];
 				[cell setFrame:CGRectMake(kSmallLeftInset, kHeightInset, kInputItemWidth, kTextFieldHeight)];
-				[cell.contentView addSubview:ccSeriesCodeTB];
+				[cell.contentView addSubview:self.ccSeriesCodeTB];
 			}
 		} else { // If we don't...
 					cell.textLabel.alpha = 0.439216f; // (1 - alpha) * 255 = 143
@@ -1246,66 +1103,66 @@
 		}
 	} 
 	else if (indexPath.section == 2) {
-		overViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-		cell = overViewCell;
+		self.overViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell = self.overViewCell;
 		
 		//------------------------------------------------------------------------------------------------
-		[carCategoryLabel setText:[CTHelper getVehcileCategoryStringFromNumber:[NSString stringWithFormat:@"%li", (long)session.theCar.vehicleClassSize]]];
+		[self.carCategoryLabel setText:[CTHelper getVehcileCategoryStringFromNumber:[NSString stringWithFormat:@"%li", (long)self.session.theCar.vehicleClassSize]]];
 		//[carCategoryLabel setText:session.theCar.vehicleCategory];
 		
-		[numberOfPeopleLabel setText:[NSString stringWithFormat:@"x%li", (long)session.theCar.passengerQtyInt]];
-		[baggageLabel setText:[NSString stringWithFormat:@"x %@", session.theCar.baggageQty]];
-		[numberOfDoorsLabel setText:[NSString stringWithFormat:@"%@", session.theCar.doorCount]];
+		[self.numberOfPeopleLabel setText:[NSString stringWithFormat:@"x%li", (long)self.session.theCar.passengerQtyInt]];
+		[self.baggageLabel setText:[NSString stringWithFormat:@"x %@", self.session.theCar.baggageQty]];
+		[self.numberOfDoorsLabel setText:[NSString stringWithFormat:@"%@", self.session.theCar.doorCount]];
 		
-		[pickUpLocationLabel setText:session.puLocationNameString];
-		[dropOffLocationLabel setText:session.doLocationNameString];
+		[self.pickUpLocationLabel setText:self.session.puLocationNameString];
+		[self.dropOffLocationLabel setText:self.session.doLocationNameString];
 		
-		[pickUpDateLabel setText:session.readablePuDateTimeString];
-		[dropOffDateLabel setText:session.readableDoDateTimeString];
+		[self.pickUpDateLabel setText:self.session.readablePuDateTimeString];
+		[self.dropOffDateLabel setText:self.session.readableDoDateTimeString];
 		
 		
 		NSString *extrasStr = @"";
 		
-		if (![session.theCar.fuelType isEqualToString:@"Unspecified"]) {
-			extrasStr = [extrasStr stringByAppendingFormat:@"- %@ ", session.theCar.fuelType];
+		if (![self.session.theCar.fuelType isEqualToString:@"Unspecified"]) {
+			extrasStr = [extrasStr stringByAppendingFormat:@"- %@ ", self.session.theCar.fuelType];
 		}
 		
-		if (session.theCar.transmissionType) {
-			extrasStr = [extrasStr stringByAppendingFormat:@"- %@ ", session.theCar.transmissionType];
+		if (self.session.theCar.transmissionType) {
+			extrasStr = [extrasStr stringByAppendingFormat:@"- %@ ", self.session.theCar.transmissionType];
 		}
 		
-		if (session.theCar.isAirConditioned) {
+		if (self.session.theCar.isAirConditioned) {
 			extrasStr = [extrasStr stringByAppendingFormat:@"- Aircon "];
 		}
 		
-		[extraFeaturesLabel setText:extrasStr];
+		[self.extraFeaturesLabel setText:extrasStr];
 		
 		//------------------------------------------------------------------------------------------------
 		
 		CTTableViewAsyncImageView *thisImage = [[CTTableViewAsyncImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 64.0, 40.0)];
-		[carLogo addSubview:thisImage];
+		[self.carLogo addSubview:thisImage];
 		
-		NSURL *url = [NSURL URLWithString:session.theCar.pictureURL];
+		NSURL *url = [NSURL URLWithString:self.session.theCar.pictureURL];
 		[thisImage loadImageFromURL:url];
 		
-		if (session.theVendor.vendorName == NULL) {
+		if (self.session.theVendor.vendorName == NULL) {
 			// No Vendor Name or Image supplied so cant draw anything.
 		} else  {
 			CTTableViewAsyncImageView *vendorImage = [[CTTableViewAsyncImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 23.0)];
-			[vendorLogo addSubview:vendorImage];
-            if ([session.theVendor.venLogo isKindOfClass:[NSString class]] && session.theVendor.venLogo.length > 0)  {
-                NSURL *urll = [NSURL URLWithString:session.theVendor.venLogo];
+			[self.vendorLogo addSubview:vendorImage];
+            if ([self.session.theVendor.venLogo isKindOfClass:[NSString class]] && self.session.theVendor.venLogo.length > 0)  {
+                NSURL *urll = [NSURL URLWithString:self.session.theVendor.venLogo];
                 [vendorImage loadImageFromURL:urll];
             }
 		}
 		
-		if (hasAlternateDropOff) {	
+		if (self.hasAlternateDropOff) {	
 			
 			// Add new spacer
 			
 			UILabel *spacerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 274, 1)];
 			[spacerLabel setBackgroundColor:[UIColor lightGrayColor]];
-			[overViewCell addSubview:spacerLabel];
+			[self.overViewCell addSubview:spacerLabel];
 			
 			// Add new Location name
 			
@@ -1313,54 +1170,54 @@
 			[alternateDropOffLabel setBackgroundColor:[UIColor clearColor]];
 			[alternateDropOffLabel setFont:[UIFont systemFontOfSize:12]];
 			[alternateDropOffLabel setTextColor:[UIColor darkGrayColor]];
-			[alternateDropOffLabel setText:session.doLocationNameString];
-			[overViewCell addSubview:alternateDropOffLabel];
+			[alternateDropOffLabel setText:self.session.doLocationNameString];
+			[self.overViewCell addSubview:alternateDropOffLabel];
 			
 			// Add another spacer
 			
 			UILabel *anotherSpacerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 162, 274, 1)];
 			[anotherSpacerLabel setBackgroundColor:[UIColor colorWithHexString:@"#dcdcdc"]];
-			[overViewCell addSubview:anotherSpacerLabel];
+			[self.overViewCell addSubview:anotherSpacerLabel];
 			
 			// Drop Off location Labels
 			
-			[dropOffHeaderLabel setFrame:CGRectMake(dropOffHeaderLabel.frame.origin.x, 165, dropOffHeaderLabel.frame.size.width, dropOffHeaderLabel.frame.size.height)];
-			[dropOffDateLabel setFrame:CGRectMake(93, 163, 172, 19)];
+			[self.dropOffHeaderLabel setFrame:CGRectMake(self.dropOffHeaderLabel.frame.origin.x, 165, self.dropOffHeaderLabel.frame.size.width, self.dropOffHeaderLabel.frame.size.height)];
+			[self.dropOffDateLabel setFrame:CGRectMake(93, 163, 172, 19)];
 			
 		}
 		
 	} else if (indexPath.section == 3) {
-		costCell.selectionStyle = UITableViewCellSelectionStyleNone;
-		cell = costCell;
+		self.costCell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell = self.costCell;
 		
 		// Layout Costs Cell...this cell will probably only ever have 3 sections to it, maybe 2 (fees...)
 		NSNumber *total = [NSNumber numberWithDouble:0.00];
 		
-		if (session.hasBoughtInsurance) {
-			total = [NSNumber numberWithDouble:([[CTHelper convertStringToNumber:session.insurance.premiumAmount] doubleValue] + [total doubleValue])];
+		if (self.session.hasBoughtInsurance) {
+			total = [NSNumber numberWithDouble:([[CTHelper convertStringToNumber:self.session.insurance.premiumAmount] doubleValue] + [total doubleValue])];
 		}
 
 		
 		NSString *currentCurrency=@"EUR";
-		if ([session.theCar.fees count] > 0) {
+		if ([self.session.theCar.fees count] > 0) {
 			
-			for (Fee *f in session.theCar.fees) {
+			for (Fee *f in self.session.theCar.fees) {
 				NSString *cs = [CTHelper getCurrencySymbolFromString:f.feeCurrencyCode];
 				currentCurrency = cs;
 				
 				if ([f.feePurpose isEqualToString:@"22"]) {
 					// Deposit
-					if (session.hasBoughtInsurance) {
+					if (self.session.hasBoughtInsurance) {
 						NSNumber *depositPlusInsurance = [NSNumber numberWithDouble:([total doubleValue] + [[CTHelper convertFeeFromStringToNumber:f] doubleValue])];
-						[depositLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [depositPlusInsurance doubleValue]]];
+						[self.depositLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [depositPlusInsurance doubleValue]]];
 					} else {
-						[depositLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [[CTHelper convertFeeFromStringToNumber:f] doubleValue]]];
+						[self.depositLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [[CTHelper convertFeeFromStringToNumber:f] doubleValue]]];
 					}
 					total = [NSNumber numberWithDouble:([[CTHelper convertFeeFromStringToNumber:f] doubleValue] + [total doubleValue])];
 					
 				} else if ([f.feePurpose isEqualToString:@"23"]) {
 					// Pay on Arrival
-					[arrivalAmountLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [[CTHelper convertFeeFromStringToNumber:f] doubleValue]]];
+					[self.arrivalAmountLabel setText:[NSString stringWithFormat:@"%@ %.2f", cs, [[CTHelper convertFeeFromStringToNumber:f] doubleValue]]];
 					total = [NSNumber numberWithDouble:([[CTHelper convertFeeFromStringToNumber:f] doubleValue] + [total doubleValue])];
 					
 				} else if ([f.feePurpose isEqualToString:@"6"]) {
@@ -1369,33 +1226,33 @@
 					
 				}
 			}
-			[totalLabel setText:[NSString stringWithFormat:@"%@ %.2f", currentCurrency, [total doubleValue]]];
+			[self.totalLabel setText:[NSString stringWithFormat:@"%@ %.2f", currentCurrency, [total doubleValue]]];
 		}
 		
 		if ([[self getTotalCostOfExtrasWithCurrency:NO] isEqualToString:@"0.00"]) {
-			extrasCostLabel.hidden = YES;
-			extrasTitleLabel.hidden = YES;
+			self.extrasCostLabel.hidden = YES;
+			self.extrasTitleLabel.hidden = YES;
 		} else {
-			[extrasCostLabel setText:[self getTotalCostOfExtrasWithCurrency:YES]];
+			[self.extrasCostLabel setText:[self getTotalCostOfExtrasWithCurrency:YES]];
 		}
 		
 		// Add insurance premium if it's been bought in the confirmation.
 		
-		if (session.hasBoughtInsurance) {
-			[insuranceCostTitleLabel setHidden:NO];
-			[insuranceLabelForCostSection setHidden:NO];
-			[insuranceLabelForCostSection setText:[NSString stringWithFormat:@"%@ %@", session.insurance.premiumCurrencyCode, session.insurance.premiumAmount]];
+		if (self.session.hasBoughtInsurance) {
+			[self.insuranceCostTitleLabel setHidden:NO];
+			[self.insuranceLabelForCostSection setHidden:NO];
+			[self.insuranceLabelForCostSection setText:[NSString stringWithFormat:@"%@ %@", self.session.insurance.premiumCurrencyCode, self.session.insurance.premiumAmount]];
 		} else {
-			[insuranceCostTitleLabel setHidden:YES];
-			[insuranceLabelForCostSection setHidden:YES];
+			[self.insuranceCostTitleLabel setHidden:YES];
+			[self.insuranceLabelForCostSection setHidden:YES];
 			//[insuranceLabelForCostSection setText:@"(Not Included)"];
 		}
 		
-		return costCell;
+		return self.costCell;
 		
 	} else if (indexPath.section == 4){
-		termsCell.selectionStyle = UITableViewCellSelectionStyleNone;
-		cell = termsCell;
+		self.termsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+		cell = self.termsCell;
 	} 
 	
 	return cell;
@@ -1403,38 +1260,38 @@
 
 - (void) mastercardButtonPressed {
 	self.selectedCardType = @"MC";
-	[visaButton setImage:[UIImage imageNamed:@"visaIconInactive.png"] forState:UIControlStateNormal];
-	[mastercardButton setImage:[UIImage imageNamed:@"mastercardIconActive.png"] forState:UIControlStateNormal];
+	[self.visaButton setImage:[UIImage imageNamed:@"visaIconInactive.png"] forState:UIControlStateNormal];
+	[self.mastercardButton setImage:[UIImage imageNamed:@"mastercardIconActive.png"] forState:UIControlStateNormal];
 }
 
 - (void) visaButtonPressed {
 	self.selectedCardType = @"VI";
-	[visaButton setImage:[UIImage imageNamed:@"visaIconActive.png"] forState:UIControlStateNormal];
-	[mastercardButton setImage:[UIImage imageNamed:@"mastercardIconInactive.png"] forState:UIControlStateNormal];
+	[self.visaButton setImage:[UIImage imageNamed:@"visaIconActive.png"] forState:UIControlStateNormal];
+	[self.mastercardButton setImage:[UIImage imageNamed:@"mastercardIconInactive.png"] forState:UIControlStateNormal];
 }
 
 - (void) saveUserPrefs {
-	if (ctUserBookingDetails!=nil){
+	if (self.ctUserBookingDetails!=nil){
 		
-		ctUserBookingDetails.givenName = givenNameTB.text;
-		ctUserBookingDetails.namePrefix = namePrefixTB.text;
-		ctUserBookingDetails.surname = surnameTB.text;
-		ctUserBookingDetails.phoneAreaCode = phoneAreaCodeTB.text;
-		ctUserBookingDetails.phoneNumber = phoneNumberTB.text;
-		ctUserBookingDetails.emailAddress = emailAddressTB.text;
-		ctUserBookingDetails.address = addressTB.text;
-		ctUserBookingDetails.countryCode = countryCodeTB.text;
+		self.ctUserBookingDetails.givenName = self.givenNameTB.text;
+		self.ctUserBookingDetails.namePrefix = self.namePrefixTB.text;
+		self.ctUserBookingDetails.surname = self.surnameTB.text;
+		self.ctUserBookingDetails.phoneAreaCode = self.phoneAreaCodeTB.text;
+		self.ctUserBookingDetails.phoneNumber = self.phoneNumberTB.text;
+		self.ctUserBookingDetails.emailAddress = self.emailAddressTB.text;
+		self.ctUserBookingDetails.address = self.addressTB.text;
+		self.ctUserBookingDetails.countryCode = self.countryCodeTB.text;
 		
 		NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
-		[prefs setValue:ctUserBookingDetails.givenName forKey:@"ctUserBookingDetails.givenName"];
-		[prefs setValue:ctUserBookingDetails.namePrefix forKey:@"ctUserBookingDetails.namePrefix"];
-		[prefs setValue:ctUserBookingDetails.surname forKey:@"ctUserBookingDetails.surname"];
-		[prefs setValue:ctUserBookingDetails.phoneAreaCode forKey:@"ctUserBookingDetails.phoneAreaCode"];
-		[prefs setValue:ctUserBookingDetails.phoneNumber forKey:@"ctUserBookingDetails.phoneNumber"];
-		[prefs setValue:ctUserBookingDetails.emailAddress forKey:@"ctUserBookingDetails.emailAddress"];
-		[prefs setValue:ctUserBookingDetails.address forKey:@"ctUserBookingDetails.address"];
-		[prefs setValue:ctUserBookingDetails.countryCode forKey:@"ctUserBookingDetails.countryCode"];
+		[prefs setValue:self.ctUserBookingDetails.givenName forKey:@"ctUserBookingDetails.givenName"];
+		[prefs setValue:self.ctUserBookingDetails.namePrefix forKey:@"ctUserBookingDetails.namePrefix"];
+		[prefs setValue:self.ctUserBookingDetails.surname forKey:@"ctUserBookingDetails.surname"];
+		[prefs setValue:self.ctUserBookingDetails.phoneAreaCode forKey:@"ctUserBookingDetails.phoneAreaCode"];
+		[prefs setValue:self.ctUserBookingDetails.phoneNumber forKey:@"ctUserBookingDetails.phoneNumber"];
+		[prefs setValue:self.ctUserBookingDetails.emailAddress forKey:@"ctUserBookingDetails.emailAddress"];
+		[prefs setValue:self.ctUserBookingDetails.address forKey:@"ctUserBookingDetails.address"];
+		[prefs setValue:self.ctUserBookingDetails.countryCode forKey:@"ctUserBookingDetails.countryCode"];
 		
 		[prefs synchronize];
 	}
@@ -1444,25 +1301,25 @@
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-	ctUserBookingDetails = [[CTUserBookingDetails alloc] init];
+	self.ctUserBookingDetails = [[CTUserBookingDetails alloc] init];
 
-	ctUserBookingDetails.givenName = [prefs valueForKey:@"ctUserBookingDetails.givenName"];
-	ctUserBookingDetails.namePrefix = [prefs valueForKey:@"ctUserBookingDetails.namePrefix"];
-	ctUserBookingDetails.surname = [prefs valueForKey:@"ctUserBookingDetails.surname"];
-	ctUserBookingDetails.phoneAreaCode = [prefs valueForKey:@"ctUserBookingDetails.phoneAreaCode"];
-	ctUserBookingDetails.phoneNumber = [prefs valueForKey:@"ctUserBookingDetails.phoneNumber"];
-	ctUserBookingDetails.emailAddress = [prefs valueForKey:@"ctUserBookingDetails.emailAddress"];
-	ctUserBookingDetails.address = [prefs valueForKey:@"ctUserBookingDetails.address"];
-	ctUserBookingDetails.countryCode = [prefs valueForKey:@"ctUserBookingDetails.countryCode"];
+	self.ctUserBookingDetails.givenName = [prefs valueForKey:@"ctUserBookingDetails.givenName"];
+	self.ctUserBookingDetails.namePrefix = [prefs valueForKey:@"ctUserBookingDetails.namePrefix"];
+	self.ctUserBookingDetails.surname = [prefs valueForKey:@"ctUserBookingDetails.surname"];
+	self.ctUserBookingDetails.phoneAreaCode = [prefs valueForKey:@"ctUserBookingDetails.phoneAreaCode"];
+	self.ctUserBookingDetails.phoneNumber = [prefs valueForKey:@"ctUserBookingDetails.phoneNumber"];
+	self.ctUserBookingDetails.emailAddress = [prefs valueForKey:@"ctUserBookingDetails.emailAddress"];
+	self.ctUserBookingDetails.address = [prefs valueForKey:@"ctUserBookingDetails.address"];
+	self.ctUserBookingDetails.countryCode = [prefs valueForKey:@"ctUserBookingDetails.countryCode"];
 	
-	[givenNameTB setText:ctUserBookingDetails.givenName];
-	[namePrefixTB setText:ctUserBookingDetails.namePrefix];
-	[surnameTB setText:ctUserBookingDetails.surname];
-	[phoneAreaCodeTB setText:ctUserBookingDetails.phoneAreaCode];
-	[phoneNumberTB setText:ctUserBookingDetails.phoneNumber];
-	[emailAddressTB setText:ctUserBookingDetails.emailAddress];
-	[addressTB setText:ctUserBookingDetails.address];
-	[countryCodeTB setText:ctUserBookingDetails.countryCode];
+	[self.givenNameTB setText:self.ctUserBookingDetails.givenName];
+	[self.namePrefixTB setText:self.ctUserBookingDetails.namePrefix];
+	[self.surnameTB setText:self.ctUserBookingDetails.surname];
+	[self.phoneAreaCodeTB setText:self.ctUserBookingDetails.phoneAreaCode];
+	[self.phoneNumberTB setText:self.ctUserBookingDetails.phoneNumber];
+	[self.emailAddressTB setText:self.ctUserBookingDetails.emailAddress];
+	[self.addressTB setText:self.ctUserBookingDetails.address];
+	[self.countryCodeTB setText:self.ctUserBookingDetails.countryCode];
 	
 	//[self updateFieldColors];
 }

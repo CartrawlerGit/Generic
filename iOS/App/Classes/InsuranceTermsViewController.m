@@ -15,23 +15,20 @@
 
 @implementation InsuranceTermsViewController
 
-@synthesize spinner;
-@synthesize ins;
-
 - (void)webViewDidStartLoad:(UIWebView *)wv {
     DLog (@"webViewDidStartLoad");
-    [spinner startAnimating];
+    [self.spinner startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)wv {
     DLog (@"webViewDidFinishLoad");
-    [spinner stopAnimating];
-	[spinner setHidden:YES];
+    [self.spinner stopAnimating];
+	[self.spinner setHidden:YES];
 }
 
 - (void)webView:(UIWebView *)wv didFailLoadWithError:(NSError *)error {
     DLog (@"webView:didFailLoadWithError");
-    [spinner stopAnimating];
+    [self.spinner stopAnimating];
     if (error != NULL) {
         UIAlertView *errorAlert = [[UIAlertView alloc]
 								   initWithTitle: [error localizedDescription]
@@ -42,7 +39,7 @@
         [errorAlert show];
         //[errorAlert release];
     }
-	[spinner setHidden:YES];
+	[self.spinner setHidden:YES];
 }
 
 #pragma mark -
@@ -52,7 +49,7 @@
 	UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, 322, 418)];
 	webView.delegate = self;
 	webView.scalesPageToFit = YES;
-	NSURL *targetURL = [NSURL URLWithString:ins.detailURL];
+	NSURL *targetURL = [NSURL URLWithString:self.ins.detailURL];
 	NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
 	[webView loadRequest:request];
 	
@@ -85,15 +82,7 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-/*
-- (void)dealloc {
-	[ins release];
-	ins = nil;
-	[spinner release];
-	spinner = nil;
-    [super dealloc];
-}
-*/
+
 #pragma mark -
 #pragma mark IBActions
 

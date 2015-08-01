@@ -21,83 +21,19 @@
 
 @class LocationListViewController, RentalSession, CTLocation,CTSearchDefaults, CTCountry, CTSearchDefaults;
 
-@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ASIHTTPRequestDelegate> 
-{ 
-	BOOL				isFromNearbySearch;
-	BOOL				isFromCitySearch;
-	BOOL				isFromAirportSearch;
-	
-	NSString			*pickUpDateTime;
-	NSString			*returnDateTime;
-	NSString			*pickUpLocationCode;
-	NSString			*pickUpLocationName;
-	NSString			*dropOffLocationName;
-	NSString			*returnLocationCode;
-	NSString			*driverAge;
-	NSString			*passengerQty;
-	NSString			*homeCountryCode;
-	NSString			*formattedPickupString;
-	NSString			*formattedDropoffString;
-	
-	UITextField			*pickupTextField;
-	UITextField			*dropoffTextField;
-	UITextField			*ageTextField;
-	UITextField			*numberOfPassengersTextField;
-	
-	UILabel				*pickupDateLabel;
-	UILabel				*dropoffDateLabel;
-	UILabel				*countryLabel;
-	UILabel				*currencyLabel;
-	BOOL				frontViewIsVisible;
-	BOOL				alternateDrop;
-	BOOL				searchingAlternateDropOffLocationFromMapView;
-	NSMutableArray		*preloadedLocations;
-	NSMutableArray		*preloadedCountryList;
-	NSMutableArray		*preloadedCurrencyList;
-
-	NSDate				*theDateFromPicker;
-	UIView				*pickerView;
-	
-	LocationListViewController *llvc;
-	
-	RentalSession		*session;
-	
-	BOOL				canShowList;
-	BOOL				showListNow;
-	BOOL				pickupDateSet;
-	BOOL				dropoffDateSet;
-	BOOL				pickupLocationSet;
-	BOOL				dropoffLocationSet;
-	BOOL				isSettingPickup; // I stupidly used these for setting the DATE when i meant to use them for location.
-	BOOL				isSettingDropoff;
-	BOOL				isSettingDropoffLocation;
-	
-	BOOL				isSelectingByMap;
-	
-	BOOL				setFromLocations;
-	
-	CTLocation			*selectedNearbyLocation;
-	
-	CTSearchDefaults	*ctSearchDefaults;
-	
-	CTCountry			*ctCountry;
-	//CTCurrency *ctCurrency;
-	
-	UIButton			*dismissLocationPopUpButton;
-	
-}
+@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ASIHTTPRequestDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *showDOMapButton;
 @property (nonatomic, weak) IBOutlet UIButton *showMapButton;
 @property (nonatomic, assign) BOOL setFromLocations;
-@property (nonatomic, retain) UIButton *dismissLocationPopUpButton;
-@property (nonatomic, retain) CTSearchDefaults *ctSearchDefaults;
-@property (nonatomic, retain) CTCountry *ctCountry;
-//@property (nonatomic, retain) CTCurrency *ctCurrency;
+@property (nonatomic, strong) UIButton *dismissLocationPopUpButton;
+@property (nonatomic, strong) CTSearchDefaults *ctSearchDefaults;
+@property (nonatomic, strong) CTCountry *ctCountry;
+//@property (nonatomic, strong) CTCurrency *ctCurrency;
 
 @property (nonatomic, assign) BOOL isSettingDropoffLocation;
-@property (nonatomic, retain) CTLocation *selectedNearbyLocation;
-@property (nonatomic, retain) RentalSession *session;
+@property (nonatomic, strong) CTLocation *selectedNearbyLocation;
+@property (nonatomic, strong) RentalSession *session;
 @property (nonatomic, assign) BOOL isFromNearbySearch;
 @property (nonatomic, assign) BOOL isFromCitySearch;
 @property (nonatomic, assign) BOOL isFromAirportSearch;
@@ -116,21 +52,21 @@
 @property (nonatomic, copy) NSString *passengerQty;
 @property (nonatomic, copy) NSString *homeCountryCode;
 
-@property (nonatomic, retain) UIView *footerView;
-@property (nonatomic, retain) NSDate *theDateFromPicker;
+@property (nonatomic, strong) UIView *footerView;
+@property (nonatomic, strong) NSDate *theDateFromPicker;
 
-@property (nonatomic, retain) NSMutableArray *preloadedCurrencyList;
-@property (nonatomic, retain) NSMutableArray *preloadedLocations;
-@property (nonatomic, retain) NSMutableArray *preloadedCountryList;
+@property (nonatomic, strong) NSMutableArray *preloadedCurrencyList;
+@property (nonatomic, strong) NSMutableArray *preloadedLocations;
+@property (nonatomic, strong) NSMutableArray *preloadedCountryList;
 
 @property (nonatomic, weak) IBOutlet UIPickerView *countryPicker;
 @property (nonatomic, weak) IBOutlet UIPickerView *currencyPicker;
 @property (nonatomic, weak) IBOutlet UIDatePicker *timePicker;
 
 @property (nonatomic, weak) IBOutlet UIView *headerView;
-@property (nonatomic, retain) UIView *calendarView;
+@property (nonatomic, strong) UIView *calendarView;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, retain) IBOutlet UIView *pickerView;
+@property (nonatomic, strong) IBOutlet UIView *pickerView;
 @property (nonatomic, weak) IBOutlet UIView *alternateLocationFooterView;
 @property (nonatomic, weak) IBOutlet UIView *selectLocationView;
 @property (nonatomic, weak) IBOutlet UIView *countryPickerView;
@@ -140,15 +76,15 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *dateDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *pickerModeLabel;
-@property (nonatomic, retain) UILabel *pickupDateLabel;
-@property (nonatomic, retain) UILabel *dropoffDateLabel;
+@property (nonatomic, strong) UILabel *pickupDateLabel;
+@property (nonatomic, strong) UILabel *dropoffDateLabel;
 
 @property (nonatomic, weak) IBOutlet UITableView *searchTable;
 
-@property (nonatomic, retain) UITextField *pickupTextField;
-@property (nonatomic, retain) UITextField *dropoffTextField;
-@property (nonatomic, retain) UITextField *ageTextField;
-@property (nonatomic, retain) UITextField *numberOfPassengersTextField;
+@property (nonatomic, strong) UITextField *pickupTextField;
+@property (nonatomic, strong) UITextField *dropoffTextField;
+@property (nonatomic, strong) UITextField *ageTextField;
+@property (nonatomic, strong) UITextField *numberOfPassengersTextField;
 
 @property (assign) BOOL frontViewIsVisible;
 @property (assign) BOOL alternateDrop;

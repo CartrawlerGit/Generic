@@ -21,13 +21,11 @@
 
 @class Booking;
 
-@interface ReceiptViewController : UIViewController {
-	Booking		*theBooking;
-}
+@interface ReceiptViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UILabel *refLabel;
 @property (nonatomic, weak) IBOutlet UIButton *exitBtn;
-@property (nonatomic, retain) Booking *theBooking;
+@property (nonatomic, strong) Booking *theBooking;
 @property (nonatomic, weak) IBOutlet UILabel *emailLabel;
 
 - (IBAction)exitBtnPressed:(id)sender;

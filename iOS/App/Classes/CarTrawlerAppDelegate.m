@@ -27,6 +27,8 @@
 - (void) preloadJSON:(NSDictionary *)dict;
 - (NSString *) getSupportNumber;
 
+@property (nonatomic, strong) CTCountry	*ctCountry;
+
 @end
 
 @implementation UINavigationBar (CustomImage)
@@ -39,21 +41,6 @@
 @end
 
 @implementation CarTrawlerAppDelegate
-
-@synthesize governingTintColor, barTintColor;
-@synthesize clientID;
-@synthesize companyName;
-@synthesize amendBookingsLink;
-@synthesize engineConditionsURL;
-@synthesize insuranceRegions;
-@synthesize canAmendBookings;
-@synthesize infoJSON;
-@synthesize customerCareNumbers;
-@synthesize countryCode;
-@synthesize preloadedCountryList;
-@synthesize preloadedCurrencyList;
-@synthesize window;
-@synthesize tabBarController;
 
 #pragma mark -
 #pragma mark Remote JSON Control Info
@@ -105,7 +92,7 @@
         self.governingTintColor = [CTHelper blueColor];
     }
     
-	DLog(@"The client ID is %@", clientID);
+	DLog(@"The client ID is %@", self.clientID);
     
 	// This is possibly a tad on the restricted side, its element 1 in the array but a dict...
 	self.engineConditionsURL = [[[[dict objectForKey:@"data"] objectForKey:@"links"] objectAtIndex:1] objectForKey:@"engine"];
@@ -123,14 +110,14 @@
 
 	for (id i in numbers) {
 		CTCareNumber *num = [[CTCareNumber alloc] initFromInfoDictionary:i];
-		[customerCareNumbers addObject:num];
+		[self.customerCareNumbers addObject:num];
 		//[num release];
 	}
 	
 	if ([[dict objectForKey:@"data"] objectForKey:@"insuranceResidences"]) {
 		if ([[[dict objectForKey:@"data"] objectForKey:@"insuranceResidences"] isKindOfClass:[NSArray class]]) {
 			for (id item in [[dict objectForKey:@"data"] objectForKey:@"insuranceResidences"]) {
-				[insuranceRegions addObject:item];
+				[self.insuranceRegions addObject:item];
 			}
 		}
 	}
@@ -143,14 +130,14 @@
 	NSMutableArray *numbers = self.customerCareNumbers;
 
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    ctCountry = [[CTCountry alloc] init];
-    ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
+    self.ctCountry = [[CTCountry alloc] init];
+    self.ctCountry.isoCountryCode = [prefs objectForKey:@"ctCountry.isoCountryCode"];
     
     CTCareNumber *defnum = (CTCareNumber *)[numbers objectAtIndex:0];
 	NSString *ret = defnum.careNumber;
 	
 	for (CTCareNumber *n in numbers) {
-		if ([n.isoCountryCode isEqualToString:ctCountry.isoCountryCode]) {
+		if ([n.isoCountryCode isEqualToString:self.ctCountry.isoCountryCode]) {
 			ret = n.careNumber;
             DLog(@"Carenumber: %@", ret);
             [[NSUserDefaults standardUserDefaults] setObject:n.isoCountryCode forKey:@"country_preference"];
@@ -222,7 +209,7 @@
 
 - (void) preloadCurrencies {
 	//NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	preloadedCurrencyList = [[NSMutableArray alloc] init];
+	self.preloadedCurrencyList = [[NSMutableArray alloc] init];
 	
 	NSString *paths = [[NSBundle mainBundle] resourcePath];
     NSString *bundlePath = [paths stringByAppendingPathComponent:@"CTCurrency.csv"];
@@ -231,7 +218,7 @@
 	NSArray *csvDump = [dataFile csvRows];
 	for (int i = 0; i < [csvDump count]; i++) {
 		CTCurrency *currency = [[CTCurrency alloc] initFromArray:[csvDump objectAtIndex:i]];
-		[preloadedCurrencyList addObject:currency];
+		[self.preloadedCurrencyList addObject:currency];
 		//[currency release];
 	}
 	DLog(@"Finished Loading currencies");
@@ -241,7 +228,7 @@
 
 - (void) preloadCountries {
 	//NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	preloadedCountryList = [[NSMutableArray alloc] init];
+	self.preloadedCountryList = [[NSMutableArray alloc] init];
 	NSString *paths = [[NSBundle mainBundle] resourcePath];
     NSString *bundlePath = [paths stringByAppendingPathComponent:@"CTISOCountries.csv"];
     NSError * error = nil;
@@ -249,7 +236,7 @@
 	NSArray *csvDump = [dataFile csvRows];
 	for (int i = 0; i < [csvDump count]; i++) {
 		CTCountry *country = [[CTCountry alloc] initFromArray:[csvDump objectAtIndex:i]];
-		[preloadedCountryList addObject:country];
+		[self.preloadedCountryList addObject:country];
 		//[country release];
 	}
 	DLog(@"Finished Loading countries");
@@ -266,14 +253,14 @@
 	
 	[self loadLocalInfoFile];
 	[self getInfoFile];
-    if (!window) {
+    if (!self.window) {
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController = self.tabBarController;
     } else {
-        [window addSubview:tabBarController.view];
-        window.rootViewController = tabBarController;
+        [self.window addSubview:self.tabBarController.view];
+        self.window.rootViewController = self.tabBarController;
     }
-    [window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
 	
 	[self preloadCountries];
 	[self performSelectorInBackground:@selector(preloadCurrencies) withObject:nil];
@@ -284,7 +271,7 @@
         [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
     // sets the tint color for the buttons inside the navigation bar
-    [[UIBarButtonItem appearance] setTintColor:governingTintColor];
+    [[UIBarButtonItem appearance] setTintColor:self.governingTintColor];
     
 
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -324,30 +311,6 @@
      */
 }
 
-- (void) dealloc {
-    /*
-    [tabBarController release];
-    [window release];
-	[preloadedCurrencyList release];
-	[countryCode release];
-	[customerCareNumbers release];
-	[infoJSON release];
-	infoJSON = nil;
-	[insuranceRegions release];
-	insuranceRegions = nil;
-	[engineConditionsURL release];
-	engineConditionsURL = nil;
-	[amendBookingsLink release];
-	amendBookingsLink = nil;
-	[companyName release];
-	companyName = nil;
-	[clientID release];
-	clientID = nil;
-    [governingTintColor release];
-    governingTintColor = nil;
-    [super dealloc];*/
-}
-
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -355,8 +318,6 @@
 
     return YES;
 }
-
-
 
 -(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
 {
@@ -368,21 +329,5 @@
     return YES;
 }
 
-/*
--(UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
-{
-    // Create a new navigation controller
-    UIViewController *vc = [[UINavigationController alloc] init];
-    
-    // The last object in the path array is the restorarion view controller
-    vc.restorationIdentifier = [identifierComponents lastObject];
-    
-    // If there is only 1 identifier component, then this is the root view controller
-    if ([identifierComponents count] == 1) {
-        self.window.rootViewController = vc;
-    }
-    return vc;
-}
- */
 @end
 
