@@ -110,6 +110,7 @@
 		C2A0F397183C16AE00B0ACEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F396183C16AE00B0ACEE /* QuartzCore.framework */; };
 		C2A0F399183C16C900B0ACEE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */; };
 		C2A0F39B183C16DD00B0ACEE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */; };
+		E2226D9F1B6D8521007FA854 /* CTError+ResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */; };
 		E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */; };
 		E24A07671B6D368E00D7C41F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07641B6D368E00D7C41F /* NSObject+SBJSON.m */; };
 		E24A07681B6D368E00D7C41F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07661B6D368E00D7C41F /* NSString+SBJSON.m */; };
@@ -310,6 +311,9 @@
 		C2A0F396183C16AE00B0ACEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		E2226D931B6D831A007FA854 /* CTResponseValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CTResponseValidator.h; path = Network/ResponseValidator/CTResponseValidator.h; sourceTree = "<group>"; };
+		E2226D9D1B6D8521007FA854 /* CTError+ResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTError+ResponseValidator.h"; path = "Network/ResponseValidator/CTError+ResponseValidator.h"; sourceTree = "<group>"; };
+		E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTError+ResponseValidator.m"; path = "Network/ResponseValidator/CTError+ResponseValidator.m"; sourceTree = "<group>"; };
 		E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fee+NSDictionary.h"; sourceTree = "<group>"; };
 		E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fee+NSDictionary.m"; sourceTree = "<group>"; };
 		E24A07621B6D35C600D7C41F /* JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 		29B97314FDCFA39411CA2CEA /* CarTrawler */ = {
 			isa = PBXGroup;
 			children = (
+				E2226D911B6D821F007FA854 /* Network */,
 				66B66C6211E4A7070065E565 /* Model */,
 				080E96DDFE201D6D7F000001 /* Control */,
 				66C25F6E11F0B96400DD72F5 /* Utility */,
@@ -1096,6 +1101,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E2226D911B6D821F007FA854 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E2226D921B6D82B8007FA854 /* ResponseValidator */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		E2226D921B6D82B8007FA854 /* ResponseValidator */ = {
+			isa = PBXGroup;
+			children = (
+				E2226D931B6D831A007FA854 /* CTResponseValidator.h */,
+				E2226D9D1B6D8521007FA854 /* CTError+ResponseValidator.h */,
+				E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */,
+			);
+			name = ResponseValidator;
+			sourceTree = "<group>";
+		};
 		E24A07691B6D378E00D7C41F /* SBJson */ = {
 			isa = PBXGroup;
 			children = (
@@ -1346,6 +1369,7 @@
 				66DA90711328EDAC00A5564C /* CustomIncludedItemCell.m in Sources */,
 				66DA932C132A21C500A5564C /* InsuranceObject.m in Sources */,
 				669063B4132A318A00C9B3C2 /* InsuranceTermsViewController.m in Sources */,
+				E2226D9F1B6D8521007FA854 /* CTError+ResponseValidator.m in Sources */,
 				E24A07901B6D799F00D7C41F /* CTCountry+Factory.m in Sources */,
 				661C4925132CFB7900E5DBA8 /* FindBookingViewController.m in Sources */,
 				E24A07681B6D368E00D7C41F /* NSString+SBJSON.m in Sources */,

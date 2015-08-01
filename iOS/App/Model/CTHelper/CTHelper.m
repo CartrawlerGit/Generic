@@ -11,6 +11,7 @@
 #import "CTCountry+Coding.h"
 #import "CTCountry+Factory.h"
 #import "CTCurrency.h"
+#import "CTError+ResponseValidator.h"
 #import "VehAvailRSCore.h"
 #import "Booking.h"
 #import "Fee.h"
@@ -328,39 +329,7 @@
 	}
 	else if ([[response allKeys] containsObject:@"Errors"]) 
 	{
-		DLog(@"Have Error!");
-		
-		NSMutableArray *actualErrors = [[NSMutableArray alloc] init];
-		
-		if ([[response objectForKey:@"Errors"] isKindOfClass:[NSArray class]]) 
-		{
-			DLog(@"There is more than one error");
-			NSArray *errors = (NSArray *)[response objectForKey:@"Errors"];
-			
-			for (NSDictionary *dict in errors) 
-			{
-				[actualErrors addObject:[self errorResponse:[dict objectForKey:@"Error"]]];
-			}
-			
-			return actualErrors;
-			
-		} 
-		else 
-		{
-			DLog(@"There is only one error");
-			
-			id errors = [[response objectForKey:@"Errors"] objectForKey:@"Error"];
-
-			if ([errors isKindOfClass:[NSDictionary class]]) {
-				[actualErrors addObject:[self errorResponse:[errors objectForKey:@"Error"]]];
-			} else if ([errors isKindOfClass:[NSArray class]]) {
-				for (NSDictionary *dict in errors) {
-					[actualErrors addObject:[self errorResponse:dict]];
-				}
-			}
-			return actualErrors;
-		}
-	
+		return [CTError validateResponseObject:response];
 	}
 	else if ([[response allKeys] containsObject:@"VehResRSCore"]) 
 	{
@@ -414,11 +383,6 @@
 + (Booking *) vehResRSCore:(NSDictionary *)info {
 	Booking *b = [[Booking alloc] initFromVehReservationDictionary:info];
 	return b;
-}
-
-+ (CTError *) errorResponse:(NSDictionary *)err {
-	CTError *error = [[CTError alloc] initFromErrorRS:err];
-	return error;
 }
 
 + (VehAvailRSCore *) vehAvailRSCore:(NSDictionary *) info {

@@ -160,10 +160,10 @@ CTHudViewController *hud;
 	//[hud autorelease];
 	hud = nil;
 	
-	if ([[CTHelper validateResponse:responseDict] isKindOfClass:[NSMutableArray class]]) 
+	if ([[CTHelper validateResponse:responseDict] isKindOfClass:[NSArray class]])
 	{
 		// We have errors
-		NSMutableArray *temp = (NSMutableArray *)[CTHelper validateResponse:responseDict];
+		NSArray *temp = (NSArray *)[CTHelper validateResponse:responseDict];
 		for (CTError *er in temp) 
 		{
 			if ([er.errorShortTxt isEqualToString:@"Search returned no records"]) {
@@ -238,22 +238,6 @@ CTHudViewController *hud;
 		[request setTimeOutSeconds:30];
 		[request setDidFinishSelector:@selector(requestFinishedWithVehAvailsCoreRS:)];
 		[request startAsynchronous];
-		//[request setNumberOfTimesToRetryOnTimeout:1];
-		
-        //	[FlurryAPI logEvent:@"Step 1: Made Search."];
-		
-		//rjh NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-        //	[NSString stringWithFormat:@"(%@) %@", session.puLocationCode, session.puLocationNameString], @"Pickup location.",
-        //	session.puDateTime, @"Pickup time.",
-        //	[NSString stringWithFormat:@"(%@) %@", session.doLocationCode, session.doLocationNameString], @"Dropoff location",
-        //	session.doDateTime, @"Dropoff time",
-        //	session.driverAge, @"Driver age.",
-        //	session.homeCountry, @"Country of Residence",
-        //	nil];
-		
-        //	[FlurryAPI logEvent:@"Step 1: Search Submitted." withParameters:dictionary];
-		
-        //	[FlurryAPI logEvent:@"Session." timed:YES];
 	}
 }
 

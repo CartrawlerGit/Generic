@@ -18,7 +18,7 @@
 //  CarTrawler
 //
 //
-@class ASIHTTPRequest, VehAvailRSCore, Booking, Fee, CTError, RentalSession, CTCountry;
+@class ASIHTTPRequest, VehAvailRSCore, Booking, Fee, RentalSession, CTCountry;
 
 @interface CTHelper : NSObject { }
 
@@ -57,8 +57,6 @@
 + (NSMutableArray *) vehMatchedLocs:(NSDictionary *) locations;
 
 + (NSMutableArray *) predictiveLocations:(NSDictionary *) locations;
-
-+ (CTError *) errorResponse:(NSDictionary *)err;
 
 + (VehAvailRSCore *) vehAvailRSCore:(NSDictionary *) info;
 
