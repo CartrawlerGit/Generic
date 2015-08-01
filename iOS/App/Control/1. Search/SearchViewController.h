@@ -61,7 +61,6 @@
 
 @property (nonatomic, weak) IBOutlet UIPickerView *countryPicker;
 @property (nonatomic, weak) IBOutlet UIPickerView *currencyPicker;
-@property (nonatomic, weak) IBOutlet UIDatePicker *timePicker;
 
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 @property (nonatomic, strong) UIView *calendarView;

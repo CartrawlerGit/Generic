@@ -338,7 +338,16 @@
 		else 
 		{
 			DLog(@"There is only one error");
-			[actualErrors addObject:[self errorResponse:[[response objectForKey:@"Errors"] objectForKey:@"Error"]]];
+			
+			id errors = [[response objectForKey:@"Errors"] objectForKey:@"Error"];
+
+			if ([errors isKindOfClass:[NSDictionary class]]) {
+				[actualErrors addObject:[self errorResponse:[errors objectForKey:@"Error"]]];
+			} else if ([errors isKindOfClass:[NSArray class]]) {
+				for (NSDictionary *dict in errors) {
+					[actualErrors addObject:[self errorResponse:dict]];
+				}
+			}
 			return actualErrors;
 		}
 	

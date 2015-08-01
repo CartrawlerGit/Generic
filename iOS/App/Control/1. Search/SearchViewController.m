@@ -32,6 +32,7 @@
 @property (nonatomic, assign) BOOL isSelectingByMap;
 @property (nonatomic, assign) BOOL searchingAlternateDropOffLocationFromMapView;
 @property (nonatomic, strong) UILabel *countryLabel;
+@property (nonatomic, strong) UIDatePicker *timePicker;
 
 @end
 
@@ -761,7 +762,10 @@ CTHudViewController *hud;
 	
 	self.pickerView = [[UIView alloc] initWithFrame:CGRectMake(2.0, 0.0, 312.0, 280.0)];
 	self.pickerView.clipsToBounds = YES;
-	self.timePicker.frame = CGRectMake(0, 60, 312, 216);
+	
+	if (self.timePicker == nil) {
+		self.timePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 60, 312, 216)];
+	}
 
 	self.timePicker.datePickerMode = UIDatePickerModeDateAndTime;
 	self.timePicker.minuteInterval = 15;
