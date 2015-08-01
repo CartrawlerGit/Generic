@@ -50,9 +50,9 @@
 @property (nonatomic, copy) NSString *engineConditionsURL;
 @property (nonatomic, strong) NSMutableArray *insuranceRegions;
 @property (nonatomic, assign) BOOL canAmendBookings;
-
+@property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, copy) NSDictionary *infoJSON;
-
+@property (nonatomic, strong) CTCountry	*ctCountry;
 @property (nonatomic, copy) NSString *countryCode;
 @property (nonatomic, strong) NSMutableArray *customerCareNumbers;
 @property (nonatomic, strong) NSMutableArray *preloadedCountryList;

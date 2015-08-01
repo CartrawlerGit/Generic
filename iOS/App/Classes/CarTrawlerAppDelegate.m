@@ -27,8 +27,6 @@
 - (void) preloadJSON:(NSDictionary *)dict;
 - (NSString *) getSupportNumber;
 
-@property (nonatomic, strong) CTCountry	*ctCountry;
-
 @end
 
 @implementation UINavigationBar (CustomImage)

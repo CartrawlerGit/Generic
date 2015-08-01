@@ -20,31 +20,7 @@
 //
 #import "CTForwardGeocoder.h"
 
-@interface MapSearchViewController : UIViewController <MKMapViewDelegate, UISearchBarDelegate, CTForwardGeocoderDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate> {
-	MKMapView			*searchMap;
-	UISearchBar			*theSearchBar;
-	UIImageView			*geocodeResultsMask;
-	UITableView			*geocodeResultsTable;
-	UITableView			*listTable;
-	
-	CLLocationManager	*locationManager;
-	UISegmentedControl	*segmentedControl;
-	UIBarButtonItem		*searchBtn;
-	CTForwardGeocoder	*forwardGeocoder;
-	
-	BOOL				searchingNearby;
-	BOOL				usingSearchBar;
-	BOOL				modalMode;
-
-	NSMutableArray		*locationResults;
-	
-	NSUInteger			referringFieldValue;	// This is the int (tag) passed from the SearchViewController's pick up or drop off field.
-
-	UINavigationBar		*modalNavBar;
-	UIBarButtonItem		*modalSearchLocation;
-	UIBarButtonItem		*modalSearchName;
-	UIButton			*settingsButton;
-}
+@interface MapSearchViewController : UIViewController <MKMapViewDelegate, UISearchBarDelegate, CTForwardGeocoderDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet UIButton *settingsButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *modalSearchLocation;

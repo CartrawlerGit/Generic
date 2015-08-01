@@ -23,35 +23,18 @@
 #define SD_IS_IOS6 YES
 #endif
 
+@interface MapSearchViewController ()
+@property (nonatomic, strong) CTHudViewController *hud;
+@end
+
 @interface MapSearchViewController (Private)
 
 - (void) zoomToFitMapAnnotations:(MKMapView *) mapView;
 - (void) searchButtonPressed;
 
-@property (nonatomic, strong) CTHudViewController *hud;
-
 @end
 
 @implementation MapSearchViewController
-
-@synthesize settingsButton;
-@synthesize modalSearchLocation;
-@synthesize modalSearchName;
-@synthesize modalNavBar;
-@synthesize referringFieldValue;
-@synthesize modalMode;
-@synthesize searchBtn;
-@synthesize geocodeResultsMask;
-@synthesize locationResults;
-@synthesize listTable;
-@synthesize usingSearchBar;
-@synthesize searchingNearby;
-@synthesize segmentedControl;
-@synthesize locationManager;
-@synthesize forwardGeocoder;
-@synthesize geocodeResultsTable;
-@synthesize theSearchBar;
-@synthesize searchMap;
 
 
 #pragma mark -
@@ -69,25 +52,25 @@
 	UISegmentedControl *thisSegmentedControl = (UISegmentedControl *)sender;
 	
 	if ( [thisSegmentedControl selectedSegmentIndex] == 0 ) {
-		searchMap.hidden = NO;
-		listTable.hidden = YES;
+		self.searchMap.hidden = NO;
+		self.listTable.hidden = YES;
 	} else {
 		
-		[listTable reloadData];
+		[self.listTable reloadData];
 		
-		searchMap.hidden = YES;
-		listTable.hidden = NO;
+		self.searchMap.hidden = YES;
+		self.listTable.hidden = NO;
 	}
 }
 
 - (void) setUpSegmentedControl {
     CarTrawlerAppDelegate *appDelegate = (CarTrawlerAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [segmentedControl setTintColor:appDelegate.governingTintColor];
+    [self.segmentedControl setTintColor:appDelegate.governingTintColor];
 	
-	self.navigationItem.titleView = segmentedControl;
+	self.navigationItem.titleView = self.segmentedControl;
 	
-	segmentedControl.selectedSegmentIndex = 0;
-	[segmentedControl addTarget:self action:@selector(madeSelection:) forControlEvents:UIControlEventValueChanged];
+	self.segmentedControl.selectedSegmentIndex = 0;
+	[self.segmentedControl addTarget:self action:@selector(madeSelection:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark -
@@ -152,7 +135,7 @@
 }
 
 - (void) requestFinished:(ASIHTTPRequest *)request {
-	[locationResults removeAllObjects];
+	[self.locationResults removeAllObjects];
 	NSString *responseString = [request responseString];
 	NSLog( @"%@", responseString);
 	if (kShowResponse) {
@@ -177,14 +160,14 @@
 		} else {
             
 			CTLocation *location = (CTLocation *)[locations objectAtIndex:i];
-			[locationResults addObject:location];
+			[self.locationResults addObject:location];
 			
-			[searchMap addAnnotation:location];
+			[self.searchMap addAnnotation:location];
 		}
 	}
 	
-	[listTable reloadData];
-	[self zoomToFitMapAnnotations:searchMap];
+	[self.listTable reloadData];
+	[self zoomToFitMapAnnotations:self.searchMap];
 	[self.hud hide];
 	//[hud autorelease];
 	self.hud = nil;
@@ -217,26 +200,26 @@
 
 - (void) forwardGeocoderFoundLocation {
 	
-	[searchMap removeAnnotations:searchMap.annotations];
+	[self.searchMap removeAnnotations:self.searchMap.annotations];
 	
-	if(forwardGeocoder.status == G_GEO_SUCCESS) {
+	if(self.forwardGeocoder.status == G_GEO_SUCCESS) {
 		
-		if ([forwardGeocoder.results count] > 1) {
-			[geocodeResultsTable reloadData];
-			[geocodeResultsMask setHidden:NO];
-			[geocodeResultsTable setHidden:NO];
+		if ([self.forwardGeocoder.results count] > 1) {
+			[self.geocodeResultsTable reloadData];
+			[self.geocodeResultsMask setHidden:NO];
+			[self.geocodeResultsTable setHidden:NO];
 		}
 		
-		if([forwardGeocoder.results count] == 1) {
+		if([self.forwardGeocoder.results count] == 1) {
 			
-			CTKmlResult *place = [forwardGeocoder.results objectAtIndex:0];
+			CTKmlResult *place = [self.forwardGeocoder.results objectAtIndex:0];
 			
 			CustomPlacemark *placemark = [[CustomPlacemark alloc] initWithRegion:place.coordinateRegion];
 			placemark.title = place.address;
-			[searchMap addAnnotation:placemark];
+			[self.searchMap addAnnotation:placemark];
 			
 			// Zoom into the location		
-			[searchMap setRegion:place.coordinateRegion animated:TRUE];
+			[self.searchMap setRegion:place.coordinateRegion animated:TRUE];
 			[self locationSearch:place.coordinate];
 		}
 		
@@ -247,13 +230,13 @@
 	else {
 		NSString *message = @"";
 		
-		switch (forwardGeocoder.status) {
+		switch (self.forwardGeocoder.status) {
 			case G_GEO_BAD_KEY:
 				message = @"The API key is invalid.";
 				break;
 				
 			case G_GEO_UNKNOWN_ADDRESS:
-				message = [NSString stringWithFormat:@"Could not find %@", forwardGeocoder.searchQuery];
+				message = [NSString stringWithFormat:@"Could not find %@", self.forwardGeocoder.searchQuery];
 				break;
 				
 			case G_GEO_TOO_MANY_QUERIES:
@@ -282,14 +265,14 @@
 #pragma mark UISearchBar Methods
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-	searchingNearby = NO;
+	self.searchingNearby = NO;
 
-	if(forwardGeocoder == nil) {
-		forwardGeocoder = [[CTForwardGeocoder alloc] initWithDelegate:self];
+	if(self.forwardGeocoder == nil) {
+		self.forwardGeocoder = [[CTForwardGeocoder alloc] initWithDelegate:self];
 	}
 	// Forward geocode!
-	[forwardGeocoder findLocation:[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
-	[theSearchBar resignFirstResponder];
+	[self.forwardGeocoder findLocation:[searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+	[self.theSearchBar resignFirstResponder];
 	[self searchButtonPressed];
 	
 	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
@@ -314,10 +297,10 @@
 }
 
 - (IBAction) currentLocationSearchBtnPressed {
-	searchingNearby = YES;
+	self.searchingNearby = YES;
 	
-	searchMap.showsUserLocation = YES;
-	[searchMap removeAnnotations:searchMap.annotations];
+	self.searchMap.showsUserLocation = YES;
+	[self.searchMap removeAnnotations:self.searchMap.annotations];
 	
 	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching nearby"];
 	[self.hud show];
@@ -329,7 +312,7 @@
 
 	//	[FlurryAPI setLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude horizontalAccuracy:locationManager.location.horizontalAccuracy verticalAccuracy:locationManager.location.verticalAccuracy];
 	
-		[self locationSearch:locationManager.location.coordinate];
+		[self locationSearch:self.locationManager.location.coordinate];
 	
     // Obsolete faking location method
     /*
@@ -347,33 +330,33 @@
 }
 
 - (IBAction) searchButtonPressed {
-	[geocodeResultsMask setHidden:YES];
-	[geocodeResultsTable setHidden:YES];
+	[self.geocodeResultsMask setHidden:YES];
+	[self.geocodeResultsTable setHidden:YES];
 	[UIView beginAnimations:@"animSearchBar" context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:0.20];
 
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-	if (!usingSearchBar) {
-		if (modalMode) {
-			theSearchBar.frame = CGRectMake(0.0, 64.0, 320.0, 44);
-			[theSearchBar becomeFirstResponder];
+	if (!self.usingSearchBar) {
+		if (self.modalMode) {
+			self.theSearchBar.frame = CGRectMake(0.0, 64.0, 320.0, 44);
+			[self.theSearchBar becomeFirstResponder];
 		} else {
-			theSearchBar.frame = CGRectMake(0.0, 0.0, 320.0, 44);
-			[theSearchBar becomeFirstResponder];
+			self.theSearchBar.frame = CGRectMake(0.0, 0.0, 320.0, 44);
+			[self.theSearchBar becomeFirstResponder];
 		}
 
 	} else {
-		if (modalMode) {
-			theSearchBar.frame = CGRectMake(0.0, 20.0, 320.0, 44);
-			[theSearchBar resignFirstResponder];
+		if (self.modalMode) {
+			self.theSearchBar.frame = CGRectMake(0.0, 20.0, 320.0, 44);
+			[self.theSearchBar resignFirstResponder];
 		} else {
-			theSearchBar.frame = CGRectMake(0.0,-44.0, 320.0, 44);
-			[theSearchBar resignFirstResponder];
+			self.theSearchBar.frame = CGRectMake(0.0,-44.0, 320.0, 44);
+			[self.theSearchBar resignFirstResponder];
 		}
 		
 	}
-	usingSearchBar = !usingSearchBar;
+	self.usingSearchBar = !self.usingSearchBar;
 	
 //	[FlurryAPI logEvent:@"Step 1: Map searched by place name."];
 	
@@ -403,69 +386,69 @@
 	self.navigationItem.titleView = [CTHelper getNavBarLabelWithTitle:@"Locations"];
 	
 	self.locationResults = nil;
-	locationResults = [[NSMutableArray alloc] init];
+	self.locationResults = [[NSMutableArray alloc] init];
 	
-	if (modalMode) { // Set up the rest of the interface elements that are out of whack for a modal view...
-		[searchMap setFrame:CGRectMake(0, 44, 320, 480)];
-		[listTable setFrame:CGRectMake(0, 64, 320, 320)];
+	if (self.modalMode) { // Set up the rest of the interface elements that are out of whack for a modal view...
+		[self.searchMap setFrame:CGRectMake(0, 44, 320, 480)];
+		[self.listTable setFrame:CGRectMake(0, 64, 320, 320)];
 		
-		//[theSearchBar setFrame:CGRectMake(0, 0, 320, theSearchBar.frame.size.height)];
+		//[self.theSearchBar setFrame:CGRectMake(0, 0, 320, self.theSearchBar.frame.size.height)];
 		
 		UIButton *closeBtn = [[UIButton alloc] init];
 		closeBtn = [CTHelper getSmallGreenUIButtonWithTitle:@"Close"];
         
-		[settingsButton setFrame:CGRectMake(280, 425, 35, 35)];
+		[self.settingsButton setFrame:CGRectMake(280, 425, 35, 35)];
         
         
         if (SD_IS_IOS6) {
             [closeBtn setFrame:CGRectMake(85, 400, closeBtn.frame.size.width, closeBtn.frame.size.height)];
-            [segmentedControl setFrame:CGRectMake(58, 7, 204, 30)];
-            modalSearchName.image = [UIImage imageNamed:@"button_search_25x25.png"];
-            modalSearchLocation.image = [UIImage imageNamed:@"button_map_25x25.png"];
+            [self.segmentedControl setFrame:CGRectMake(58, 7, 204, 30)];
+            self.modalSearchName.image = [UIImage imageNamed:@"button_search_25x25.png"];
+            self.modalSearchLocation.image = [UIImage imageNamed:@"button_map_25x25.png"];
             
         } else {
             [closeBtn setFrame:CGRectMake(85, [[UIScreen mainScreen] bounds].size.height - closeBtn.frame.size.height - 10, closeBtn.frame.size.width, closeBtn.frame.size.height)];
-            [segmentedControl setFrame:CGRectMake(58, 22, 204, 30)];
-            modalSearchName.image = [UIImage imageNamed:@"searchIcon.png"];
-            modalSearchLocation.image = [UIImage imageNamed:@"compass.png"];
+            [self.segmentedControl setFrame:CGRectMake(58, 22, 204, 30)];
+            self.modalSearchName.image = [UIImage imageNamed:@"searchIcon.png"];
+            self.modalSearchLocation.image = [UIImage imageNamed:@"compass.png"];
         }
         
 		[closeBtn addTarget:self action:@selector(dismissModalView) forControlEvents:UIControlEventTouchUpInside];
 		[self.view addSubview:closeBtn];
         
 	} else {
-		modalNavBar.hidden = YES;
-		[theSearchBar setFrame:CGRectMake(0, -44.0, 320, theSearchBar.frame.size.height)];
+		self.modalNavBar.hidden = YES;
+		[self.theSearchBar setFrame:CGRectMake(0, -44.0, 320, self.theSearchBar.frame.size.height)];
 		UIBarButtonItem *currentLocationSearchBtn = [UIBarButtonItem alloc];
 		
         if (SD_IS_IOS6) {
-            searchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_search_25x25.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(searchButtonPressed)];
+            self.searchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_search_25x25.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(searchButtonPressed)];
             currentLocationSearchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_map_25x25.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(currentLocationSearchBtnPressed)];
         } else {
-            searchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"searchIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(searchButtonPressed)];            
+            self.searchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"searchIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(searchButtonPressed)];            
             currentLocationSearchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compass.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(currentLocationSearchBtnPressed)];
         }
 		self.navigationItem.leftBarButtonItem = currentLocationSearchBtn;
-		self.navigationItem.rightBarButtonItem = searchBtn;
+		self.navigationItem.rightBarButtonItem = self.searchBtn;
 	}
 
 	
 	[self setUpSegmentedControl];
 	
-	[geocodeResultsMask setHidden:YES];
-	[geocodeResultsTable setHidden:YES];
+	[self.geocodeResultsMask setHidden:YES];
+	[self.geocodeResultsTable setHidden:YES];
 	
-	locationManager = [[CLLocationManager alloc] init];
-	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	
-	locationManager.delegate = self;
+	self.locationManager.delegate = self;
 	
-	[locationManager startUpdatingLocation];
+	[self.locationManager startUpdatingLocation];
 	
-	searchMap.showsUserLocation = YES;
-	usingSearchBar = NO;
+	self.searchMap.showsUserLocation = YES;
+	self.usingSearchBar = NO;
 	
-	[listTable setHidden:YES];
+	[self.listTable setHidden:YES];
 	
 	[self currentLocationSearchBtnPressed];
 	
@@ -474,29 +457,6 @@
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void) viewDidUnload {
-	self.geocodeResultsMask = nil;
-	self.listTable = nil;
-	self.segmentedControl = nil;
-	listTable.delegate = nil;
-	searchMap.delegate = nil;
-	self.locationResults = nil;
-	self.locationManager = nil;
-	self.forwardGeocoder = nil;
-	self.geocodeResultsTable = nil;
-	self.theSearchBar = nil;
-	self.searchMap = nil;
-    [super viewDidUnload];
-}
-
-- (void) dealloc {
-	searchMap.delegate = nil;
-	
-
-
-
 }
 
 #pragma mark -
@@ -515,12 +475,12 @@
 	
 	// This is simple to follow.  The referringFieldValue is the tag from the SearchViewController map button.
 	// Trigger the notification depending on which (or if) it is or else push the standard SVC.
-	if (modalMode) {
-		if (referringFieldValue == 0){
+	if (self.modalMode) {
+		if (self.referringFieldValue == 0){
 			DLog(@"Sending pick up");
 			[self sendLocationSelectedNotification:l];
 			
-		} else if (referringFieldValue == 1) {
+		} else if (self.referringFieldValue == 1) {
 			DLog(@"Sending drop off");
 			[self sendLocationSelectedNotification:l];
 			
@@ -546,15 +506,15 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	
-	if (tableView == listTable) {
-		if ([locationResults count] > 0) {
-			return [locationResults count];
+	if (tableView == self.listTable) {
+		if ([self.locationResults count] > 0) {
+			return [self.locationResults count];
 		} else {
 			return 1;
 		}
 	} else {
-		if ([forwardGeocoder.results count] > 0) {
-			return [forwardGeocoder.results count];
+		if ([self.forwardGeocoder.results count] > 0) {
+			return [self.forwardGeocoder.results count];
 		} else {
 			return 1;
 		}
@@ -563,7 +523,7 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-    if (tableView == listTable) {
+    if (tableView == self.listTable) {
 		
 		static NSString *CellIdentifier = @"ListItemCell";
 		
@@ -575,8 +535,8 @@
 			
 		}
 		
-		if ([locationResults count] > 0) {
-			CTLocation *l = (CTLocation *)[locationResults objectAtIndex:indexPath.row];
+		if ([self.locationResults count] > 0) {
+			CTLocation *l = (CTLocation *)[self.locationResults objectAtIndex:indexPath.row];
 			
 			cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 			cell.tag = indexPath.row;
@@ -606,7 +566,7 @@
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		
-		CTKmlResult *place = [forwardGeocoder.results objectAtIndex:indexPath.row];
+		CTKmlResult *place = [self.forwardGeocoder.results objectAtIndex:indexPath.row];
 		[cell.textLabel setText:[NSString stringWithFormat:@"%@", place.address]];
 		[cell.textLabel setFont:[UIFont boldSystemFontOfSize:14.0]];
 		return cell;
@@ -617,24 +577,24 @@
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	if (tableView == listTable) 
+	if (tableView == self.listTable) 
 	{
 		// Have selected location and now we're pushing a search view controller
-		if ([locationResults count] != 0) // If its empty then dnt try and get an object out of the array.
+		if ([self.locationResults count] != 0) // If its empty then dnt try and get an object out of the array.
 		{
-			CTLocation *l = (CTLocation *)[locationResults objectAtIndex:indexPath.row];
+			CTLocation *l = (CTLocation *)[self.locationResults objectAtIndex:indexPath.row];
 			[self populateSearchForm:l];
 		}
 		
 		
 	} else {
-		[geocodeResultsTable setHidden:YES];
-		[geocodeResultsMask setHidden:YES];
+		[self.geocodeResultsTable setHidden:YES];
+		[self.geocodeResultsMask setHidden:YES];
 		
-		CTKmlResult *place = [forwardGeocoder.results objectAtIndex:indexPath.row];
+		CTKmlResult *place = [self.forwardGeocoder.results objectAtIndex:indexPath.row];
 		CustomPlacemark *placemark = [[CustomPlacemark alloc] initWithRegion:place.coordinateRegion];
 		placemark.title = place.address;
-		[searchMap addAnnotation:placemark];
+		[self.searchMap addAnnotation:placemark];
 		
 		[self locationSearch:place.coordinate];
 	}
@@ -706,8 +666,8 @@
 }
 
 - (void) zoomToFitMapAnnotations:(MKMapView *) mapView {
-	if (!searchingNearby) {
-		searchMap.showsUserLocation = NO;	
+	if (!self.searchingNearby) {
+		self.searchMap.showsUserLocation = NO;	
 	}
 	if([mapView.annotations count] == 0)
         return;
