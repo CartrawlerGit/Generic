@@ -31,7 +31,8 @@
 	NSString	*currencySymbol;
 
 }
-    - (id) initFromArray:(NSMutableArray *)csvRow;
+
+- (id) initFromArray:(NSMutableArray *)csvRow;
 
 @property (nonatomic, copy) NSString *currencyName;
 @property (nonatomic, copy) NSString *currencyCode;
