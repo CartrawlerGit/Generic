@@ -330,6 +330,7 @@
 		C2A0F397183C16AE00B0ACEE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F396183C16AE00B0ACEE /* QuartzCore.framework */; };
 		C2A0F399183C16C900B0ACEE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */; };
 		C2A0F39B183C16DD00B0ACEE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */; };
+		E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -761,6 +762,8 @@
 		C2A0F396183C16AE00B0ACEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fee+NSDictionary.h"; sourceTree = "<group>"; };
+		E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fee+NSDictionary.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1120,6 +1123,8 @@
 			children = (
 				661A09F61211D3F80038B41E /* Fee.h */,
 				661A09F71211D3F80038B41E /* Fee.m */,
+				E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */,
+				E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */,
 			);
 			name = Fee;
 			sourceTree = "<group>";
@@ -2292,6 +2297,7 @@
 				66EE750C121294EF00B9E972 /* Booking.m in Sources */,
 				6609841D1222A188009ABA0B /* RentalSession.m in Sources */,
 				66F524BA122FFC2900361BC4 /* MapSearchViewController.m in Sources */,
+				E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */,
 				66757F4B1234E2EE0010F930 /* CTGoogleV2KmlParser.m in Sources */,
 				66757F4C1234E2EE0010F930 /* CTGoogleV3KmlParser.m in Sources */,
 				66757F4D1234E2EE0010F930 /* CTForwardGeocoder.m in Sources */,
@@ -2363,8 +2369,8 @@
 				);
 				PRODUCT_NAME = GenericCarHire;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "09C9F853-7940-48EA-8A0C-87599D302871";
-				SDKROOT = iphoneos7.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = NO;
 			};
@@ -2376,7 +2382,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2391,8 +2397,8 @@
 				);
 				PRODUCT_NAME = GenericCarHire;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EE7706C-EB2F-4CFA-834E-4AF5BA9CE96D";
-				SDKROOT = iphoneos7.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2407,7 +2413,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Hicks (557QRMP79R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -2446,8 +2452,8 @@
 				);
 				PRODUCT_NAME = GenericCarHire;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8EE7706C-EB2F-4CFA-834E-4AF5BA9CE96D";
-				SDKROOT = iphoneos7.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2462,7 +2468,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Hicks (557QRMP79R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -2495,7 +2502,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Hicks (557QRMP79R)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

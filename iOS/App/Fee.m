@@ -6,39 +6,23 @@
 
 #import "Fee.h"
 
-
 @implementation Fee
 
-@synthesize feeAmount;
-@synthesize feeCurrencyCode;
-@synthesize feePurpose;
-@synthesize feePurposeDescription;
+@synthesize feeAmount = _feeAmount;
+@synthesize feeCurrencyCode = _feeCurrencyCode;
+@synthesize feePurpose = _feePurpose;
+@synthesize feePurposeDescription = _feePurposeDescription;
 
-- (id)initFromFeeDictionary:(NSDictionary *)feeDictionary {
-	self.feeAmount = [feeDictionary objectForKey:@"@Amount"];
-	self.feeCurrencyCode = [feeDictionary objectForKey:@"@CurrencyCode"];
-	self.feePurpose = [feeDictionary objectForKey:@"@Purpose"];
-	
-	if ([self.feePurpose isEqualToString:@"22"]) {
-		self.feePurposeDescription = @"Deposit fee, taken at confirmation.";
+- (instancetype) initWithAmount:(NSString *)amount currencyCode:(NSString *)currencyCode andPurpose:(NSString *)purpose andPurposeDescription:(NSString *)description
+{
+	self = [super init];
+	if (self) {
+		_feeAmount = amount;
+		_feeCurrencyCode = currencyCode;
+		_feePurpose = purpose;
+		_feePurposeDescription = description;
 	}
-	if ([self.feePurpose isEqualToString:@"23"]) {
-		self.feePurposeDescription = @"Fee to pay on arrival.";
-	}
-	if ([self.feePurpose isEqualToString:@"6"]) {
-		self.feePurposeDescription = @"Cartrawler booking fee.";
-	}
-	
 	return self;
-}
-
-- (void)dealloc {
-	[feeAmount release];
-	[feeCurrencyCode release];
-	[feePurpose release];
-	[feePurposeDescription release];
-
-	[super dealloc];
 }
 
 @end

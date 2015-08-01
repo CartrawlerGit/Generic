@@ -20,18 +20,12 @@
 //
 
 @interface Fee : NSObject
-{
-	NSString	*feeAmount;
-	NSString	*feeCurrencyCode;
-	NSString	*feePurpose;
-	NSString	*feePurposeDescription;
-}
 
-@property (nonatomic, copy) NSString *feeAmount;
-@property (nonatomic, copy) NSString *feeCurrencyCode;
-@property (nonatomic, copy) NSString *feePurpose;
-@property (nonatomic, copy) NSString *feePurposeDescription;
+@property (nonatomic, readonly, copy) NSString *feeAmount;
+@property (nonatomic, readonly, copy) NSString *feeCurrencyCode;
+@property (nonatomic, readonly, copy) NSString *feePurpose;
+@property (nonatomic, readonly, copy) NSString *feePurposeDescription;
 
-- (id)initFromFeeDictionary:(NSDictionary *)feeDictionary;
+- (instancetype) initWithAmount:(NSString *)amount currencyCode:(NSString *)currencyCode andPurpose:(NSString *)purpose andPurposeDescription:(NSString *)description;
 
 @end
