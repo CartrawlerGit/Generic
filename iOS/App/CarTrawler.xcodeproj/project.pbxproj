@@ -111,6 +111,7 @@
 		C2A0F399183C16C900B0ACEE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */; };
 		C2A0F39B183C16DD00B0ACEE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */; };
 		E2226D9F1B6D8521007FA854 /* CTError+ResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */; };
+		E2226DA41B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */; };
 		E24A07611B6D2C9500D7C41F /* Fee+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */; };
 		E24A07671B6D368E00D7C41F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07641B6D368E00D7C41F /* NSObject+SBJSON.m */; };
 		E24A07681B6D368E00D7C41F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07661B6D368E00D7C41F /* NSString+SBJSON.m */; };
@@ -314,6 +315,8 @@
 		E2226D931B6D831A007FA854 /* CTResponseValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CTResponseValidator.h; path = Network/ResponseValidator/CTResponseValidator.h; sourceTree = "<group>"; };
 		E2226D9D1B6D8521007FA854 /* CTError+ResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTError+ResponseValidator.h"; path = "Network/ResponseValidator/CTError+ResponseValidator.h"; sourceTree = "<group>"; };
 		E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTError+ResponseValidator.m"; path = "Network/ResponseValidator/CTError+ResponseValidator.m"; sourceTree = "<group>"; };
+		E2226DA21B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTVehMatchedLocsResponseValidator.h; path = Network/ResponseValidator/CTVehMatchedLocsResponseValidator.h; sourceTree = "<group>"; };
+		E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTVehMatchedLocsResponseValidator.m; path = Network/ResponseValidator/CTVehMatchedLocsResponseValidator.m; sourceTree = "<group>"; };
 		E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fee+NSDictionary.h"; sourceTree = "<group>"; };
 		E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fee+NSDictionary.m"; sourceTree = "<group>"; };
 		E24A07621B6D35C600D7C41F /* JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1115,6 +1118,8 @@
 				E2226D931B6D831A007FA854 /* CTResponseValidator.h */,
 				E2226D9D1B6D8521007FA854 /* CTError+ResponseValidator.h */,
 				E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */,
+				E2226DA21B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.h */,
+				E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */,
 			);
 			name = ResponseValidator;
 			sourceTree = "<group>";
@@ -1330,6 +1335,7 @@
 				666E85201211968D00A78D15 /* CTTableViewAsyncImageView.m in Sources */,
 				666E85211211968D00A78D15 /* CTImageCacheObject.m in Sources */,
 				666E85221211968D00A78D15 /* CTImageCache.m in Sources */,
+				E2226DA41B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m in Sources */,
 				666E854112119CC200A78D15 /* CustomCarDisplayCell.m in Sources */,
 				661A09D51211CD460038B41E /* PricedCoverage.m in Sources */,
 				661A09E81211CFF00038B41E /* VehicleCharge.m in Sources */,

@@ -285,40 +285,17 @@
 
 + (id) validateResponse:(NSDictionary *)response {
 	
-	if ([[response allKeys] containsObject:@"VehMatchedLocs"]) 
+	if ([[response allKeys] containsObject:@"VehMatchedLocs"])
 	{
-		DLog(@"VehMatchedLocsRS.");
-		if ([[response objectForKey:@"VehMatchedLocs"] isKindOfClass:[NSArray class]]) 
-		{
-			
-			// Need to check for arrays of zero length, some lat/long configurations can produce this
-			
-			if ([[response objectForKey:@"VehMatchedLocs"] count] == 0) 
-			{
-				[self showAlert:@"No Results Found" message:@"No Results have been found for this area, please try again."];
-				return nil;
-			} 
-			else 
-			{
-				return [self vehMatchedLocs:[response objectForKey:@"VehMatchedLocs"]];
-			}
-		} 
-		else 
-		{
-			NSMutableArray *locations = [[NSMutableArray alloc] initWithCapacity:1];
-			CTLocation *loc = [[CTLocation alloc] initFromDictionary:[[response objectForKey:@"VehMatchedLocs"] objectForKey:@"VehMatchedLoc"]];
-			[locations addObject:loc];
-			return locations;
-		}
 		
 	}
-	else if ([[response allKeys] containsObject:@"LocationDetail"]) 
+	else if ([[response allKeys] containsObject:@"LocationDetail"])
 		
 	{
 		DLog(@"VehLocDetailRS.");
 		return nil;
 	}
-	else if ([[response allKeys] containsObject:@"VehAvailRSCore"]) 
+	else if ([[response allKeys] containsObject:@"VehAvailRSCore"])
 	{
 		if (kShowResponse) {
 			DLog(@"VehAvailRSCore \n\n%@\n\n", [response JSONRepresentation]);
@@ -327,11 +304,11 @@
 		return [self vehAvailRSCore:[response objectForKey:@"VehAvailRSCore"]];
 		
 	}
-	else if ([[response allKeys] containsObject:@"Errors"]) 
+	else if ([[response allKeys] containsObject:@"Errors"])
 	{
 		return [CTError validateResponseObject:response];
 	}
-	else if ([[response allKeys] containsObject:@"VehResRSCore"]) 
+	else if ([[response allKeys] containsObject:@"VehResRSCore"])
 	{
 		if (kShowResponse) {
 			DLog(@"\n\n\nBooking response is:\n%@\n\n\n", [response JSONRepresentation]);
@@ -341,15 +318,15 @@
 	}
 	else if ([[response allKeys] containsObject:@"RentalConditions"]) {
 		
-		if ([[response objectForKey:@"RentalConditions"] isKindOfClass:[NSArray class]]) {		
+		if ([[response objectForKey:@"RentalConditions"] isKindOfClass:[NSArray class]]) {
 			
 			if ([[response objectForKey:@"RentalConditions"] count] == 0) {
 				return nil;
-			} 
-			else {	
+			}
+			else {
 				return [self rentalTermsAndConditions:[response objectForKey:@"RentalConditions"]];
 			}
-		} 	
+		}
 	}
 	else if ([[response allKeys] containsObject:@"VehRetResRSCore"]) {
 		if (kShowResponse) {
@@ -359,7 +336,7 @@
 		return [[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"];
 		//return [self retrievedVehResRSCore:[[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"]];
 	}
-	else 
+	else
 	{
 		if (kShowResponse) {
 			DLog(@"NEW RESPONSE. IT was %@", response);
@@ -400,18 +377,6 @@
 	{
 		termsAndConditions *tAndQ = [[termsAndConditions alloc] initFromDictionary:aDict];
 		[array addObject:tAndQ];
-	}
-	return array;	
-}
-
-+ (NSMutableArray *) vehMatchedLocs:(NSDictionary *) locations {
-
-	NSMutableArray *array = [[NSMutableArray alloc] init];
-	
-	for (NSDictionary *aDict in locations)  
-	{
-		CTLocation *loc = [[CTLocation alloc] initFromDictionary:aDict];
-		[array addObject:loc];
 	}
 	return array;	
 }

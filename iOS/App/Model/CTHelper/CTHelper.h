@@ -54,8 +54,6 @@
 
 // Response formatters
 
-+ (NSMutableArray *) vehMatchedLocs:(NSDictionary *) locations;
-
 + (NSMutableArray *) predictiveLocations:(NSDictionary *) locations;
 
 + (VehAvailRSCore *) vehAvailRSCore:(NSDictionary *) info;

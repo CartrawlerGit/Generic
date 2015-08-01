@@ -9,7 +9,7 @@
 #import "CTError.h"
 #import "CTResponseValidator.h"
 
-@interface CTError (ResponseValidator) <ResponseValidator>
+@interface CTError (ResponseValidator) <CTResponseValidator>
 
 + (id)validateResponseObject:(id)response;
 
