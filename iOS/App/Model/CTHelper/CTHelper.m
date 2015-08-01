@@ -231,10 +231,12 @@
 	
 	if (ctCountry.isoCountryName == nil){
 		ctCountry = [ctCountry countryWithIsoCountryName:[CTHelper getLocaleDisplayName] andIsoCountryCode:[CTHelper getLocaleCode]];
+		[CTHelper saveCountry:ctCountry];
 	}
 	
 	if (ctCountry.currencyCode == nil) {
 		ctCountry = [ctCountry countryWithCurrencyCode:[CTHelper getLocaleCurrencyCode] andCurrencySymbol:[CTHelper getLocaleCurrencySymbol]];
+		[CTHelper saveCountry:ctCountry];
 	}
 	return ctCountry;
 }

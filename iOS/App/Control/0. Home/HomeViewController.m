@@ -221,16 +221,8 @@
 #pragma mark -
 #pragma mark Save/Load Settings
 
-- (void) saveUserPrefs {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.ctCountry];
-	[prefs setObject:data forKey:@"ctCountry.userPrefs"];
-	[prefs synchronize];
-}
-
 - (void) loadUserPrefs {
 	self.ctCountry = [CTHelper loadCountry];
-	[CTHelper saveCountry:self.ctCountry];
 	
 	[self.localeLabel setText:[NSString stringWithFormat:kLocaleLabelStringFormat, self.ctCountry.isoCountryName, self.ctCountry.isoCountryCode]];
 	[self.localeCurrencyLabel setText:self.ctCountry.currencyCode];
