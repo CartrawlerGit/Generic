@@ -342,17 +342,17 @@
 		3022ED77190E93DF00AE792D /* mondialLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mondialLogo@2x.png"; sourceTree = "<group>"; };
 		305AA1D519264C1000C2A12B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		305AA1D719264C1500C2A12B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3B8E687612BF92C20049355F /* CTSearchDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSearchDefaults.h; path = Classes/CTSearchDefaults.h; sourceTree = "<group>"; };
-		3B8E687712BF92C20049355F /* CTSearchDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSearchDefaults.m; path = Classes/CTSearchDefaults.m; sourceTree = "<group>"; };
+		3B8E687612BF92C20049355F /* CTSearchDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSearchDefaults.h; sourceTree = "<group>"; };
+		3B8E687712BF92C20049355F /* CTSearchDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSearchDefaults.m; sourceTree = "<group>"; };
 		467CCC0E43537E7084DED46B /* Pods-CarHireTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarHireTarget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarHireTarget/Pods-CarHireTarget.debug.xcconfig"; sourceTree = "<group>"; };
 		6604198812BF4F5E003C6474 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		6604198912BF4F5E003C6474 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
 		66043A9511E5BCE60099672C /* ManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageViewController.h; sourceTree = "<group>"; };
 		66043A9611E5BCE60099672C /* ManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageViewController.m; sourceTree = "<group>"; };
-		66043A9711E5BCE60099672C /* ManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManageViewController.xib; path = Classes/ManageViewController.xib; sourceTree = "<group>"; };
+		66043A9711E5BCE60099672C /* ManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageViewController.xib; sourceTree = "<group>"; };
 		66043A9B11E5BD0C0099672C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		66043A9C11E5BD0C0099672C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		66043A9D11E5BD0C0099672C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = Classes/SettingsViewController.xib; sourceTree = "<group>"; };
+		66043A9D11E5BD0C0099672C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		6609841B1222A188009ABA0B /* RentalSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentalSession.h; sourceTree = "<group>"; };
 		6609841C1222A188009ABA0B /* RentalSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentalSession.m; sourceTree = "<group>"; };
 		660986E91224168E009ABA0B /* checkedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedIcon.png; sourceTree = "<group>"; };
@@ -450,9 +450,9 @@
 		663BA6D612F74175000C4E86 /* BGD_480x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGD_480x480.png; sourceTree = "<group>"; };
 		663BA6DC12F74175000C4E86 /* pointer_blue_37x46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer_blue_37x46.png; sourceTree = "<group>"; };
 		663BA6DD12F74175000C4E86 /* pointer_red_37x46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer_red_37x46.png; sourceTree = "<group>"; };
-		663BA70612F742FD000C4E86 /* button_filter_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_filter_25x25.png; path = top_bar_icons/button_filter_25x25.png; sourceTree = "<group>"; };
-		663BA70712F742FD000C4E86 /* button_map_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_map_25x25.png; path = top_bar_icons/button_map_25x25.png; sourceTree = "<group>"; };
-		663BA70812F742FD000C4E86 /* button_search_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_search_25x25.png; path = top_bar_icons/button_search_25x25.png; sourceTree = "<group>"; };
+		663BA70612F742FD000C4E86 /* button_filter_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_filter_25x25.png; sourceTree = "<group>"; };
+		663BA70712F742FD000C4E86 /* button_map_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_map_25x25.png; sourceTree = "<group>"; };
+		663BA70812F742FD000C4E86 /* button_search_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_search_25x25.png; sourceTree = "<group>"; };
 		663D237C1330D4D100540512 /* customercare_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customercare_button.png; sourceTree = "<group>"; };
 		663D237D1330D4D100540512 /* customercare_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customercare_button@2x.png"; sourceTree = "<group>"; };
 		663D238C1330D6FC00540512 /* pickuppoint_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickuppoint_button@2x.png"; sourceTree = "<group>"; };
@@ -463,7 +463,7 @@
 		663FB01A11FEF1BF009D4056 /* radioBtnOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radioBtnOn@2x.png"; sourceTree = "<group>"; };
 		66441FBC12081BB50059ABCF /* LocationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationListViewController.h; sourceTree = "<group>"; };
 		66441FBD12081BB50059ABCF /* LocationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationListViewController.m; sourceTree = "<group>"; };
-		66441FBE12081BB50059ABCF /* LocationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LocationListViewController.xib; path = Classes/LocationListViewController.xib; sourceTree = "<group>"; };
+		66441FBE12081BB50059ABCF /* LocationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationListViewController.xib; sourceTree = "<group>"; };
 		66467E5D12F8204F00EAF7F8 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		66467E5E12F8204F00EAF7F8 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		664736081291962400033A0F /* ExtraEquipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraEquipment.h; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 		665374E012C2013C00D27203 /* grayIncludedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayIncludedIcon.png; sourceTree = "<group>"; };
 		6653763312C2486600D27203 /* CallUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallUsViewController.h; sourceTree = "<group>"; };
 		6653763412C2486600D27203 /* CallUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallUsViewController.m; sourceTree = "<group>"; };
-		6653763512C2486600D27203 /* CallUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CallUsViewController.xib; path = Classes/CallUsViewController.xib; sourceTree = "<group>"; };
+		6653763512C2486600D27203 /* CallUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallUsViewController.xib; sourceTree = "<group>"; };
 		6653EB7C120FE67E00070877 /* settingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsIcon@2x.png"; sourceTree = "<group>"; };
 		6653EB7D120FE67E00070877 /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
 		6653EB7E120FE67E00070877 /* searchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchIcon@2x.png"; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 		668F1BF8120EBC6F00D71411 /* CTHudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTHudViewController.m; sourceTree = "<group>"; };
 		668F1DA0120F212B00D71411 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		668F1DA1120F212B00D71411 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
-		668F1DA2120F212B00D71411 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchResultsViewController.xib; path = Classes/SearchResultsViewController.xib; sourceTree = "<group>"; };
+		668F1DA2120F212B00D71411 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
 		668F37E01200830000580628 /* NSString+CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CSVParser.h"; sourceTree = "<group>"; };
 		668F37E11200830000580628 /* NSString+CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CSVParser.m"; sourceTree = "<group>"; };
 		668F384B12008ACA00580628 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -600,10 +600,10 @@
 		66B66C5211E4A68B0065E565 /* RootSettingsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootSettingsNavController.m; sourceTree = "<group>"; };
 		66B66C5B11E4A6EB0065E565 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		66B66C5C11E4A6EB0065E565 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		66B66C5D11E4A6EB0065E565 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Classes/SearchViewController.xib; sourceTree = "<group>"; };
+		66B66C5D11E4A6EB0065E565 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		66C0893712B905F200A68A76 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		66C0893812B905F200A68A76 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		66C0893912B905F200A68A76 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Classes/HomeViewController.xib; sourceTree = "<group>"; };
+		66C0893912B905F200A68A76 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		66C0896712B9088C00A68A76 /* houseIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "houseIcon@2x.png"; sourceTree = "<group>"; };
 		66C0896812B9088C00A68A76 /* houseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = houseIcon.png; sourceTree = "<group>"; };
 		66C0896D12B909AE00A68A76 /* calendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarIcon.png; sourceTree = "<group>"; };
@@ -624,9 +624,9 @@
 		66DC66AA12F9AB040001A571 /* BGD_480x480@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BGD_480x480@2x.png"; sourceTree = "<group>"; };
 		66DC66AC12F9AB250001A571 /* green_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_arrow.png; sourceTree = "<group>"; };
 		66DC66AD12F9AB250001A571 /* green_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green_arrow@2x.png"; sourceTree = "<group>"; };
-		66DC66B012F9BE520001A571 /* button_filter_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_filter_25x25@2x.png"; path = "top_bar_icons/button_filter_25x25@2x.png"; sourceTree = "<group>"; };
-		66DC66B212F9BE8E0001A571 /* button_map_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_map_25x25@2x.png"; path = "top_bar_icons/button_map_25x25@2x.png"; sourceTree = "<group>"; };
-		66DC66B412F9BEA70001A571 /* button_search_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_search_25x25@2x.png"; path = "top_bar_icons/button_search_25x25@2x.png"; sourceTree = "<group>"; };
+		66DC66B012F9BE520001A571 /* button_filter_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_filter_25x25@2x.png"; sourceTree = "<group>"; };
+		66DC66B212F9BE8E0001A571 /* button_map_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_map_25x25@2x.png"; sourceTree = "<group>"; };
+		66DC66B412F9BEA70001A571 /* button_search_25x25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_search_25x25@2x.png"; sourceTree = "<group>"; };
 		66DC675412F9C3640001A571 /* pointer_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer_blue.png; sourceTree = "<group>"; };
 		66DC675512F9C3640001A571 /* pointer_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointer_blue@2x.png"; sourceTree = "<group>"; };
 		66DC675612F9C3640001A571 /* pointer_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointer_red.png; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 		66F3D605132F72F600CBD885 /* CTCareNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCareNumber.m; sourceTree = "<group>"; };
 		66F524B7122FFC2900361BC4 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
 		66F524B8122FFC2900361BC4 /* MapSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchViewController.m; sourceTree = "<group>"; };
-		66F524B9122FFC2900361BC4 /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapSearchViewController.xib; path = Classes/MapSearchViewController.xib; sourceTree = "<group>"; };
+		66F524B9122FFC2900361BC4 /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchViewController.xib; sourceTree = "<group>"; };
 		66F9FAE1121090A800351025 /* VehAvailRSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehAvailRSCore.h; sourceTree = "<group>"; };
 		66F9FAE2121090A800351025 /* VehAvailRSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehAvailRSCore.m; sourceTree = "<group>"; };
 		66F9FAE8121092A500351025 /* Vendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vendor.h; sourceTree = "<group>"; };
@@ -754,8 +754,7 @@
 				6653763212C2485800D27203 /* 3. Call Us */,
 				66B66C3011E4A4570065E565 /* 4. Manage Bookings */,
 			);
-			name = Control;
-			path = Classes;
+			path = Control;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -772,7 +771,7 @@
 				1D8427BA1279BA65004572B4 /* termsAndConditions.h */,
 				1D8427BB1279BA65004572B4 /* termsAndConditions.m */,
 			);
-			name = "Terms and Conditions";
+			path = "Terms and Conditions";
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CarTrawler */ = {
@@ -803,7 +802,7 @@
 				28A0AB4B0D9B1048005BE974 /* CarTrawler_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
-			name = "Other Sources";
+			path = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -814,7 +813,7 @@
 				66043AC911E5C39E0099672C /* XIB */,
 				302260AD194861FE00BD15F5 /* Settings.bundle */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -864,7 +863,7 @@
 				3B8E687612BF92C20049355F /* CTSearchDefaults.h */,
 				3B8E687712BF92C20049355F /* CTSearchDefaults.m */,
 			);
-			name = CTSearchDefaults;
+			path = CTSearchDefaults;
 			sourceTree = "<group>";
 		};
 		66043A9011E5BCB20099672C /* 1. Search */ = {
@@ -874,7 +873,7 @@
 				668F1DA2120F212B00D71411 /* SearchResultsViewController.xib */,
 				66441FBE12081BB50059ABCF /* LocationListViewController.xib */,
 			);
-			name = "1. Search";
+			path = "1. Search";
 			sourceTree = "<group>";
 		};
 		66043A9211E5BCBF0099672C /* 3. Call Us */ = {
@@ -882,7 +881,7 @@
 			children = (
 				6653763512C2486600D27203 /* CallUsViewController.xib */,
 			);
-			name = "3. Call Us";
+			path = "3. Call Us";
 			sourceTree = "<group>";
 		};
 		66043A9311E5BCC90099672C /* 4. Manage */ = {
@@ -890,7 +889,7 @@
 			children = (
 				66043A9711E5BCE60099672C /* ManageViewController.xib */,
 			);
-			name = "4. Manage";
+			path = "4. Manage";
 			sourceTree = "<group>";
 		};
 		66043AC911E5C39E0099672C /* XIB */ = {
@@ -903,7 +902,7 @@
 				66043A9211E5BCBF0099672C /* 3. Call Us */,
 				66043A9311E5BCC90099672C /* 4. Manage */,
 			);
-			name = XIB;
+			path = XIB;
 			sourceTree = "<group>";
 		};
 		660983EF1222926C009ABA0B /* Rental Conditions Confirmation */ = {
@@ -913,7 +912,7 @@
 				66E9FA25130AE67C00F3DD51 /* RentalConditionsViewController.m */,
 				66E9FA26130AE67C00F3DD51 /* RentalConditionsViewController.xib */,
 			);
-			name = "Rental Conditions Confirmation";
+			path = "Rental Conditions Confirmation";
 			sourceTree = "<group>";
 		};
 		6609841A1222A175009ABA0B /* Rental Session */ = {
@@ -922,7 +921,7 @@
 				6609841B1222A188009ABA0B /* RentalSession.h */,
 				6609841C1222A188009ABA0B /* RentalSession.m */,
 			);
-			name = "Rental Session";
+			path = "Rental Session";
 			sourceTree = "<group>";
 		};
 		6614A6441321302B0062BE44 /* List Table */ = {
@@ -932,7 +931,7 @@
 				6614A64D1321322E0062BE44 /* DataListViewController.m */,
 				6614A64E1321322E0062BE44 /* DataListViewController.xib */,
 			);
-			name = "List Table";
+			path = "List Table";
 			sourceTree = "<group>";
 		};
 		661553ED12FDA593002898E6 /* Custom Overview Cell */ = {
@@ -942,7 +941,7 @@
 				661553EF12FDA5B1002898E6 /* CustomOverviewCell.m */,
 				661553F112FDA5C3002898E6 /* CustomOverviewCell.xib */,
 			);
-			name = "Custom Overview Cell";
+			path = "Custom Overview Cell";
 			sourceTree = "<group>";
 		};
 		6619C6EE12F7200500E973BC /* Pop Overs */ = {
@@ -961,7 +960,7 @@
 				66651E2813257E4C00926035 /* pickerPopOver.png */,
 				66651E2913257E4C00926035 /* pickerPopOver@2x.png */,
 			);
-			name = "Pop Overs";
+			path = "Pop Overs";
 			sourceTree = "<group>";
 		};
 		6619C6F012F720C500E973BC /* Icons */ = {
@@ -1024,7 +1023,7 @@
 				6604198812BF4F5E003C6474 /* phone.png */,
 				6604198912BF4F5E003C6474 /* phone@2x.png */,
 			);
-			name = Icons;
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		6619C77212F7290500E973BC /* Generic Skin */ = {
@@ -1033,7 +1032,7 @@
 				66A8C3111355B0150061F4EF /* Skin */,
 				66A8C3101355B00D0061F4EF /* Static */,
 			);
-			name = "Generic Skin";
+			path = "Generic Skin";
 			sourceTree = "<group>";
 		};
 		661A09D21211CD340038B41E /* Priced Coverages */ = {
@@ -1042,7 +1041,7 @@
 				661A09D31211CD460038B41E /* PricedCoverage.h */,
 				661A09D41211CD460038B41E /* PricedCoverage.m */,
 			);
-			name = "Priced Coverages";
+			path = "Priced Coverages";
 			sourceTree = "<group>";
 		};
 		661A09E21211CFBD0038B41E /* Vehicle Charge */ = {
@@ -1051,7 +1050,7 @@
 				661A09E61211CFF00038B41E /* VehicleCharge.h */,
 				661A09E71211CFF00038B41E /* VehicleCharge.m */,
 			);
-			name = "Vehicle Charge";
+			path = "Vehicle Charge";
 			sourceTree = "<group>";
 		};
 		661A09EB1211D3C00038B41E /* Car Assisting Objects */ = {
@@ -1064,7 +1063,7 @@
 				661A09D21211CD340038B41E /* Priced Coverages */,
 				661A09F51211D3F10038B41E /* Fee */,
 			);
-			name = "Car Assisting Objects";
+			path = "Car Assisting Objects";
 			sourceTree = "<group>";
 		};
 		661A09F51211D3F10038B41E /* Fee */ = {
@@ -1075,7 +1074,7 @@
 				E24A075F1B6D2C9500D7C41F /* Fee+NSDictionary.h */,
 				E24A07601B6D2C9500D7C41F /* Fee+NSDictionary.m */,
 			);
-			name = Fee;
+			path = Fee;
 			sourceTree = "<group>";
 		};
 		661A0A1B1211DE500038B41E /* 1.5 Booking */ = {
@@ -1085,7 +1084,7 @@
 				660983EF1222926C009ABA0B /* Rental Conditions Confirmation */,
 				661A0A1D1211DE620038B41E /* Booking */,
 			);
-			name = "1.5 Booking";
+			path = "1.5 Booking";
 			sourceTree = "<group>";
 		};
 		661A0A1C1211DE5C0038B41E /* Confirmation */ = {
@@ -1098,7 +1097,7 @@
 				661A0A201211DE830038B41E /* ConfirmationViewController.m */,
 				66E9F9C4130AE22600F3DD51 /* ConfirmationViewController.xib */,
 			);
-			name = Confirmation;
+			path = Confirmation;
 			sourceTree = "<group>";
 		};
 		661A0A1D1211DE620038B41E /* Booking */ = {
@@ -1110,7 +1109,7 @@
 				66EE74701211DF0B00B9E972 /* BookingViewController.m */,
 				66EE74711211DF0B00B9E972 /* BookingViewController.xib */,
 			);
-			name = Booking;
+			path = Booking;
 			sourceTree = "<group>";
 		};
 		661A0A1E1211DE680038B41E /* Thanks For Booking View */ = {
@@ -1120,7 +1119,7 @@
 				661A0A2A1211DE9D0038B41E /* ReceiptViewController.m */,
 				661A0A2B1211DE9D0038B41E /* ReceiptViewController.xib */,
 			);
-			name = "Thanks For Booking View";
+			path = "Thanks For Booking View";
 			sourceTree = "<group>";
 		};
 		661C4921132CFB6800E5DBA8 /* Find Booking Webview */ = {
@@ -1130,7 +1129,7 @@
 				661C4923132CFB7900E5DBA8 /* FindBookingViewController.m */,
 				661C4924132CFB7900E5DBA8 /* FindBookingViewController.xib */,
 			);
-			name = "Find Booking Webview";
+			path = "Find Booking Webview";
 			sourceTree = "<group>";
 		};
 		661C701612F85E2000C61072 /* Table Images */ = {
@@ -1147,7 +1146,7 @@
 				661C701C12F85E2C00C61072 /* table_middle.png */,
 				661C701D12F85E2C00C61072 /* table_middle@2x.png */,
 			);
-			name = "Table Images";
+			path = "Table Images";
 			sourceTree = "<group>";
 		};
 		661D522F1211615A0089C4C5 /* Search Results View Controller */ = {
@@ -1159,7 +1158,7 @@
 				668F1DA0120F212B00D71411 /* SearchResultsViewController.h */,
 				668F1DA1120F212B00D71411 /* SearchResultsViewController.m */,
 			);
-			name = "Search Results View Controller";
+			path = "Search Results View Controller";
 			sourceTree = "<group>";
 		};
 		6625A30E1201EBCD00DC212D /* CSV */ = {
@@ -1169,7 +1168,7 @@
 				668F386812017D5C00580628 /* OTACodes.csv */,
 				668F386912017D5C00580628 /* CTISOCountries.csv */,
 			);
-			name = CSV;
+			path = CSV;
 			sourceTree = "<group>";
 		};
 		663534B31292D49D0082B29F /* Extras Cell */ = {
@@ -1179,7 +1178,7 @@
 				663534B51292D4B20082B29F /* CustomExtrasCell.m */,
 				663534B71292D4BE0082B29F /* CustomExtrasCell.xib */,
 			);
-			name = "Extras Cell";
+			path = "Extras Cell";
 			sourceTree = "<group>";
 		};
 		663BA6D512F74175000C4E86 /* Logos and Backgrounds */ = {
@@ -1192,8 +1191,7 @@
 				663BA6DC12F74175000C4E86 /* pointer_blue_37x46.png */,
 				663BA6DD12F74175000C4E86 /* pointer_red_37x46.png */,
 			);
-			name = "Logos and Backgrounds";
-			path = "Background tiles";
+			path = "Logos and Backgrounds";
 			sourceTree = "<group>";
 		};
 		663BA6ED12F742FD000C4E86 /* Payment Table Icons */ = {
@@ -1218,8 +1216,7 @@
 				6627E0F812FEDCAD00A449F7 /* telephone.png */,
 				6627E0F912FEDCAD00A449F7 /* telephone@2x.png */,
 			);
-			name = "Payment Table Icons";
-			path = details_icons;
+			path = "Payment Table Icons";
 			sourceTree = "<group>";
 		};
 		663BA72212F74305000C4E86 /* Home Screen */ = {
@@ -1242,7 +1239,7 @@
 				6619C77A12F7291F00E973BC /* whitebutton.png */,
 				6619C78012F7291F00E973BC /* whitebutton@2x.png */,
 			);
-			name = "Home Screen";
+			path = "Home Screen";
 			sourceTree = "<group>";
 		};
 		66441FA5120818C00059ABCF /* Predictive Location Search */ = {
@@ -1251,7 +1248,7 @@
 				66441FBC12081BB50059ABCF /* LocationListViewController.h */,
 				66441FBD12081BB50059ABCF /* LocationListViewController.m */,
 			);
-			name = "Predictive Location Search";
+			path = "Predictive Location Search";
 			sourceTree = "<group>";
 		};
 		6647360B1291962700033A0F /* Extra Equipment */ = {
@@ -1260,7 +1257,7 @@
 				664736081291962400033A0F /* ExtraEquipment.h */,
 				664736091291962400033A0F /* ExtraEquipment.m */,
 			);
-			name = "Extra Equipment";
+			path = "Extra Equipment";
 			sourceTree = "<group>";
 		};
 		664A8CE712BD25A500E3DA70 /* Filter View */ = {
@@ -1270,7 +1267,7 @@
 				664A8CE912BD25BC00E3DA70 /* AdvancedFilterViewController.m */,
 				664A8CEA12BD25BC00E3DA70 /* AdvancedFilterViewController.xib */,
 			);
-			name = "Filter View";
+			path = "Filter View";
 			sourceTree = "<group>";
 		};
 		6653763212C2485800D27203 /* 3. Call Us */ = {
@@ -1279,7 +1276,7 @@
 				6653763312C2486600D27203 /* CallUsViewController.h */,
 				6653763412C2486600D27203 /* CallUsViewController.m */,
 			);
-			name = "3. Call Us";
+			path = "3. Call Us";
 			sourceTree = "<group>";
 		};
 		6653D9D212BA24B500FB5509 /* 2. Locations */ = {
@@ -1291,7 +1288,7 @@
 				66757F3F1234E2EE0010F930 /* Forward Geocoding */,
 				66B66C3111E4A45D0065E565 /* Settings */,
 			);
-			name = "2. Locations";
+			path = "2. Locations";
 			sourceTree = "<group>";
 		};
 		6653D9D312BA254800FB5509 /* 2. Locations */ = {
@@ -1300,7 +1297,7 @@
 				66F524B9122FFC2900361BC4 /* MapSearchViewController.xib */,
 				66043A9D11E5BD0C0099672C /* SettingsViewController.xib */,
 			);
-			name = "2. Locations";
+			path = "2. Locations";
 			sourceTree = "<group>";
 		};
 		665FA609122AD2C4007A44EE /* Receipt View */ = {
@@ -1310,7 +1307,7 @@
 				66E9FA72130AE91600F3DD51 /* ReceiptView.m */,
 				66E9FA73130AE91600F3DD51 /* ReceiptView.xib */,
 			);
-			name = "Receipt View";
+			path = "Receipt View";
 			sourceTree = "<group>";
 		};
 		6663C36711F78BB80098B77B /* Category Extensions */ = {
@@ -1323,7 +1320,7 @@
 				668F37E01200830000580628 /* NSString+CSVParser.h */,
 				668F37E11200830000580628 /* NSString+CSVParser.m */,
 			);
-			name = "Category Extensions";
+			path = "Category Extensions";
 			sourceTree = "<group>";
 		};
 		6663C3DC11F830770098B77B /* Annotations */ = {
@@ -1332,7 +1329,7 @@
 				6663C3E011F8310B0098B77B /* CTLocationAnnotation.h */,
 				6663C3E111F8310B0098B77B /* CTLocationAnnotation.m */,
 			);
-			name = Annotations;
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 		666DD78F11F9D55400580386 /* CustomLocationCell */ = {
@@ -1344,7 +1341,7 @@
 				666DD79011F9D5AC00580386 /* CustomLocationCell.h */,
 				666DD79111F9D5AC00580386 /* CustomLocationCell.m */,
 			);
-			name = CustomLocationCell;
+			path = CustomLocationCell;
 			sourceTree = "<group>";
 		};
 		666E85191211967400A78D15 /* AsyncImageView */ = {
@@ -1357,7 +1354,7 @@
 				666E851E1211968D00A78D15 /* CTImageCache.h */,
 				666E851F1211968D00A78D15 /* CTImageCache.m */,
 			);
-			name = AsyncImageView;
+			path = AsyncImageView;
 			sourceTree = "<group>";
 		};
 		666E853612119AC600A78D15 /* CustomCarCell */ = {
@@ -1367,7 +1364,7 @@
 				666E853F12119CC200A78D15 /* CustomCarDisplayCell.h */,
 				666E854012119CC200A78D15 /* CustomCarDisplayCell.m */,
 			);
-			name = CustomCarCell;
+			path = CustomCarCell;
 			sourceTree = "<group>";
 		};
 		66757F3F1234E2EE0010F930 /* Forward Geocoding */ = {
@@ -1381,7 +1378,7 @@
 				66757F4A1234E2EE0010F930 /* CTAddressComponent.m */,
 				66757F401234E2EE0010F930 /* Parsers */,
 			);
-			name = "Forward Geocoding";
+			path = "Forward Geocoding";
 			sourceTree = "<group>";
 		};
 		66757F401234E2EE0010F930 /* Parsers */ = {
@@ -1392,7 +1389,7 @@
 				66757F431234E2EE0010F930 /* CTGoogleV3KmlParser.h */,
 				66757F441234E2EE0010F930 /* CTGoogleV3KmlParser.m */,
 			);
-			name = Parsers;
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		668F1BD6120EBB0500D71411 /* CTHUD */ = {
@@ -1401,7 +1398,7 @@
 				668F1BF7120EBC6F00D71411 /* CTHudViewController.h */,
 				668F1BF8120EBC6F00D71411 /* CTHudViewController.m */,
 			);
-			name = CTHUD;
+			path = CTHUD;
 			sourceTree = "<group>";
 		};
 		669063B0132A316F00C9B3C2 /* Insurance View */ = {
@@ -1411,7 +1408,7 @@
 				669063B2132A318A00C9B3C2 /* InsuranceTermsViewController.m */,
 				669063B3132A318A00C9B3C2 /* InsuranceTermsViewController.xib */,
 			);
-			name = "Insurance View";
+			path = "Insurance View";
 			sourceTree = "<group>";
 		};
 		66A8C3101355B00D0061F4EF /* Static */ = {
@@ -1433,7 +1430,7 @@
 				662F5E721224447A00B59CB9 /* visaIconInactive@2x.png */,
 				662F5E711224447A00B59CB9 /* visaIconInactive.png */,
 			);
-			name = Static;
+			path = Static;
 			sourceTree = "<group>";
 		};
 		66A8C3111355B0150061F4EF /* Skin */ = {
@@ -1450,7 +1447,7 @@
 				663BA6ED12F742FD000C4E86 /* Payment Table Icons */,
 				661C701612F85E2000C61072 /* Table Images */,
 			);
-			name = Skin;
+			path = Skin;
 			sourceTree = "<group>";
 		};
 		66AD807F12265B7900827D16 /* CarCellIcons */ = {
@@ -1505,7 +1502,7 @@
 				66441FA5120818C00059ABCF /* Predictive Location Search */,
 				661D522F1211615A0089C4C5 /* Search Results View Controller */,
 			);
-			name = "1. Search";
+			path = "1. Search";
 			sourceTree = "<group>";
 		};
 		66B66C3011E4A4570065E565 /* 4. Manage Bookings */ = {
@@ -1517,7 +1514,7 @@
 				66043A9511E5BCE60099672C /* ManageViewController.h */,
 				66043A9611E5BCE60099672C /* ManageViewController.m */,
 			);
-			name = "4. Manage Bookings";
+			path = "4. Manage Bookings";
 			sourceTree = "<group>";
 		};
 		66B66C3111E4A45D0065E565 /* Settings */ = {
@@ -1527,7 +1524,7 @@
 				66043A9B11E5BD0C0099672C /* SettingsViewController.h */,
 				66043A9C11E5BD0C0099672C /* SettingsViewController.m */,
 			);
-			name = Settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		66B66C5911E4A6C50065E565 /* Root Nav */ = {
@@ -1536,7 +1533,7 @@
 				66B66C5111E4A68B0065E565 /* RootSettingsNavController.h */,
 				66B66C5211E4A68B0065E565 /* RootSettingsNavController.m */,
 			);
-			name = "Root Nav";
+			path = "Root Nav";
 			sourceTree = "<group>";
 		};
 		66B66C6211E4A7070065E565 /* Model */ = {
@@ -1560,7 +1557,7 @@
 				66EF671511FDCFCB0048282A /* CTLocation */,
 				66EF671411FDCFBF0048282A /* CTErrors */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		66C0892D12B9058400A68A76 /* 0. Home */ = {
@@ -1570,7 +1567,7 @@
 				66C0893712B905F200A68A76 /* HomeViewController.h */,
 				66C0893812B905F200A68A76 /* HomeViewController.m */,
 			);
-			name = "0. Home";
+			path = "0. Home";
 			sourceTree = "<group>";
 		};
 		66C0895612B9068800A68A76 /* 0. Home Screen */ = {
@@ -1579,7 +1576,7 @@
 				3006738919F16E7700BC70C6 /* Background tiles */,
 				66C0893912B905F200A68A76 /* HomeViewController.xib */,
 			);
-			name = "0. Home Screen";
+			path = "0. Home Screen";
 			sourceTree = "<group>";
 		};
 		66C25F6E11F0B96400DD72F5 /* Utility */ = {
@@ -1588,7 +1585,7 @@
 				E24A07691B6D378E00D7C41F /* SBJson */,
 				6663C36711F78BB80098B77B /* Category Extensions */,
 			);
-			name = Utility;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		66DA22B813812A6100F22ED5 /* CTUserBookingDetails */ = {
@@ -1597,7 +1594,7 @@
 				66E7898612D353C200B7D240 /* CTUserBookingDetails.h */,
 				66E7898712D353C200B7D240 /* CTUserBookingDetails.m */,
 			);
-			name = CTUserBookingDetails;
+			path = CTUserBookingDetails;
 			sourceTree = "<group>";
 		};
 		66DA906E1328ED9B00A5564C /* Included Cell */ = {
@@ -1607,7 +1604,7 @@
 				66DA90701328EDAC00A5564C /* CustomIncludedItemCell.m */,
 				66DA90721328EDD200A5564C /* CustomIncludedItemCell.xib */,
 			);
-			name = "Included Cell";
+			path = "Included Cell";
 			sourceTree = "<group>";
 		};
 		66DA9329132A21A600A5564C /* Insurance Object */ = {
@@ -1616,7 +1613,7 @@
 				66DA932A132A21C500A5564C /* InsuranceObject.h */,
 				66DA932B132A21C500A5564C /* InsuranceObject.m */,
 			);
-			name = "Insurance Object";
+			path = "Insurance Object";
 			sourceTree = "<group>";
 		};
 		66DC675D12F9C3850001A571 /* Annotation Icons */ = {
@@ -1627,7 +1624,7 @@
 				66DC675612F9C3640001A571 /* pointer_red.png */,
 				66DC675712F9C3640001A571 /* pointer_red@2x.png */,
 			);
-			name = "Annotation Icons";
+			path = "Annotation Icons";
 			sourceTree = "<group>";
 		};
 		66DC679E12F9C7AA0001A571 /* Manage Screen */ = {
@@ -1646,7 +1643,7 @@
 				66E9F976130AD10900F3DD51 /* receipt_map_button.png */,
 				66E9F977130AD10900F3DD51 /* receipt_map_button@2x.png */,
 			);
-			name = "Manage Screen";
+			path = "Manage Screen";
 			sourceTree = "<group>";
 		};
 		66E2D3FC13B0C1B500B1E1EC /* Miscellaneous */ = {
@@ -1656,7 +1653,7 @@
 				668EF00212F7467A00913025 /* greyNavBar.png */,
 				668EF00312F7467A00913025 /* greyNavBar@2x.png */,
 			);
-			name = Miscellaneous;
+			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
 		66E2D3FD13B0C1E600B1E1EC /* Insurance */ = {
@@ -1669,7 +1666,7 @@
 				665F3EBB133C9D4D00E80523 /* blue_points@2x.png */,
 				665F3EF4133CA65000E80523 /* mondialLogo.png */,
 			);
-			name = Insurance;
+			path = Insurance;
 			sourceTree = "<group>";
 		};
 		66E9FA92130AE92A00F3DD51 /* Show Location */ = {
@@ -1679,7 +1676,7 @@
 				66E9FA94130AE92A00F3DD51 /* ShowLocationViewController.m */,
 				66E9FA95130AE92A00F3DD51 /* ShowLocationViewController.xib */,
 			);
-			name = "Show Location";
+			path = "Show Location";
 			sourceTree = "<group>";
 		};
 		66EE7509121294D300B9E972 /* Booking */ = {
@@ -1688,7 +1685,7 @@
 				66EE750A121294EF00B9E972 /* Booking.h */,
 				66EE750B121294EF00B9E972 /* Booking.m */,
 			);
-			name = Booking;
+			path = Booking;
 			sourceTree = "<group>";
 		};
 		66EF671411FDCFBF0048282A /* CTErrors */ = {
@@ -1697,7 +1694,7 @@
 				66EF670B11FDCE5C0048282A /* CTError.h */,
 				66EF670C11FDCE5C0048282A /* CTError.m */,
 			);
-			name = CTErrors;
+			path = CTErrors;
 			sourceTree = "<group>";
 		};
 		66EF671511FDCFCB0048282A /* CTLocation */ = {
@@ -1707,7 +1704,7 @@
 				6663C3D111F82FB80098B77B /* CTLocation.h */,
 				6663C3D211F82FB80098B77B /* CTLocation.m */,
 			);
-			name = CTLocation;
+			path = CTLocation;
 			sourceTree = "<group>";
 		};
 		66EF671B11FDD0200048282A /* CTRQBuilder */ = {
@@ -1716,7 +1713,7 @@
 				66EF666711FD851D0048282A /* CTRQBuilder.h */,
 				66EF666811FD851D0048282A /* CTRQBuilder.m */,
 			);
-			name = CTRQBuilder;
+			path = CTRQBuilder;
 			sourceTree = "<group>";
 		};
 		66EF671C11FDD02C0048282A /* CTHelper */ = {
@@ -1725,7 +1722,7 @@
 				664F7D7411F5E99700AB7A0F /* CTHelper.h */,
 				661C70ED12F8710200C61072 /* CTHelper.m */,
 			);
-			name = CTHelper;
+			path = CTHelper;
 			sourceTree = "<group>";
 		};
 		66F195BF120D9F2D00342CB1 /* CTCountry */ = {
@@ -1734,7 +1731,7 @@
 				66F195C0120D9F3C00342CB1 /* CTCountry.h */,
 				66F195C1120D9F3C00342CB1 /* CTCountry.m */,
 			);
-			name = CTCountry;
+			path = CTCountry;
 			sourceTree = "<group>";
 		};
 		66F195E6120DA42500342CB1 /* CTCurrency */ = {
@@ -1743,7 +1740,7 @@
 				66F195E7120DA43100342CB1 /* CTCurrency.h */,
 				66F195E8120DA43100342CB1 /* CTCurrency.m */,
 			);
-			name = CTCurrency;
+			path = CTCurrency;
 			sourceTree = "<group>";
 		};
 		66F3D603132F72E100CBD885 /* CTCareNumber */ = {
@@ -1752,7 +1749,7 @@
 				66F3D604132F72F600CBD885 /* CTCareNumber.h */,
 				66F3D605132F72F600CBD885 /* CTCareNumber.m */,
 			);
-			name = CTCareNumber;
+			path = CTCareNumber;
 			sourceTree = "<group>";
 		};
 		66F3D6F9132F8D3600CBD885 /* Info JSON */ = {
@@ -1760,7 +1757,7 @@
 			children = (
 				6611F2641369800300A61C55 /* info.json */,
 			);
-			name = "Info JSON";
+			path = "Info JSON";
 			sourceTree = "<group>";
 		};
 		66F47B9912FB076900BA7345 /* App Icon */ = {
@@ -1775,8 +1772,7 @@
 				666B56621394DEAD00796735 /* Icon.png */,
 				666B56631394DEAD00796735 /* Icon@2x.png */,
 			);
-			name = "App Icon";
-			path = Icon;
+			path = "App Icon";
 			sourceTree = "<group>";
 		};
 		66F9FACC121082D000351025 /* VehAvailRSCore */ = {
@@ -1786,7 +1782,7 @@
 				66F9FAE1121090A800351025 /* VehAvailRSCore.h */,
 				66F9FAE2121090A800351025 /* VehAvailRSCore.m */,
 			);
-			name = VehAvailRSCore;
+			path = VehAvailRSCore;
 			sourceTree = "<group>";
 		};
 		66F9FAE4121091A500351025 /* VehVendorAvails */ = {
@@ -1796,7 +1792,7 @@
 				66F9FAE8121092A500351025 /* Vendor.h */,
 				66F9FAE9121092A500351025 /* Vendor.m */,
 			);
-			name = VehVendorAvails;
+			path = VehVendorAvails;
 			sourceTree = "<group>";
 		};
 		D054FDE7E71BF93B758923DA /* Pods */ = {
@@ -1826,7 +1822,7 @@
 				E24A07651B6D368E00D7C41F /* NSString+SBJSON.h */,
 				E24A07661B6D368E00D7C41F /* NSString+SBJSON.m */,
 			);
-			name = SBJson;
+			path = SBJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2148,7 +2144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "version=`/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $SRCROOT/CarTrawler-Info.plist`\nbuildNumber=`/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $SRCROOT/CarTrawler-Info.plist`\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $buildNumber\" $SRCROOT/CarTrawler-Info.plist\n/usr/libexec/PlistBuddy \"$SRCROOT//Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:1:DefaultValue $version\"\n/usr/libexec/PlistBuddy \"$SRCROOT//Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:2:DefaultValue $buildNumber\"\n";
+			shellScript = "version=`/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist`\nbuildNumber=`/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist`\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $buildNumber\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist\n/usr/libexec/PlistBuddy \"$SRCROOT/Resources/Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:1:DefaultValue $version\"\n/usr/libexec/PlistBuddy \"$SRCROOT/Resources/Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:2:DefaultValue $buildNumber\"\n";
 		};
 		F6E0EBAF02434E988265412D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2253,6 +2249,7 @@
 				305AA1D719264C1500C2A12B /* en */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2270,11 +2267,11 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CarTrawler_Prefix.pch;
+				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
-				INFOPLIST_FILE = "CarTrawler-Info.plist";
+				INFOPLIST_FILE = "Other Sources/CarTrawler-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2300,10 +2297,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CarTrawler_Prefix.pch;
+				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
-				INFOPLIST_FILE = "CarTrawler-Info.plist";
+				INFOPLIST_FILE = "Other Sources/CarTrawler-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2359,10 +2356,10 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CarTrawler_Prefix.pch;
+				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
-				INFOPLIST_FILE = "CarTrawler-Info.plist";
+				INFOPLIST_FILE = "Other Sources/CarTrawler-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
