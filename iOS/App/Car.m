@@ -7,7 +7,7 @@
 #import "Car.h"
 #import "PricedCoverage.h"
 #import "VehicleCharge.h"
-#import "Fee.h"
+#import "Fee+NSDictionary.h"
 #import "ExtraEquipment.h"
 
 @implementation Car
@@ -176,7 +176,7 @@
 	//NSMutableArray *tempFees = [[[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"TPA_Extensions"] objectForKey:@"Fees"];
 	NSMutableArray *tempFees = [[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"Fees"];
 	for (int i = 0; i < [tempFees count]; i++) {
-		Fee *f = [[Fee alloc] initFromFeeDictionary:[tempFees objectAtIndex:i]];
+		Fee *f = [Fee  initWithDictionary:[tempFees objectAtIndex:i]];
 		[fees addObject:f];
 		[f release];
 	}

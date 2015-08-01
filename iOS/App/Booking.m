@@ -4,7 +4,7 @@
 //
 
 #import "Booking.h"
-#import "Fee.h"
+#import "Fee+NSDictionary.h"
 #import "CarTrawlerAppDelegate.h"
 #import "CTCareNumber.h"
 
@@ -198,7 +198,7 @@
 	self.fees = [[NSMutableArray alloc] init];
 	NSMutableArray *tempFees = [[vehReservationDictionary objectForKey:@"VehSegmentCore"] objectForKey:@"Fees"];
 	for (int i = 0; i < [tempFees count]; i++) {
-		Fee *f = [[Fee alloc] initFromFeeDictionary:[tempFees objectAtIndex:i]];
+		Fee *f = [Fee initWithDictionary:[tempFees objectAtIndex:i]];
 		[fees addObject:f];
 		[f release];
 	}
