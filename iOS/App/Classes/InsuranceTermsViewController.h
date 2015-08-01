@@ -23,11 +23,9 @@
 
 @interface InsuranceTermsViewController : UIViewController <UIWebViewDelegate> {
 	InsuranceObject	*ins;
-	
-	UIActivityIndicatorView	*spinner;
 }
 
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, retain) InsuranceObject *ins;
 
 - (IBAction) dismissView;

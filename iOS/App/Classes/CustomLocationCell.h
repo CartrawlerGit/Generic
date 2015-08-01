@@ -13,21 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-@interface CustomLocationCell : UITableViewCell {
-	
-	UIImageView		*locationIcon;
-	UILabel			*locationNameLabel;
-	UILabel			*locationAddressLabel;
-	UILabel			*locationDistanceLabel;
-	UIButton		*selectBtn;
-	
-}
+@interface CustomLocationCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *locationNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *locationAddressLabel;
-@property (nonatomic, retain) IBOutlet UILabel *locationDistanceLabel;
-@property (nonatomic, retain) IBOutlet UIButton *selectBtn;
-@property (nonatomic, retain) IBOutlet UIImageView *locationIcon;
+@property (nonatomic, weak) IBOutlet UILabel *locationNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *locationAddressLabel;
+@property (nonatomic, weak) IBOutlet UILabel *locationDistanceLabel;
+@property (nonatomic, weak) IBOutlet UIButton *selectBtn;
+@property (nonatomic, weak) IBOutlet UIImageView *locationIcon;
 
 -(IBAction) cellPressed;
 

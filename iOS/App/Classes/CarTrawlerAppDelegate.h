@@ -20,8 +20,6 @@
 #import "CTCountry.h"
 
 @interface CarTrawlerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, ASIHTTPRequestDelegate>  {
-    UIWindow			*window;
-    UITabBarController	*tabBarController;
 	
 	NSMutableArray		*preloadedCountryList;
 	NSMutableArray		*preloadedCurrencyList;
@@ -59,7 +57,6 @@
 @property (nonatomic, retain) NSMutableArray *customerCareNumbers;
 @property (nonatomic, retain) NSMutableArray *preloadedCountryList;
 @property (nonatomic, retain) NSMutableArray *preloadedCurrencyList;
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, weak) IBOutlet UITabBarController *tabBarController;
 
 @end

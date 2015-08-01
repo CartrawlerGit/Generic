@@ -25,55 +25,27 @@
 @interface ReceiptView : UIViewController <UIAlertViewDelegate>
 {
 	Booking		*theBooking;
-
-	UIImageView	*vendorImage;
-	UIImageView	*carImage;
-	
-	UILabel		*vendorReferenceNumberLabel;
-	UILabel		*ctReferenceNumberLabel;
-	UILabel		*ctConfNumberLabel;
-	UILabel		*vendorNameLabel;
-	UILabel		*pickupLocationNameLabel;
-	
-	UILabel		*pickUpLocationPhoneNumberLabel;
-	UILabel		*customCarePhoneNumberLabel;
-	
-	UILabel		*puDateTimeLabel;
-	UILabel		*doDateTimeLabel;
-
-	UILabel		*carTypeLabel;
-	
-	UILabel		*totalPriceLabel;
-	
-	UIButton	*callDeskBtn;
-	UIButton	*callCustomerCareBtn;
-	NSString	*selectedNumberToCall;
-	
-	UILabel		*amendBookingLabel;
-	UILabel		*ammendBookingLabelUnderLine;
-	
-	UIButton	*amendBookingButton;
 }
 
-@property (nonatomic, retain) IBOutlet UIButton *amendBookingButton;
-@property (nonatomic, retain) IBOutlet UILabel *amendBookingLabel;
-@property (nonatomic, retain) IBOutlet UILabel *ammendBookingLabelUnderLine;
+@property (nonatomic, weak) IBOutlet UIButton *amendBookingButton;
+@property (nonatomic, weak) IBOutlet UILabel *amendBookingLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ammendBookingLabelUnderLine;
 @property (nonatomic, copy) NSString *selectedNumberToCall;
-@property (nonatomic, retain) IBOutlet UIButton *callCustomerCareBtn;
-@property (nonatomic, retain) IBOutlet UIButton *callDeskBtn;
-@property (nonatomic, retain) IBOutlet UILabel *vendorNameLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *vendorImage;
-@property (nonatomic, retain) IBOutlet UIImageView *carImage;
-@property (nonatomic, retain) IBOutlet UILabel *vendorReferenceNumberLabel;
-@property (nonatomic, retain) IBOutlet UILabel *ctReferenceNumberLabel;
-@property (nonatomic, retain) IBOutlet UILabel *ctConfNumberLabel;
-@property (nonatomic, retain) IBOutlet UILabel *pickupLocationNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *pickUpLocationPhoneNumberLabel;
-@property (nonatomic, retain) IBOutlet UILabel *puDateTimeLabel;
-@property (nonatomic, retain) IBOutlet UILabel *doDateTimeLabel;
-@property (nonatomic, retain) IBOutlet UILabel *customCarePhoneNumberLabel;
-@property (nonatomic, retain) IBOutlet UILabel *carTypeLabel;
-@property (nonatomic, retain) IBOutlet UILabel *totalPriceLabel;
+@property (nonatomic, weak) IBOutlet UIButton *callCustomerCareBtn;
+@property (nonatomic, weak) IBOutlet UIButton *callDeskBtn;
+@property (nonatomic, weak) IBOutlet UILabel *vendorNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *vendorImage;
+@property (nonatomic, weak) IBOutlet UIImageView *carImage;
+@property (nonatomic, weak) IBOutlet UILabel *vendorReferenceNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ctReferenceNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ctConfNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pickupLocationNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pickUpLocationPhoneNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *puDateTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *doDateTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *customCarePhoneNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *carTypeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalPriceLabel;
 @property (nonatomic, retain) Booking *theBooking;
 
 

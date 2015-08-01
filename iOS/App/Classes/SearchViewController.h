@@ -27,8 +27,6 @@
 	BOOL				isFromCitySearch;
 	BOOL				isFromAirportSearch;
 	
-	UITableView			*searchTable;
-	
 	NSString			*pickUpDateTime;
 	NSString			*returnDateTime;
 	NSString			*pickUpLocationCode;
@@ -50,24 +48,6 @@
 	UILabel				*dropoffDateLabel;
 	UILabel				*countryLabel;
 	UILabel				*currencyLabel;
-	UILabel				*dateDisplayLabel;
-	UILabel				*pickerModeLabel;
-	
-	UIView				*containerView;
-	UIView				*pickerView;
-	UIView				*calendarView;
-	UIView				*alternateLocationFooterView;
-	UIView				*headerView;
-	UIView				*selectLocationView;
-	UIView				*countryPickerView;
-	UIView				*currencyPickerView;
-	UIView				*footerView;
-	
-	UIDatePicker		*timePicker;
-	UIPickerView		*countryPicker;
-	UIPickerView		*currencyPicker;
-	
-	UIButton			*alternativeBtn;
 	BOOL				frontViewIsVisible;
 	BOOL				alternateDrop;
 	BOOL				searchingAlternateDropOffLocationFromMapView;
@@ -76,6 +56,7 @@
 	NSMutableArray		*preloadedCurrencyList;
 
 	NSDate				*theDateFromPicker;
+	UIView				*pickerView;
 	
 	LocationListViewController *llvc;
 	
@@ -103,13 +84,11 @@
 	//CTCurrency *ctCurrency;
 	
 	UIButton			*dismissLocationPopUpButton;
-	UIButton			*showMapButton;
-	UIButton			*showDOMapButton;
 	
 }
 
-@property (nonatomic, retain) IBOutlet UIButton *showDOMapButton;
-@property (nonatomic, retain) IBOutlet UIButton *showMapButton;
+@property (nonatomic, weak) IBOutlet UIButton *showDOMapButton;
+@property (nonatomic, weak) IBOutlet UIButton *showMapButton;
 @property (nonatomic, assign) BOOL setFromLocations;
 @property (nonatomic, retain) UIButton *dismissLocationPopUpButton;
 @property (nonatomic, retain) CTSearchDefaults *ctSearchDefaults;
@@ -144,27 +123,27 @@
 @property (nonatomic, retain) NSMutableArray *preloadedLocations;
 @property (nonatomic, retain) NSMutableArray *preloadedCountryList;
 
-@property (nonatomic, retain) IBOutlet UIPickerView *countryPicker;
-@property (nonatomic, retain) IBOutlet UIPickerView *currencyPicker;
-@property (nonatomic, retain) IBOutlet UIDatePicker *timePicker;
+@property (nonatomic, weak) IBOutlet UIPickerView *countryPicker;
+@property (nonatomic, weak) IBOutlet UIPickerView *currencyPicker;
+@property (nonatomic, weak) IBOutlet UIDatePicker *timePicker;
 
-@property (nonatomic, retain) IBOutlet UIView *headerView;
+@property (nonatomic, weak) IBOutlet UIView *headerView;
 @property (nonatomic, retain) UIView *calendarView;
-@property (nonatomic, retain) IBOutlet UIView *containerView;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, retain) IBOutlet UIView *pickerView;
-@property (nonatomic, retain) IBOutlet UIView *alternateLocationFooterView;
-@property (nonatomic, retain) IBOutlet UIView *selectLocationView;
-@property (nonatomic, retain) IBOutlet UIView *countryPickerView;
-@property (nonatomic, retain) IBOutlet UIView *currencyPickerView;
+@property (nonatomic, weak) IBOutlet UIView *alternateLocationFooterView;
+@property (nonatomic, weak) IBOutlet UIView *selectLocationView;
+@property (nonatomic, weak) IBOutlet UIView *countryPickerView;
+@property (nonatomic, weak) IBOutlet UIView *currencyPickerView;
 
-@property (nonatomic, retain) IBOutlet UIButton *alternativeBtn;
+@property (nonatomic, weak) IBOutlet UIButton *alternativeBtn;
 
-@property (nonatomic, retain) IBOutlet UILabel *dateDisplayLabel;
-@property (nonatomic, retain) IBOutlet UILabel *pickerModeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *pickerModeLabel;
 @property (nonatomic, retain) UILabel *pickupDateLabel;
 @property (nonatomic, retain) UILabel *dropoffDateLabel;
 
-@property (nonatomic, retain) IBOutlet UITableView *searchTable;
+@property (nonatomic, weak) IBOutlet UITableView *searchTable;
 
 @property (nonatomic, retain) UITextField *pickupTextField;
 @property (nonatomic, retain) UITextField *dropoffTextField;

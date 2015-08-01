@@ -22,12 +22,10 @@
 @class RentalSession,CTUserBookingDetails;
 
 @interface BookingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIAlertViewDelegate, ASIHTTPRequestDelegate> {
-	UITableView		*bookingTable;
 	
 	UITextField		*namePrefixTB;
 	UITextField		*givenNameTB;
 	UITextField		*surnameTB;
-	UITableViewCell	*costCell;
 	
 	UITextField		*nameTB;
 	
@@ -50,39 +48,9 @@
 	UIView			*footerView;
 	CTUserBookingDetails *ctUserBookingDetails;
 	
-	UITableViewCell *overViewCell;
-	UILabel			*carCategoryLabel;
-	UILabel			*pickUpLocationLabel;
-	UILabel			*dropOffLocationLabel;
-	UILabel			*totalCostLabel;
-	UIImageView		*vendorLogo;
-	UIImageView		*carLogo;
-	UILabel			*pickUpDateLabel;
-	UILabel			*dropOffDateLabel;	
-	UILabel			*numberOfPeopleLabel;
-	UILabel			*baggageLabel;
-	UILabel			*numberOfDoorsLabel;
-	UILabel			*extraFeaturesLabel;
-	
-	// Cost Cell Layout
-	
-	UILabel			*dropOffHeaderLabel;
-	UILabel			*depositLabel;
-	UILabel			*bookingFeeLabel;
-	UILabel			*extrasLabel;
-	UILabel			*extrasCostLabel;
-	UILabel			*totalLabel;
-	UILabel			*arrivalAmountLabel;
-	
-	UILabel			*extrasTitleLabel;
-	
-	UITableViewCell	*termsCell;
-	
 	BOOL			acceptedRentalTerms;
 	BOOL			acceptedEngineTerms;
 	BOOL			acceptedConditions;
-	
-	UIButton		*acceptConditionsButton;
 	
 	BOOL			haveGivenName;
 	BOOL			haveSurname;
@@ -93,17 +61,14 @@
 	
 	BOOL			hasAlternateDropOff;
 	
-	UILabel			*insuranceLabelForCostSection;
-	UILabel			*insuranceCostTitleLabel;
-	
 	NSString		*selectedCardType;
 
 }
 
 @property (nonatomic, copy) NSString *selectedCardType;
-@property (nonatomic, retain) IBOutlet UILabel *insuranceCostTitleLabel;
-@property (nonatomic, retain) IBOutlet UILabel *insuranceLabelForCostSection;
-@property (nonatomic, retain) IBOutlet UILabel *dropOffHeaderLabel;
+@property (nonatomic, weak) IBOutlet UILabel *insuranceCostTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *insuranceLabelForCostSection;
+@property (nonatomic, weak) IBOutlet UILabel *dropOffHeaderLabel;
 @property (nonatomic, assign) BOOL hasAlternateDropOff;
 @property (nonatomic, assign) BOOL haveGivenName;
 @property (nonatomic, assign) BOOL haveSurname;
@@ -111,32 +76,32 @@
 @property (nonatomic, assign) BOOL haveAddress;
 @property (nonatomic, assign) BOOL haveFlightNumber;
 @property (nonatomic, assign) BOOL havePhoneNumber;
-@property (nonatomic, retain) IBOutlet UILabel *extrasTitleLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extrasCostLabel;
-@property (nonatomic, retain) IBOutlet UITableViewCell *costCell;
-@property (nonatomic, retain) IBOutlet UILabel *pickUpDateLabel;
-@property (nonatomic, retain) IBOutlet UILabel *dropOffDateLabel;
-@property (nonatomic, retain) IBOutlet UILabel *numberOfPeopleLabel;
-@property (nonatomic, retain) IBOutlet UILabel *baggageLabel;
-@property (nonatomic, retain) IBOutlet UILabel *numberOfDoorsLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extraFeaturesLabel;
-@property (nonatomic, retain) IBOutlet UILabel *depositLabel;
-@property (nonatomic, retain) IBOutlet UILabel *bookingFeeLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extrasLabel;
-@property (nonatomic, retain) IBOutlet UILabel *totalLabel;
-@property (nonatomic, retain) IBOutlet UILabel *arrivalAmountLabel;
-@property (nonatomic, retain) IBOutlet UIButton *acceptConditionsButton;
+@property (nonatomic, weak) IBOutlet UILabel *extrasTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *extrasCostLabel;
+@property (nonatomic, weak) IBOutlet UITableViewCell *costCell;
+@property (nonatomic, weak) IBOutlet UILabel *pickUpDateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dropOffDateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfPeopleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *baggageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfDoorsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *extraFeaturesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *depositLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bookingFeeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *extrasLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalLabel;
+@property (nonatomic, weak) IBOutlet UILabel *arrivalAmountLabel;
+@property (nonatomic, weak) IBOutlet UIButton *acceptConditionsButton;
 @property (nonatomic, assign) BOOL acceptedConditions;
 @property (nonatomic, assign) BOOL acceptedRentalTerms;
 @property (nonatomic, assign) BOOL acceptedEngineTerms;
-@property (nonatomic, retain) IBOutlet UITableViewCell *termsCell;
-@property (nonatomic, retain) IBOutlet UIImageView *vendorLogo;
-@property (nonatomic, retain) IBOutlet UIImageView *carLogo;
-@property (nonatomic, retain) IBOutlet UILabel *carCategoryLabel;
-@property (nonatomic, retain) IBOutlet UITableViewCell *overViewCell;
-@property (nonatomic, retain) IBOutlet UILabel *pickUpLocationLabel;
-@property (nonatomic, retain) IBOutlet UILabel *dropOffLocationLabel;
-@property (nonatomic, retain) IBOutlet UILabel *totalCostLabel;
+@property (nonatomic, weak) IBOutlet UITableViewCell *termsCell;
+@property (nonatomic, weak) IBOutlet UIImageView *vendorLogo;
+@property (nonatomic, weak) IBOutlet UIImageView *carLogo;
+@property (nonatomic, weak) IBOutlet UILabel *carCategoryLabel;
+@property (nonatomic, weak) IBOutlet UITableViewCell *overViewCell;
+@property (nonatomic, weak) IBOutlet UILabel *pickUpLocationLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dropOffLocationLabel;
+@property (nonatomic, weak) IBOutlet UILabel *totalCostLabel;
 @property (nonatomic, retain) UISegmentedControl *visaMasterSegment;
 @property (nonatomic, retain) UIView *footerView;
 @property (nonatomic, retain) RentalSession *session;
@@ -157,7 +122,7 @@
 @property (nonatomic, retain) UITextField *ccExpDateTB;
 @property (nonatomic, retain) UITextField *ccSeriesCodeTB;
 @property (nonatomic, retain) UITextField *flightNumberTB;
-@property (nonatomic, retain) IBOutlet UITableView *bookingTable;
+@property (nonatomic, weak) IBOutlet UITableView *bookingTable;
 
 - (void) resetPersonalDetails;
 - (void) saveUserPrefs;

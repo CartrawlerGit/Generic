@@ -20,14 +20,11 @@
 //
 
 @interface CustomIncludedItemCell : UITableViewCell {
-	UILabel		*itemLabel;
-	UIImageView	*isIncludedImage;
-	
 	UILabel		*totalPrice;
 	UILabel		*totalPriceLabel;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *itemLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *isIncludedImage;
+@property (nonatomic, weak) IBOutlet UILabel *itemLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *isIncludedImage;
 
 @end

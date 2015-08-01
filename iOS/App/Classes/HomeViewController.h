@@ -23,44 +23,29 @@
 #import "CTCurrency.h"
 
 @interface HomeViewController : UIViewController {
-	UIButton			*makeReservationButton;
-	UIButton			*nearbyLocationsButton;
-	UIButton			*manageReservationButton;
-	UIButton			*callUsButton;
-	
-	UILabel				*localeLabel;
-	UIButton			*localeButton;
-	
-	UILabel				*localeCurrencyLabel;
-	UIButton			*localeCurrencyButton;
-
-	UIView				*countryPickerView;
-	UIPickerView		*countryPicker;
-	UIPickerView		*currencyPicker; 
 
 	CTCountry			*ctCountry;
 	CTCurrency			*ctCurrency;
-	NSMutableArray		*preloadedCountryList;
 
 }
 
 @property (nonatomic, retain) CTCountry *ctCountry;
 
-@property (nonatomic, retain) IBOutlet UILabel *localeCurrencyLabel;
-@property (nonatomic, retain) IBOutlet UIButton *localeCurrencyButton;
-@property (nonatomic, retain) IBOutlet UILabel *localeLabel;
-@property (nonatomic,retain) IBOutlet UIButton *makeReservationButton;
-@property (nonatomic,retain) IBOutlet UIButton *nearbyLocationsButton;
-@property (nonatomic,retain) IBOutlet UIButton *manageReservationButton;
-@property (nonatomic,retain) IBOutlet UIButton *callUsButton;
-@property (nonatomic,retain) IBOutlet UIButton *localeButton;
+@property (nonatomic, weak) IBOutlet UILabel *localeCurrencyLabel;
+@property (nonatomic, weak) IBOutlet UIButton *localeCurrencyButton;
+@property (nonatomic, weak) IBOutlet UILabel *localeLabel;
+@property (nonatomic,weak) IBOutlet UIButton *makeReservationButton;
+@property (nonatomic,weak) IBOutlet UIButton *nearbyLocationsButton;
+@property (nonatomic,weak) IBOutlet UIButton *manageReservationButton;
+@property (nonatomic,weak) IBOutlet UIButton *callUsButton;
+@property (nonatomic,weak) IBOutlet UIButton *localeButton;
 
-@property (nonatomic,retain) IBOutlet UIView *countryPickerView;
+@property (nonatomic,weak) IBOutlet UIView *countryPickerView;
 
-@property (nonatomic,retain) IBOutlet UIPickerView *countryPicker;	
-@property (nonatomic, retain) IBOutlet UIPickerView *currencyPicker;
+@property (nonatomic,weak) IBOutlet UIPickerView *countryPicker;	
+@property (nonatomic, weak) IBOutlet UIPickerView *currencyPicker;
 
-@property (nonatomic,retain) IBOutlet NSMutableArray *preloadedCountryList;
+@property (nonatomic,weak) IBOutlet NSMutableArray *preloadedCountryList;
 
 - (IBAction) showCurrencyList;
 - (IBAction) showCountryList;

@@ -20,22 +20,12 @@
 
 @class Booking;
 
-@interface ManageViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {	
-	UIScrollView	*scrollView;
-	UIPageControl	*pageControl;
+@interface ManageViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
 	
     BOOL			pageControlIsChangingPage;
 	NSMutableArray	*arrayOfBookings;
 	NSMutableArray	*arrayOfReceiptViewControllers;
 	NSInteger		numBookings;
-	
-	UILabel			*numBookingsLabel;
-	
-	UILabel			*noBookingsLabel;
-	
-	UIView			*getBookingView;
-	UITextField		*bookingEmailTB;
-	UITextField		*bookingIDTB;
 	
 	UIBarButtonItem *storedBtn;
 	UIBarButtonItem *downloadBtn;
@@ -46,16 +36,16 @@
 @property (nonatomic, retain) NSNotification *n;
 @property (nonatomic, retain) UIBarButtonItem *storedBtn;
 @property (nonatomic, retain) UIBarButtonItem *downloadBtn;
-@property (nonatomic, retain) IBOutlet UITextField *bookingEmailTB;
-@property (nonatomic, retain) IBOutlet UITextField *bookingIDTB;
-@property (nonatomic, retain) IBOutlet UIView *getBookingView;
+@property (nonatomic, weak) IBOutlet UITextField *bookingEmailTB;
+@property (nonatomic, weak) IBOutlet UITextField *bookingIDTB;
+@property (nonatomic, weak) IBOutlet UIView *getBookingView;
 @property (nonatomic, retain) NSMutableArray *arrayOfReceiptViewControllers;
 @property (nonatomic, retain) NSMutableArray *arrayOfBookings;
 
-@property (nonatomic, retain) IBOutlet UILabel *noBookingsLabel;
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
-@property (nonatomic, retain) IBOutlet UILabel *numBookingsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *noBookingsLabel;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, weak) IBOutlet UILabel *numBookingsLabel;
 
 
 - (Booking *) loadCustomObjectWithKey:(NSString *)key dictionary:(NSDictionary *)bookings;
