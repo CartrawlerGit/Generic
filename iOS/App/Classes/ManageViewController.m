@@ -10,6 +10,12 @@
 #import "CTHudViewController.h"
 #import "FindBookingViewController.h"
 
+@interface ManageViewController()
+
+@property (nonatomic, strong) CTHudViewController *hud;
+
+@end
+
 @implementation ManageViewController
 
 @synthesize n;
@@ -47,8 +53,6 @@
 	[defaults synchronize];
 }
 
-CTHudViewController *hud;
-
 - (void) getBookingDetails:(NSString *)bookingEmail bookingID:(NSString *)bookingID {
 	
 	NSString *jsonString = [NSString stringWithFormat:@"{%@%@}", [CTRQBuilder buildHeader:kGetExistingBookingHeader], [CTRQBuilder OTA_VehRetResRQ:bookingEmail bookingRefID:bookingID]];
@@ -66,8 +70,8 @@ CTHudViewController *hud;
 	[request setShouldStreamPostDataFromDisk:YES];
 	[request setAllowCompressedResponse:YES];
 	
-	hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
-	[hud show];
+	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
+	[self.hud show];
 	
 	[request startAsynchronous];
 }
@@ -81,9 +85,9 @@ CTHudViewController *hud;
 	
 	id response = [responseString JSONValue];
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	
 	if ([[CTHelper validateResponse:response] isKindOfClass:[NSMutableArray class]]) {
 		// We have errors
@@ -128,9 +132,9 @@ CTHudViewController *hud;
 		DLog(@"Response is %@", [request responseString]);
 	}
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	NSError *error = [request error];
 	DLog(@"Error is %@", error);
 }

@@ -11,6 +11,12 @@
 #import "ShowLocationViewController.h"
 #import "FindBookingViewController.h"
 
+@interface ReceiptView()
+
+@property (nonatomic, strong) CTHudViewController *hud;
+
+@end
+
 @implementation ReceiptView
 
 @synthesize amendBookingButton;
@@ -217,8 +223,6 @@
 #pragma mark -
 #pragma mark UIMessage Methods
 
-CTHudViewController *hud;
-
 - (void) emailAlert {
 
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation has been sent" message:[NSString stringWithFormat:@"Your booking confirmation has been sent to %@", theBooking.customerEmail] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -230,8 +234,8 @@ CTHudViewController *hud;
 #pragma mark Cancel Booking API call
 
 - (IBAction) requestEmail {
-	hud = [[CTHudViewController alloc] initWithTitle:@"Emailing"];
-	[hud show];
+	self.hud = [[CTHudViewController alloc] initWithTitle:@"Emailing"];
+	[self.hud show];
 	
 //	[FlurryAPI logEvent:@"Manage Booking: Requested email confirmation."];
 	
@@ -249,15 +253,15 @@ CTHudViewController *hud;
 	
 	[self emailAlert];
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request {
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	NSError *error = [request error];
 	DLog(@"Error is %@", error);
 }

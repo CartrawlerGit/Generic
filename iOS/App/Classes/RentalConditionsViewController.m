@@ -19,6 +19,12 @@
 #define SD_IS_IOS6 YES
 #endif
 
+@interface RentalConditionsViewController ()
+
+@property (nonatomic, strong) CTHudViewController *hud;
+
+@end
+
 @implementation RentalConditionsViewController
 
 @synthesize spinner;
@@ -30,8 +36,6 @@
 
 #pragma mark -
 #pragma mark API Stuff
-
-CTHudViewController *hud;
 
 - (void) makeRequest {
 	NSString *requestString = [CTRQBuilder CT_RentalConditionsRQ:session.puDateTime doDateTime:session.doDateTime puLocationCode:session.puLocationCode doLocationCode:session.doLocationCode homeCountry:session.homeCountry refType:session.theCar.refType refID:session.theCar.refID refIDContext:session.theCar.refIDContext refURL:session.theCar.refURL];

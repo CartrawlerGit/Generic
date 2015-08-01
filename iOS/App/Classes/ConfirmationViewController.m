@@ -432,7 +432,7 @@
 	} else if (indexPath.section == 1) {
 		if ([session.theCar.pricedCoverages count] > 0 || [session.theCar.vehicleCharges count] > 0) {
 			
-			NSString *allText = [[NSString alloc] initWithString:@""];
+			NSString *allText = @"";
 			
 			for (PricedCoverage *pc in session.theCar.pricedCoverages) {
 				allText = [allText stringByAppendingString:[NSString stringWithFormat:@"- %@\n", pc.chargeDescription]];
@@ -543,7 +543,7 @@
 		
 		if ([session.theCar.pricedCoverages count] > 0 || [session.theCar.vehicleCharges count] > 0) {
 			
-			NSString *allText = [[NSString alloc] initWithString:@""];
+			NSString *allText = @"";
 			
 			for (PricedCoverage *pc in session.theCar.pricedCoverages) {
 				allText = [allText stringByAppendingFormat:@"- %@\n", pc.chargeDescription];
@@ -752,7 +752,7 @@
 		[dropOffDateLabel setText:session.readableDoDateTimeString];
 		
 		
-		NSString *extrasStr = [[NSString alloc] initWithString:@""];
+		NSString *extrasStr = @"";
 		
 		if (![session.theCar.fuelType isEqualToString:@"Unspecified"]) {
 			extrasStr = [extrasStr stringByAppendingFormat:@"- %@ ", session.theCar.fuelType];
@@ -834,7 +834,7 @@
 		
 		/*cell = */[tableView dequeueReusableCellWithIdentifier:@"Cell"];
 		
-		NSString *pricedCoverString = [[NSString alloc] initWithString:@""];
+		NSString *pricedCoverString = @"";
 		
 		if ([session.theCar.pricedCoverages count] > 0) {
 			for (PricedCoverage *pc in session.theCar.pricedCoverages) {

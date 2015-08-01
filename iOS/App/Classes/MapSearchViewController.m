@@ -28,6 +28,8 @@
 - (void) zoomToFitMapAnnotations:(MKMapView *) mapView;
 - (void) searchButtonPressed;
 
+@property (nonatomic, strong) CTHudViewController *hud;
+
 @end
 
 @implementation MapSearchViewController
@@ -90,8 +92,6 @@
 
 #pragma mark -
 #pragma mark CT API Calls
-
-CTHudViewController *hud;
 
 - (void) locationSearch:(CLLocationCoordinate2D) searchLocation {
 	
@@ -185,9 +185,9 @@ CTHudViewController *hud;
 	
 	[listTable reloadData];
 	[self zoomToFitMapAnnotations:searchMap];
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request {
@@ -196,9 +196,9 @@ CTHudViewController *hud;
 		DLog(@"Response is %@", [request responseString]);
 	}
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	NSError *error = [request error];
 	DLog(@"Error is %@", error);
 }
@@ -207,9 +207,9 @@ CTHudViewController *hud;
 #pragma mark Forward Geocoders
 
 - (void) forwardGeocoderError:(NSString *)errorMessage {
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];
@@ -240,9 +240,9 @@ CTHudViewController *hud;
 			[self locationSearch:place.coordinate];
 		}
 		
-		[hud hide];
+		[self.hud hide];
 		//[hud autorelease];
-		hud = nil;
+		self.hud = nil;
 	}
 	else {
 		NSString *message = @"";
@@ -269,9 +269,9 @@ CTHudViewController *hud;
 				break;
 		}
 		
-		[hud hide];
+		[self.hud hide];
 		//[hud autorelease];
-		hud = nil;
+		self.hud = nil;
 		
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];
@@ -292,8 +292,8 @@ CTHudViewController *hud;
 	[theSearchBar resignFirstResponder];
 	[self searchButtonPressed];
 	
-	hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
-	[hud show];	
+	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
+	[self.hud show];	
 
 }
 
@@ -319,8 +319,8 @@ CTHudViewController *hud;
 	searchMap.showsUserLocation = YES;
 	[searchMap removeAnnotations:searchMap.annotations];
 	
-	hud = [[CTHudViewController alloc] initWithTitle:@"Searching nearby"];
-	[hud show];
+	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching nearby"];
+	[self.hud show];
 	
     // Obsolete faking location method
     /*

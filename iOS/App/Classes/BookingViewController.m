@@ -35,6 +35,8 @@
 - (void) updateAccessoryViewsInTableView;
 - (void) showAccessoryTickForCell:(UITableViewCell*)cell withValue:(NSString*)value enabled:(BOOL)enabled;
 
+@property (nonatomic, strong) CTHudViewController *hud;
+
 @end
 
 @implementation BookingViewController
@@ -355,8 +357,6 @@
 #pragma mark -
 #pragma mark API Calls
 
-CTHudViewController *hud;
-
 - (void) makeTheBooking {
 	if (acceptedConditions) {
 		
@@ -419,8 +419,8 @@ CTHudViewController *hud;
 		} else if (emailAddressTB.text == nil) {
 			[CTHelper showAlert:@"Missing Information" message:@"An email address is required."];
 		} else {
-			hud = [[CTHudViewController alloc] initWithTitle:@"Creating reservation"];
-			[hud show];
+			self.hud = [[CTHudViewController alloc] initWithTitle:@"Creating reservation"];
+			[self.hud show];
 			
 			ASIHTTPRequest *request;
 			
@@ -501,9 +501,9 @@ CTHudViewController *hud;
 		DLog(@"Booking Response is \n\n%@\n\n", [request responseString]);
 	}
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 	
 	// Test here, the booking might not be a booking.  Errors will be returned in an array.
 	
@@ -540,9 +540,9 @@ CTHudViewController *hud;
 	//[FlurryAPI logEvent:@"Step 3: Booking API failure detectd."];
 	//[FlurryAPI endTimedEvent:@"Session." withParameters:nil];
 	
-	[hud hide];
+	[self.hud hide];
 	//[hud autorelease];
-	hud = nil;
+	self.hud = nil;
 } 
 
 #pragma mark -
