@@ -26,7 +26,6 @@
 + (void) showAlert:(NSString *)_t message:(NSString *)_m {
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_t message:_m delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alert show];
-	[alert release];
 }
 
 #pragma mark -
@@ -54,7 +53,6 @@
 	
 	NSNumber *myNumber = [f numberFromString:s];
 	
-	[f release];
 	return myNumber;
 }
 
@@ -71,7 +69,6 @@
     NSNumber * myNumber = [f numberFromString:fee.feeAmount];
 	
     //NSLog(@"myNumber = %@" , myNumber);
-	[f release];
 	return myNumber;
 }
 
@@ -267,11 +264,10 @@
 		return nil;
 	} else {
 		
-		NSMutableArray *locations = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
+		NSMutableArray *locations = [[NSMutableArray alloc] initWithCapacity:1];
 		CTLocation *loc = [[CTLocation alloc] initShortLocationFromDictionary:[[response objectForKey:@"VehMatchedLocs"] objectForKey:@"LocationDetail"]];
 
 		[locations addObject:loc];
-		[loc release];
 		return locations;
 	}
 }
@@ -298,10 +294,9 @@
 		} 
 		else 
 		{
-			NSMutableArray *locations = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
+			NSMutableArray *locations = [[NSMutableArray alloc] initWithCapacity:1];
 			CTLocation *loc = [[CTLocation alloc] initFromDictionary:[[response objectForKey:@"VehMatchedLocs"] objectForKey:@"VehMatchedLoc"]];
 			[locations addObject:loc];
-			[loc release];
 			return locations;
 		}
 		
@@ -325,7 +320,7 @@
 	{
 		DLog(@"Have Error!");
 		
-		NSMutableArray *actualErrors = [[[NSMutableArray alloc] init] autorelease];
+		NSMutableArray *actualErrors = [[NSMutableArray alloc] init];
 		
 		if ([[response objectForKey:@"Errors"] isKindOfClass:[NSArray class]]) 
 		{
@@ -382,7 +377,7 @@
 			DLog(@"NEW RESPONSE. IT was %@", response);
 		}
 		
-		NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+		NSMutableArray *array = [[NSMutableArray alloc] init];
 		return array;
 	}
 	
@@ -393,61 +388,58 @@
 #pragma mark Responders
 
 + (Booking *) retrievedVehResRSCore:(NSDictionary *)info {
-	Booking *b = [[[Booking alloc] initFromRetrievedBookingDictionary:info] autorelease];
+	Booking *b = [[Booking alloc] initFromRetrievedBookingDictionary:info];
 	return b;
 }
 
 + (Booking *) vehResRSCore:(NSDictionary *)info {
-	Booking *b = [[[Booking alloc] initFromVehReservationDictionary:info] autorelease];
+	Booking *b = [[Booking alloc] initFromVehReservationDictionary:info];
 	return b;
 }
 
 + (CTError *) errorResponse:(NSDictionary *)err {
-	CTError *error = [[[CTError alloc] initFromErrorRS:err] autorelease];
+	CTError *error = [[CTError alloc] initFromErrorRS:err];
 	return error;
 }
 
 + (VehAvailRSCore *) vehAvailRSCore:(NSDictionary *) info {
 	
-	VehAvailRSCore *result = [[[VehAvailRSCore alloc] initFromVehAvailRSCoreDictionary:info] autorelease];
+	VehAvailRSCore *result = [[VehAvailRSCore alloc] initFromVehAvailRSCoreDictionary:info];
 	
 	return result;
 }
 
 + (NSMutableArray *) rentalTermsAndConditions:(NSDictionary *) theTermsAndConditions {
 	
-	NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *array = [[NSMutableArray alloc] init];
 	
 	for (NSDictionary *aDict in theTermsAndConditions)  
 	{
 		termsAndConditions *tAndQ = [[termsAndConditions alloc] initFromDictionary:aDict];
 		[array addObject:tAndQ];
-		[tAndQ release];
 	}
 	return array;	
 }
 
 + (NSMutableArray *) vehMatchedLocs:(NSDictionary *) locations {
 
-	NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *array = [[NSMutableArray alloc] init];
 	
 	for (NSDictionary *aDict in locations)  
 	{
 		CTLocation *loc = [[CTLocation alloc] initFromDictionary:aDict];
 		[array addObject:loc];
-		[loc release];
 	}
 	return array;	
 }
 
 + (NSMutableArray *) predictiveLocations:(NSDictionary *) locations {
 	
-	NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *array = [[NSMutableArray alloc] init];
 	
 	for (NSDictionary *aDict in locations)  {
 		CTLocation *loc = [[CTLocation alloc] initShortLocationFromDictionary:aDict];
 		[array addObject:loc];
-		[loc release];
 	}
 	return array;	
 }
@@ -521,7 +513,7 @@
 
 + (UILabel *) getNavBarLabelWithTitle:(NSString *)t {
 	CGRect frame = CGRectMake(0, 0, 155, 44);
-	UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
+	UILabel *label = [[UILabel alloc] initWithFrame:frame];
 	label.backgroundColor = [UIColor clearColor];
 	label.font = [UIFont boldSystemFontOfSize:20.0];
 	

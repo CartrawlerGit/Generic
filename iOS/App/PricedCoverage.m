@@ -25,11 +25,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[coverageType release];
-	[chargeDescription release];
-	[super dealloc];
-}
 
 @end

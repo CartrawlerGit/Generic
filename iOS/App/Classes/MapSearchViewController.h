@@ -46,28 +46,28 @@
 	UIButton			*settingsButton;
 }
 
-@property (nonatomic, retain) IBOutlet UIButton *settingsButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *modalSearchLocation;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *modalSearchName;
-@property (nonatomic, retain) IBOutlet UINavigationBar *modalNavBar;
+@property (nonatomic, strong) IBOutlet UIButton *settingsButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *modalSearchLocation;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *modalSearchName;
+@property (nonatomic, strong) IBOutlet UINavigationBar *modalNavBar;
 
 
 @property (nonatomic, assign) NSUInteger referringFieldValue;
 @property (nonatomic, assign) BOOL modalMode;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *searchBtn;
-@property (nonatomic, retain) NSMutableArray *locationResults;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *searchBtn;
+@property (nonatomic, strong) NSMutableArray *locationResults;
 
 @property (nonatomic, assign) BOOL usingSearchBar;
 @property (nonatomic, assign) BOOL searchingNearby;
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, retain) CTForwardGeocoder *forwardGeocoder;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CTForwardGeocoder *forwardGeocoder;
 
-@property (nonatomic, retain) IBOutlet UITableView *listTable;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *segmentedControl;
-@property (nonatomic, retain) IBOutlet UITableView *geocodeResultsTable;
-@property (nonatomic, retain) IBOutlet UIImageView *geocodeResultsMask;
-@property (nonatomic, retain) IBOutlet UISearchBar *theSearchBar;
-@property (nonatomic, retain) IBOutlet MKMapView *searchMap;
+@property (nonatomic, strong) IBOutlet UITableView *listTable;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) IBOutlet UITableView *geocodeResultsTable;
+@property (nonatomic, strong) IBOutlet UIImageView *geocodeResultsMask;
+@property (nonatomic, strong) IBOutlet UISearchBar *theSearchBar;
+@property (nonatomic, strong) IBOutlet MKMapView *searchMap;
 
 - (IBAction) dismissModalView;
 - (IBAction) settingsButtonPressed;

@@ -58,7 +58,6 @@
 - (void) showError:(NSString *)errorMsg {
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Results Found" message:errorMsg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alert show];
-	[alert release];
 }
 
 #pragma mark -
@@ -214,7 +213,6 @@ CTHudViewController *hud;
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];
-	[alert release];
 }
 
 - (void) forwardGeocoderFoundLocation {
@@ -233,7 +231,7 @@ CTHudViewController *hud;
 			
 			CTKmlResult *place = [forwardGeocoder.results objectAtIndex:0];
 			
-			CustomPlacemark *placemark = [[[CustomPlacemark alloc] initWithRegion:place.coordinateRegion] autorelease];
+			CustomPlacemark *placemark = [[CustomPlacemark alloc] initWithRegion:place.coordinateRegion];
 			placemark.title = place.address;
 			[searchMap addAnnotation:placemark];
 			
@@ -277,7 +275,6 @@ CTHudViewController *hud;
 		
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 		[alert show];
-		[alert release];
 	}
 }
 
@@ -308,7 +305,7 @@ CTHudViewController *hud;
 }
 
 - (IBAction) settingsButtonPressed {
-	SettingsViewController *svc = [[[SettingsViewController alloc] init] autorelease];
+	SettingsViewController *svc = [[SettingsViewController alloc] init];
 	[svc setFromMap:YES];
 	
 //	[FlurryAPI logEvent:@"Step 1: Map search radius refined."];
@@ -449,9 +446,7 @@ CTHudViewController *hud;
             currentLocationSearchBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compass.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(currentLocationSearchBtnPressed)];
         }
 		self.navigationItem.leftBarButtonItem = currentLocationSearchBtn;
-		[currentLocationSearchBtn release];
 		self.navigationItem.rightBarButtonItem = searchBtn;
-		[searchBtn release];
 	}
 
 	
@@ -499,29 +494,9 @@ CTHudViewController *hud;
 - (void) dealloc {
 	searchMap.delegate = nil;
 	
-	[searchMap release];
-	[theSearchBar release];
-	[geocodeResultsTable release];
-	[forwardGeocoder release];
-	[locationManager release];
-	[segmentedControl release];
-	[listTable release];
-	[locationResults release];
-	[geocodeResultsMask release];
-	[searchBtn release];
-	searchBtn = nil;
-	[modalNavBar release];
-	modalNavBar = nil;
 
-	[modalSearchLocation release];
-	modalSearchLocation = nil;
-	[modalSearchName release];
-	modalSearchName = nil;
 
-	[settingsButton release];
-	settingsButton = nil;
 
-    [super dealloc];
 }
 
 #pragma mark -
@@ -533,7 +508,6 @@ CTHudViewController *hud;
 	
 	[dict setObject:l forKey:@"selectedLocation"];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"CTLocationSelected" object:self userInfo:dict];
-	[dict release];
 	[self dismissModalView];
 }
 
@@ -560,7 +534,6 @@ CTHudViewController *hud;
 		[svc setSetFromLocations:YES];
 		
 		[self.navigationController pushViewController:svc animated:YES];
-		[svc release];
 	}
 }
 
@@ -630,7 +603,7 @@ CTHudViewController *hud;
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		
 		CTKmlResult *place = [forwardGeocoder.results objectAtIndex:indexPath.row];
@@ -659,7 +632,7 @@ CTHudViewController *hud;
 		[geocodeResultsMask setHidden:YES];
 		
 		CTKmlResult *place = [forwardGeocoder.results objectAtIndex:indexPath.row];
-		CustomPlacemark *placemark = [[[CustomPlacemark alloc] initWithRegion:place.coordinateRegion] autorelease];
+		CustomPlacemark *placemark = [[CustomPlacemark alloc] initWithRegion:place.coordinateRegion];
 		placemark.title = place.address;
 		[searchMap addAnnotation:placemark];
 		
@@ -716,13 +689,12 @@ CTHudViewController *hud;
 		newAnnotation.animatesDrop = YES; 
 		newAnnotation.canShowCallout = YES;
 		newAnnotation.enabled = YES;
-		[newAnnotation autorelease];
 		
 		return newAnnotation;
 	} else {
 		MKAnnotationView *annotationView = [aMapView dequeueReusableAnnotationViewWithIdentifier:@"spot"];
 		if(!annotationView) {
-			annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"spot"] autorelease];
+			annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"spot"];
 			annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 			annotationView.enabled = YES;
 			annotationView.canShowCallout = YES;

@@ -52,7 +52,7 @@
 @property (nonatomic, copy) NSString *locationName;
 @property (nonatomic, copy) NSString *addressLine;
 @property (nonatomic, copy) NSString *countryCode;
-@property (nonatomic, retain) CLLocation *location;
+@property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, copy) NSString *distance;
 @property (nonatomic, copy) NSString *distanceMetric;
 

@@ -10,6 +10,6 @@
 
 @interface Fee (NSDictionary)
 
-+ (instancetype) initWithDictionary:(NSDictionary *)dictionary;
++ (instancetype) feeWithDictionary:(NSDictionary *)dictionary;
 
 @end

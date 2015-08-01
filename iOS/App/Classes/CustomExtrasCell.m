@@ -44,23 +44,6 @@
 
 }
 
-- (void)dealloc {
-	[extraNameLabel release];
-	extraNameLabel = nil;
-	[extraCurrencyLabel release];
-	extraCurrencyLabel = nil;
-	[extraCostLabel release];
-	extraCostLabel = nil;
-	[plusBtn release];
-	plusBtn = nil;
-	[minusBtn release];
-	minusBtn = nil;
-
-	[extraQtyLabel release];
-	extraQtyLabel = nil;
-
-    [super dealloc];
-}
 
 
 @end

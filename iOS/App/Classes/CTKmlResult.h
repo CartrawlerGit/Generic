@@ -45,13 +45,13 @@
 	NSArray *addressComponents;
 }
 
-@property (nonatomic, retain) NSString *address;
+@property (nonatomic, strong) NSString *address;
 @property (nonatomic, assign) NSInteger accuracy;
-@property (nonatomic, retain) NSString *countryNameCode;
-@property (nonatomic, retain) NSString *countryName;
-@property (nonatomic, retain) NSString *subAdministrativeAreaName;
-@property (nonatomic, retain) NSString *localityName;
-@property (nonatomic, retain) NSArray *addressComponents;
+@property (nonatomic, strong) NSString *countryNameCode;
+@property (nonatomic, strong) NSString *countryName;
+@property (nonatomic, strong) NSString *subAdministrativeAreaName;
+@property (nonatomic, strong) NSString *localityName;
+@property (nonatomic, strong) NSArray *addressComponents;
 @property (nonatomic, assign) float latitude;
 @property (nonatomic, assign) float longitude;
 

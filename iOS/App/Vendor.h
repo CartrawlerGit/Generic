@@ -42,14 +42,14 @@
 @property (nonatomic, copy) NSString *vendorDivision;
 @property (nonatomic, copy) NSString *venLogo;
 @property (nonatomic, copy) NSString *vendorID;
-@property (nonatomic, retain) NSMutableArray *availableCars;  // does this need to be copy now? Because of the NSCopying implementaion?
+@property (nonatomic, strong) NSMutableArray *availableCars;  // does this need to be copy now? Because of the NSCopying implementaion?
 @property (nonatomic, assign) BOOL atAirport;
 @property (nonatomic, copy) NSString *locationCode;
 @property (nonatomic, copy) NSString *venLocationName;
 @property (nonatomic, copy) NSString *venAddress;
 @property (nonatomic, copy) NSString *venCountryCode;
 @property (nonatomic, copy) NSString *venPhone;
-@property (nonatomic,retain) Vendor *dropoffVendor;
+@property (nonatomic,strong) Vendor *dropoffVendor;
 
 - (id)initFromVehVendorAvailsDictionary:(NSDictionary *)vehVendorAvails;
 

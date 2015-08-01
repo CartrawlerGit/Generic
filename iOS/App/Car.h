@@ -31,7 +31,7 @@
 	NSString	*transmissionType;
 	NSString	*fuelType;
 	NSString	*driveType;
-	NSString	*passengerQty;
+	NSString	*__weak passengerQty;
 	NSInteger	passengerQtyInt;
 	NSString	*baggageQty;
 	NSString	*code;
@@ -77,17 +77,17 @@
 	NSNumber	*totalPriceForThisVehicle;
 }
 
-@property (nonatomic, retain) NSNumber *totalPriceForThisVehicle;
-@property (nonatomic, retain) Vendor *vendor;
+@property (nonatomic, strong) NSNumber *totalPriceForThisVehicle;
+@property (nonatomic, strong) Vendor *vendor;
 @property (nonatomic, assign) int orderIndex;
-@property (nonatomic, retain) NSMutableArray *extraEquipment;
+@property (nonatomic, strong) NSMutableArray *extraEquipment;
 @property (nonatomic, assign) BOOL insuranceAvailable;
 @property (nonatomic, assign) BOOL isAvailable;
 @property (nonatomic, assign) BOOL isAirConditioned;
 @property (nonatomic, copy) NSString *transmissionType;
 @property (nonatomic, copy) NSString *fuelType;
 @property (nonatomic, copy) NSString *driveType;
-@property (nonatomic, assign) NSString *passengerQty;
+@property (nonatomic, weak) NSString *passengerQty;
 @property (nonatomic, assign) NSInteger passengerQtyInt;
 @property (nonatomic, copy) NSString *baggageQty;
 @property (nonatomic, copy) NSString *code;
@@ -99,7 +99,7 @@
 @property (nonatomic, copy) NSString *vehicleMakeModelCode;
 @property (nonatomic, copy) NSString *pictureURL;
 @property (nonatomic, copy) NSString *vehicleAssetNumber;
-@property (nonatomic, retain) NSMutableArray *vehicleCharges;
+@property (nonatomic, strong) NSMutableArray *vehicleCharges;
 @property (nonatomic, copy) NSString *rateQualifier;
 @property (nonatomic, copy) NSString *rateTotalAmount;
 @property (nonatomic, copy) NSString *estimatedTotalAmount;
@@ -112,10 +112,10 @@
 @property (nonatomic, copy) NSString *orderBy;
 @property (nonatomic, assign) BOOL needCCInfo;
 @property (nonatomic, copy) NSString *theDuration;
-@property (nonatomic, retain) NSMutableArray *fees;
+@property (nonatomic, strong) NSMutableArray *fees;
 @property (nonatomic, copy) NSString *currencyExchangeRate;
 @property (nonatomic, copy) NSString *currencyExchangeRate23;
-@property (nonatomic, retain) NSMutableArray *pricedCoverages;
+@property (nonatomic, strong) NSMutableArray *pricedCoverages;
 
 - (NSNumber *) calculateTotalPriceForThisCar;
 - (id) initFromVehicleDictionary:(NSDictionary *)vehicleDictionary;

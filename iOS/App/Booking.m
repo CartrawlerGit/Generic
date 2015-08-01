@@ -198,9 +198,8 @@
 	self.fees = [[NSMutableArray alloc] init];
 	NSMutableArray *tempFees = [[vehReservationDictionary objectForKey:@"VehSegmentCore"] objectForKey:@"Fees"];
 	for (int i = 0; i < [tempFees count]; i++) {
-		Fee *f = [Fee initWithDictionary:[tempFees objectAtIndex:i]];
+		Fee *f = [Fee feeWithDictionary:[tempFees objectAtIndex:i]];
 		[fees addObject:f];
-		[f release];
 	}
 	
 	// Total Charge
@@ -408,62 +407,5 @@
     return self;
 }
 
-- (void) dealloc {
-	[customerGivenName release];
-	[customerSurname release];
-	[confType release];
-	[confID release];
-	[vendorName release];
-	[vendorCode release];
-	[puDateTime release];
-	[doDateTime release];
-	[puLocationCode release];
-	[doLocationCode release];
-	[puLocationName release];
-	[doLocationName release];
-	[vehTransmissionType release];
-	[vehFuelType release];
-	[vehDriveType release];
-	[vehPassengerQty release];
-	[vehBaggageQty release];
-	[vehCode release];
-	[vehCategory release];
-	[vehDoorCount release];
-	[vehClassSize release];
-	[vehMakeModelName release];
-	[vehMakeModelCode release];
-	[vehPictureUrl release];
-	[vehAssetNumber release];
-	[fees release];
-	[totalChargeAmount release];
-	[estimatedTotalAmount release];
-	[currencyCode release];
-	[tpaFeeAmount release];
-	[tpaFeeCurrencyCode release];
-	[tpaFeePurpose release];
-	[tpaConfType release];
-	[tpaConfID release];
-	[paymentRuleType release];
-	[paymentAmount release];
-	[paymentCurrencyCode release];
-	[rentalPaymentTransactionCode release];
-	[rentalPaymentCardType release];
-	[locationCode release];
-	[locationName release];
-	[locationAddress release];
-	[locationCountryName release];
-	[locationPhoneNumber release];
-	[customerEmail release];
-	[coordString release];
-
-	[vendorBookingRef release];
-	vendorBookingRef = nil;
-
-	[vendorImageURL release];
-	vendorImageURL = nil;
-	[supportNumber release];
-	supportNumber = nil;
-	[super dealloc];
-}
 
 @end

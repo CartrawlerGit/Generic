@@ -29,17 +29,5 @@
 	return self;
 }
 
-- (void)dealloc {
-	[chargeAmount release];
-	chargeAmount = nil;
-	[currencyCode release];
-	currencyCode = nil;
-	[equipType release];
-	equipType = nil;
-	[description release];
-	description = nil;
-
-	[super dealloc];
-}
 
 @end

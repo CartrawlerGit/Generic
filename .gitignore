@@ -23,7 +23,7 @@ DerivedData
 .idea
 
 # CocoaPods
-Pods
+# Pods
 
 # Tests
 **/test-reports/

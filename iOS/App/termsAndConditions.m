@@ -13,13 +13,6 @@
 @synthesize arrayBodyText;
 
 
-- (void)dealloc 
-{
-	[titleText release];
-	[bodyText release];
-	[arrayBodyText release];
-	[super dealloc];
-}
 
 - (id)initFromDictionary:(NSDictionary *)TQ_Dictionary
 {
@@ -34,7 +27,7 @@
 		
 		for (int x=0; x<[self.arrayBodyText count]; x++)
 		{
-			self.bodyText = [[[self.arrayBodyText componentsJoinedByString:@""] mutableCopy] autorelease];
+			self.bodyText = [[self.arrayBodyText componentsJoinedByString:@""] mutableCopy];
 		}
 	}
 

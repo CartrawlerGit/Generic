@@ -30,11 +30,11 @@
 	NSString* lastAge;
 }
 
-@property (nonatomic,retain) NSString* lastPickupLocation;
-@property (nonatomic,retain) NSString* lastDropoffLocation;
-@property (nonatomic,retain) NSString* lastPickupDate;
-@property (nonatomic,retain) NSString* lastDropoffDate;
-@property (nonatomic,retain) NSString* lastAge;
+@property (nonatomic,strong) NSString* lastPickupLocation;
+@property (nonatomic,strong) NSString* lastDropoffLocation;
+@property (nonatomic,strong) NSString* lastPickupDate;
+@property (nonatomic,strong) NSString* lastDropoffDate;
+@property (nonatomic,strong) NSString* lastAge;
 
 
 @end

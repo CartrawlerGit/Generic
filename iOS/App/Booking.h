@@ -125,7 +125,7 @@
 @property (nonatomic, copy) NSString *vehMakeModelCode;
 @property (nonatomic, copy) NSString *vehPictureUrl;
 @property (nonatomic, copy) NSString *vehAssetNumber;
-@property (nonatomic, retain) NSMutableArray *fees;
+@property (nonatomic, strong) NSMutableArray *fees;
 @property (nonatomic, copy) NSString *totalChargeAmount;
 @property (nonatomic, copy) NSString *estimatedTotalAmount;
 @property (nonatomic, copy) NSString *currencyCode;

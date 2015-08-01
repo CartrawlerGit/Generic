@@ -61,32 +61,9 @@
 		
 	}
 	
-	[matchingComponents autorelease];
 	
 	return matchingComponents;
 }
 
-- (void) dealloc {	
-	if(address != nil) {
-		[address release];
-	}
-	if(countryNameCode != nil) {
-		[countryNameCode release];
-	}
-	if(countryName != nil) {
-		[countryName release];
-	}
-	if(subAdministrativeAreaName != nil) {
-		[subAdministrativeAreaName release];
-	}
-	if(localityName != nil) {
-		[localityName release];
-	}
-	if(addressComponents != nil){
-		[addressComponents release];
-	}
-	
-	[super dealloc];
-}
 
 @end

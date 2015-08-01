@@ -8,11 +8,6 @@
 
 @implementation Fee
 
-@synthesize feeAmount = _feeAmount;
-@synthesize feeCurrencyCode = _feeCurrencyCode;
-@synthesize feePurpose = _feePurpose;
-@synthesize feePurposeDescription = _feePurposeDescription;
-
 - (instancetype) initWithAmount:(NSString *)amount currencyCode:(NSString *)currencyCode andPurpose:(NSString *)purpose andPurposeDescription:(NSString *)description
 {
 	self = [super init];

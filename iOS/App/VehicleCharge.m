@@ -24,12 +24,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[chargeDescription release];
-	[chargePurpose release];
-
-	[super dealloc];
-}
 
 @end

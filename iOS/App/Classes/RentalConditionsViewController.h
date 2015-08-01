@@ -34,12 +34,12 @@
 	UIActivityIndicatorView	*spinner;
 }
 
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, assign) BOOL bookingEngineTermsAndConditions;
-@property (nonatomic, retain) NSMutableArray	*termsArray;
-@property (nonatomic, retain) RentalSession		*session;
-@property (nonatomic, retain) UIButton			*acceptButton;
-@property (nonatomic, retain) UIButton			*rejectButton;
+@property (nonatomic, strong) NSMutableArray	*termsArray;
+@property (nonatomic, strong) RentalSession		*session;
+@property (nonatomic, strong) UIButton			*acceptButton;
+@property (nonatomic, strong) UIButton			*rejectButton;
 
 - (IBAction)sendAcceptNotification:(id)sender;
 - (void) initUIWebView;

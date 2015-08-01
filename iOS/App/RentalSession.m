@@ -56,34 +56,5 @@
 	return [NSString stringWithFormat:@"\n\nSession is \nhomeCountry - %@\npuDateTime - %@\ndoDateTime - %@\npuLocationCode - %@\ndoLocationCode - %@\ndriverAge - %@\nnumPassengers - %@\n\n", self.homeCountry, self.puDateTime, self.doDateTime, self.puLocationCode, self.doLocationCode, self.driverAge, self.numPassengers];
 }
 
-- (void) dealloc {
-	[puDateTime release];
-	[doDateTime release];
-	[puLocationCode release];
-	[doLocationCode release];
-	[puLocationNameString release];
-	[doLocationNameString release];
-	//[theCar release];
-	//[theVendor release];
-	[homeCountry release];
-	[driverAge release];
-	[numPassengers release];
-	[extras release];
-	[startDate release];
-	[endDate release];
-	[readablePuDateTimeString release];
-	[readableDoDateTimeString release];
-	//[puLocation release];
-	//[doLocation release];
-
-	[flightNumber release];
-	flightNumber = nil;
-
-	//[insurance release];
-	insurance = nil;
-	[activeCurrency release];
-	activeCurrency = nil;
-	[super dealloc];
-}
 
 @end

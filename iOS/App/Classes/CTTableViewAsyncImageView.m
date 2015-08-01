@@ -22,19 +22,14 @@ static CTImageCache *imageCache = nil;
 
 - (void) dealloc {
     [connection cancel];
-    [connection release];
-    [data release];
-    [super dealloc];
 }
 
 - (void) loadImageFromURL:(NSURL*)url {
     if (connection != nil) {
         [connection cancel];
-        [connection release];
         connection = nil;
     }
     if (data != nil) {
-        [data release];
         data = nil;
     }
     
@@ -42,14 +37,13 @@ static CTImageCache *imageCache = nil;
         imageCache = [[CTImageCache alloc] initWithMaxSize:2*1024*1024];  // 2 MB Image cache
     
 	
-    [urlString release];
     urlString = [[url absoluteString] copy];
     UIImage *cachedImage = [imageCache imageForKey:urlString];
     if (cachedImage != nil) {
         if ([[self subviews] count] > 0) {
             [[[self subviews] objectAtIndex:0] removeFromSuperview];
         }
-        UIImageView *imageView = [[[UIImageView alloc] initWithImage:cachedImage] autorelease];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:cachedImage];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:imageView];
@@ -66,7 +60,6 @@ static CTImageCache *imageCache = nil;
     spinny.frame = CGRectMake(floor((self.bounds.size.width-spinny.frame.size.width)/2), floor((self.bounds.size.height-spinny.frame.size.height)/2), spinny.frame.size.width, spinny.frame.size.height);
     [spinny startAnimating];
     [self addSubview:spinny];
-    [spinny release];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -80,7 +73,6 @@ static CTImageCache *imageCache = nil;
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)aConnection {
-    [connection release];
     connection = nil;
     
     UIView *spinny = [self viewWithTag:SPINNY_TAG];
@@ -102,8 +94,6 @@ static CTImageCache *imageCache = nil;
     [imageView setNeedsLayout]; // is this necessary if superview gets setNeedsLayout?
     [self setNeedsLayout];
 	
-	[imageView release];
-    [data release];
     data = nil;
 }
 

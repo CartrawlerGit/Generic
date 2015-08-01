@@ -31,7 +31,7 @@
 }
 
 @property (nonatomic, readonly) int statusCode;
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, readonly) NSMutableArray *placemarks;
 
 - (BOOL)parseXMLFileAtURL:(NSURL *)URL parseError:(NSError **)error;

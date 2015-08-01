@@ -17,7 +17,7 @@
 
 + (id)annotationWithCoordinate:(CLLocationCoordinate2D)coordinate 
 { 
-	return [[[[self class] alloc] initWithCoordinate:coordinate] autorelease];
+	return [[[self class] alloc] initWithCoordinate:coordinate];
 }
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate 

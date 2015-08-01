@@ -36,27 +36,14 @@
 		for (int i = 0; i < [rawVendorArray count]; i++) {
 			Vendor *ven = [[Vendor alloc] initFromVehVendorAvailsDictionary:[rawVendorArray objectAtIndex:i]];
 			[availableVendors addObject:ven];
-			[ven release];
 		}
 	} else {
 		Vendor *ven = [[Vendor alloc] initFromVehVendorAvailsDictionary:[[vehAvailRSCoreDictionary objectForKey:@"VehVendorAvails"] objectForKey:@"VehVendorAvail"]];
 		[availableVendors addObject:ven];
-		[ven release];
 	}
 
 	return self;
 }
 
-- (void)dealloc {
-	[puDate release];
-	[doDate release];
-	[puLocationCode release];
-	[puLocationName release];
-	[doLocationCode release];
-	[doLocationName release];
-	[availableVendors release];
-
-	[super dealloc];
-}
 
 @end

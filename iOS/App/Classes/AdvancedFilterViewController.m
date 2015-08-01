@@ -79,9 +79,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc {
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark UITableViewDelegate methods
@@ -99,7 +96,6 @@
 	[imageview setImage:image];
 	[view addSubview:imageview];
 	
-	[imageview release];
 	
 	[cell insertSubview:view belowSubview:[cell backgroundView]];
 } 
@@ -114,7 +110,7 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	
-	UIView *view = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 16)] autorelease];
+	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 16)];
 	
 	CGRect rect = CGRectMake(0,0,292,16);
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:rect];
@@ -127,7 +123,7 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
 	
-	UIView *view = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 107)] autorelease];
+	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 107)];
 	CGRect rect = CGRectMake(0,0,292,122);
 	UIImageView *imageview = [[UIImageView alloc] initWithFrame:rect];
 	UIImage *image = [UIImage imageNamed:@"table_button_footer.png"];
@@ -159,7 +155,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)  {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	[cell.textLabel setFont:[UIFont boldSystemFontOfSize:13]];
 	
@@ -263,7 +259,7 @@
 }
 
 - (void) setDefaultValues{
-	ctSearchFilters = [[[CTSearchFilters alloc] init] retain];
+	ctSearchFilters = [[CTSearchFilters alloc] init];
 	ctSearchFilters.people = 3;
 	ctSearchFilters.fuel = 2;
 	ctSearchFilters.transmission = 2;

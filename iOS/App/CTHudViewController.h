@@ -27,7 +27,7 @@
 	UIView *roundRectView;
 }
 
-@property (nonatomic, retain) NSString *alerttitle;
+@property (nonatomic, strong) NSString *alerttitle;
 
 -(void)show;
 -(void)hide;

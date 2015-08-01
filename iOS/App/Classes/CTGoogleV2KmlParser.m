@@ -40,7 +40,6 @@
 		successfull = FALSE;
     }
     
-    [parser release];
 	
 	return successfull;
 }
@@ -109,7 +108,6 @@
 		if(currentPlacemark != nil) {
 			
 			[placemarkArray addObject:currentPlacemark];
-			[currentPlacemark release];
 			currentPlacemark = nil;
 		}
 	}
@@ -150,7 +148,6 @@
 	}
 
 	
-	[elementValue release];
 	contentsOfCurrentProperty = nil;
 }
 
@@ -164,19 +161,5 @@
     }
 }
 
-- (void) dealloc {
-	
-	if(contentsOfCurrentProperty != nil) {
-		[contentsOfCurrentProperty release];
-	}
-	
-	if(placemarkArray != nil) {
-		[placemarkArray release];
-	}
-	
-	[name release];
-
-	[super dealloc];
-}
 
 @end

@@ -30,12 +30,12 @@
 	UIButton	*minusBtn;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *extraQtyLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extraNameLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extraCurrencyLabel;
-@property (nonatomic, retain) IBOutlet UILabel *extraCostLabel;
-@property (nonatomic, retain) IBOutlet UIButton *plusBtn;
-@property (nonatomic, retain) IBOutlet UIButton *minusBtn;
+@property (nonatomic, strong) IBOutlet UILabel *extraQtyLabel;
+@property (nonatomic, strong) IBOutlet UILabel *extraNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *extraCurrencyLabel;
+@property (nonatomic, strong) IBOutlet UILabel *extraCostLabel;
+@property (nonatomic, strong) IBOutlet UIButton *plusBtn;
+@property (nonatomic, strong) IBOutlet UIButton *minusBtn;
 
 - (IBAction)increaseQty:(id)sender;
 - (IBAction)decreaseQty:(id)sender;

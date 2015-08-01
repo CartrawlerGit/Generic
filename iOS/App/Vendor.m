@@ -42,7 +42,6 @@
 	{
 		Car *car = [[Car alloc] initFromVehicleDictionary:[cars objectAtIndex:i]];
 		[availableCars addObject:car];
-		[car release];
 	}
 	vendor.venLogo = [[[vehVendorAvails objectForKey:@"Info"] objectForKey:@"TPA_Extensions"] objectForKey:@"VendorPictureURL"];
 	return vendor;
@@ -69,20 +68,5 @@
 	return self;
 }
 
-- (void)dealloc {
-	[vendorID release];
-	[availableCars release];
-	[locationCode release];
-	[venLocationName release];
-	[venAddress release];
-	[venCountryCode release];
-	[venPhone release];
-	[venLogo release];
-	[vendorName release];
-	[vendorDivision release];
-	[vendorCode release];
-
-	[super dealloc];
-}
 
 @end

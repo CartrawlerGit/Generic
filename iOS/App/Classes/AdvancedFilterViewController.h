@@ -22,7 +22,7 @@
 @class CTSearchFilters;
 
 @interface AdvancedFilterViewController : UIViewController <UITableViewDataSource, UITableViewDataSource> {
-	id <AdvancedFilterViewControllerDelegate> delegate;
+	id <AdvancedFilterViewControllerDelegate> __weak delegate;
 
 	UITableView *filterTable;
 	UISegmentedControl *peopleSegCtrl;
@@ -33,13 +33,13 @@
 	CTSearchFilters *ctSearchFilters;
 }
 
-@property (nonatomic, assign) id delegate;
-@property (nonatomic,retain) CTSearchFilters *ctSearchFilters;
-@property (nonatomic,retain) IBOutlet UITableView *filterTable;
-@property (nonatomic,retain) UISegmentedControl *peopleSegCtrl;
-@property (nonatomic,retain) UISegmentedControl *fuelSegCtrl;
-@property (nonatomic,retain) UISegmentedControl *transmissionSegCtrl;
-@property (nonatomic,retain) UISegmentedControl *airConSegCtrl;
+@property (nonatomic, weak) id delegate;
+@property (nonatomic,strong) CTSearchFilters *ctSearchFilters;
+@property (nonatomic,strong) IBOutlet UITableView *filterTable;
+@property (nonatomic,strong) UISegmentedControl *peopleSegCtrl;
+@property (nonatomic,strong) UISegmentedControl *fuelSegCtrl;
+@property (nonatomic,strong) UISegmentedControl *transmissionSegCtrl;
+@property (nonatomic,strong) UISegmentedControl *airConSegCtrl;
 
 - (IBAction) dismissView:(id)sender;
 - (IBAction) saveFilters:(id)sender;

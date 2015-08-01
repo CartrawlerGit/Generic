@@ -138,7 +138,6 @@
 	for (int i = 0; i < [thisCarsCharges count]; i++) {
 		VehicleCharge *vc = [[VehicleCharge alloc] initFromVehicleChargesDictionary:[thisCarsCharges objectAtIndex:i]];
 		[vehicleCharges addObject:vc];
-		[vc release];
 	}
 	
 	self.rateQualifier = [[[[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"RentalRate"] objectForKey:@"RateQualifier"] objectForKey:@"@RateQualifier"];
@@ -176,9 +175,8 @@
 	//NSMutableArray *tempFees = [[[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"TPA_Extensions"] objectForKey:@"Fees"];
 	NSMutableArray *tempFees = [[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"Fees"];
 	for (int i = 0; i < [tempFees count]; i++) {
-		Fee *f = [Fee  initWithDictionary:[tempFees objectAtIndex:i]];
+		Fee *f = [Fee  feeWithDictionary:[tempFees objectAtIndex:i]];
 		[fees addObject:f];
-		[f release];
 	}
 	self.currencyExchangeRate = [[[[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"TPA_Extensions"] objectForKey:@"CurrencyExchange"] objectForKey:@"@Rate"];
 	self.currencyExchangeRate23 = [[[[vehicleDictionary objectForKey:@"VehAvailCore"] objectForKey:@"TPA_Extensions"] objectForKey:@"CurrencyExchange"] objectForKey:@"@Rate23"];
@@ -201,7 +199,6 @@
 		for (int i = 0; i < [extras count]; i++) {
 			ExtraEquipment *ex = [[ExtraEquipment alloc] initFromDictionary:[extras objectAtIndex:i]];
 			[extraEquipment addObject:ex];
-			[ex release];
 		}
 		
 	}
@@ -228,7 +225,6 @@
 						for (int i = 0; i < [temp count]; i++) {
 							PricedCoverage *pc = [[PricedCoverage alloc] initWithPricedCoveragesDictionary:[temp objectAtIndex:i]];
 							[pricedCoverages addObject:pc];
-							[pc release];
 						}
 					}
 				}
@@ -244,7 +240,6 @@
 				for (int i = 0; i < [temp count]; i++) {
 					PricedCoverage *pc = [[PricedCoverage alloc] initWithPricedCoveragesDictionary:[temp objectAtIndex:i]];
 					[pricedCoverages addObject:pc];
-					[pc release];
 				}
 			}
 		}
@@ -254,47 +249,5 @@
 	return self;
 }
 
-- (void)dealloc {
-	[transmissionType release];
-	[fuelType release];
-	[driveType release];
-	//[passengerQty release];
-	[baggageQty release];
-	[code release];
-	[codeContext release];
-	[vehicleCategory release];
-	[doorCount release];
-	//[vehicleClassSize release];
-	[vehicleMakeModelName release];
-	[vehicleMakeModelCode release];
-	[pictureURL release];
-	[vehicleAssetNumber release];
-	[vehicleCharges release];
-	[rateQualifier release];
-	[rateTotalAmount release];
-	[estimatedTotalAmount release];
-	[currencyCode release];
-	[refType release];
-	[refID release];
-	[refIDContext release];
-	[refTimeStamp release];
-	[refURL release];
-	[orderBy release];
-	[theDuration release];
-	[fees release];
-	[currencyExchangeRate release];
-	[currencyExchangeRate23 release];
-	[pricedCoverages release];
-
-	[extraEquipment release];
-	extraEquipment = nil;
-
-	//[vendor release];
-	vendor = nil;
-
-	[totalPriceForThisVehicle release];
-	totalPriceForThisVehicle = nil;
-	[super dealloc];
-}
 
 @end

@@ -72,21 +72,5 @@
 	return self;
 }
 
-- (void)dealloc {
-	[locationCode release];
-	[iataCode release];
-	[locationCityName release];
-	[codeContext release];
-	[locationName release];
-	[addressLine release];
-	[countryCode release];
-	[location release];
-	[distance release];
-	[distanceMetric release];
-	[title release];
-	[subtitle release];
-	[iconImage release];
-	[super dealloc];
-}
 
 @end

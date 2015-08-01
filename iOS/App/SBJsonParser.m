@@ -457,7 +457,6 @@ static char ctrl[0x22];
                                             length:c - ns
                                           encoding:NSUTF8StringEncoding
                                       freeWhenDone:NO];
-    [str autorelease];
     if (str && (*o = [NSDecimalNumber decimalNumberWithString:str]))
         return YES;
     

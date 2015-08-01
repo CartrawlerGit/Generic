@@ -30,26 +30,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[planID release];
-	planID = nil;
-	[name release];
-	name = nil;
-	[detailURL release];
-	detailURL = nil;
-	[costAmount release];
-	costAmount = nil;
-	[costCurrencyCode release];
-	costCurrencyCode = nil;
-	[premiumAmount release];
-	premiumAmount = nil;
-	[premiumCurrencyCode release];
-	premiumCurrencyCode = nil;
-
-	[timestamp release];
-	timestamp = nil;
-	[super dealloc];
-}
 @end
 

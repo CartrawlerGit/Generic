@@ -37,7 +37,6 @@
             if ( [scanner isAtEnd] ) {
                 if ( ![currentColumn isEqualToString:@""] ) [columns addObject:currentColumn];
 				
-				[currentColumn release];
 				currentColumn = nil;
 				
                 finishedRow = YES;
@@ -51,7 +50,6 @@
                     // End of row
                     if ( ![currentColumn isEqualToString:@""] ) [columns addObject:currentColumn];
 					
-					[currentColumn release];
 					currentColumn = nil;
 					
                     finishedRow = YES;
@@ -75,7 +73,6 @@
                     // This is a column separating comma
                     [columns addObject:currentColumn];
 					
-					[currentColumn release];
 					currentColumn = nil;
 					
                     //currentColumn = [NSMutableString string];
@@ -85,7 +82,6 @@
             }
         }
         if ( [columns count] > 0 ) [rows addObject:columns];
-		[columns release];
     }
 	//Debug(@"Rows contents is %@", rows);
     return rows;

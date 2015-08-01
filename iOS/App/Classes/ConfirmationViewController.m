@@ -360,73 +360,6 @@
     [super viewDidUnload];
 }
 
-- (void) dealloc {
-    /*
-	[session release];
-	[confirmationTable release];
-	[vehicleCell release];
-	[costCell release];
-	[extrasCell release];
-	[termsCell release];
-	[carMakeModelLabel release];
-	[carImageView release];
-	[transmissionType release];
-	[fuelTypeImageView release];
-	[acImageView release];
-	[fuelLabel release];
-	[baggageLabel release];
-	[numberOfDoorsLabel release];
-	[vendorImageView release];
-	[carCategoryLabel release];
-	[depositLabel release];
-	[bookingFeeLabel release];
-	[extrasLabel release];
-	[totalLabel release];
-	[arrivalAmountLabel release];
-	[readConditionsButton release];
-	[acceptConditionsButton release];
-	[extrasString release];
-	[insuranceCell release];
-	[extrasCostLabel release];
-	extrasCostLabel = nil;
-	[dropOffLocationLabel release];
-	dropOffLocationLabel = nil;
-	[pickUpLocationLabel release];
-	pickUpLocationLabel = nil;
-	[numberOfPeopleLabel release];
-	numberOfPeopleLabel = nil;
-	[pickUpDateLabel release];
-	pickUpDateLabel = nil;
-	[dropOffDateLabel release];
-	dropOffDateLabel = nil;
-	[extraFeaturesLabel release];
-	extraFeaturesLabel = nil;
-	[insuranceSpinner release];
-	insuranceSpinner = nil;
-	[calculatingLabel release];
-	calculatingLabel = nil;
-	[insurancePriceLabel release];
-	insurancePriceLabel = nil;
-	[basePremiumPriceLabel release];
-	basePremiumPriceLabel = nil;
-	[insuranceTermsButton release];
-	insuranceTermsButton = nil;
-	[buyInsuranceButton release];
-	buyInsuranceButton = nil;
-	[extrasTitleLabel release];
-	extrasTitleLabel = nil;
-	[insuranceLabelForCostSection release];
-	insuranceLabelForCostSection = nil;
-	[dropOffHeaderLabel release];
-	dropOffHeaderLabel = nil;
-	[findOutMoreButton release];
-	findOutMoreButton = nil;
-	[insuranceDetailView release];
-	insuranceDetailView = nil;
-	[insuranceCostTitleLabel release];
-	insuranceCostTitleLabel = nil; */
-    [super dealloc];
-}
 
 
 
@@ -940,17 +873,17 @@
 		
 		[totalPriceAmountLabel setText:[CTHelper getTotalFeesFromSession:session]];
 
-		seperatorLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 27, 274, 1)] autorelease];
+		seperatorLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 27, 274, 1)];
 		[seperatorLabel setBackgroundColor:[UIColor colorWithHexString:@"#aaaaaa"]];
 		
-		includedInPriceLabel = [[[UILabel alloc] initWithFrame:CGRectMake(7, 34, 130, 14)] autorelease];
+		includedInPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 34, 130, 14)];
 		[includedInPriceLabel setTextColor:[UIColor colorWithHexString:@"#2c81f6"]];
 		[includedInPriceLabel setFont:[UIFont boldSystemFontOfSize:12]];
 		[includedInPriceLabel setNumberOfLines:1];
 		[includedInPriceLabel setText:@"Included in price:"];
         [includedInPriceLabel setBackgroundColor:[UIColor clearColor]];
         
-		label = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+		label = [[UILabel alloc] initWithFrame:CGRectZero];
 		[label setLineBreakMode:NSLineBreakByWordWrapping];
 		//[label setMinimumFontSize:FONT_SIZE];
 		[label setNumberOfLines:0];

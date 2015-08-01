@@ -67,7 +67,7 @@
 }
 
 + (NSString *) tpaExtenstionContruct {
-	NSDateFormatter *format = [[[NSDateFormatter alloc] init] autorelease];
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"yyyyMMddHHmmss"];
 	NSDate *now = [NSDate date];
 	NSString *dateString = [format stringFromDate:now];

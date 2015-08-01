@@ -10,7 +10,7 @@
 
 @implementation Fee (NSDictionary)
 
-+ (instancetype) initWithDictionary:(NSDictionary *)dictionary
++ (instancetype) feeWithDictionary:(NSDictionary *)dictionary
 {
 	NSString *amount = [dictionary objectForKey:@"@Amount"];
 	NSString *currencyCode = [dictionary objectForKey:@"@CurrencyCode"];

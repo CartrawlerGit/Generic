@@ -41,7 +41,6 @@
 		successfull = FALSE;
     }
     
-    [parser release];
 	
 	return successfull;
 }
@@ -125,22 +124,18 @@
 	if([elementName isEqualToString:@"result"]) {
 		if(currentResult != nil) {
 			currentResult.addressComponents = addressComponents;
-			[addressComponents release];
 			addressComponents = nil;
 			
 			[results addObject:currentResult];
-			[currentResult release];
 			currentResult = nil;
 		}
 	} 
 	else if ([elementName isEqualToString:@"address_component"]) {
 		if(currentAddressComponent != nil) {
 			currentAddressComponent.types = typesArray;
-			[typesArray release];
 			typesArray = nil;
 			
 			[addressComponents addObject:currentAddressComponent];
-			[currentAddressComponent release];
 			currentAddressComponent = nil;
 		}
 	}
@@ -248,7 +243,6 @@
 
 	
 	
-	[elementValue release];
 	contentsOfCurrentProperty = nil;
 }
 
@@ -260,19 +254,6 @@
     }
 }
 
-- (void) dealloc {
-	
-	if(contentsOfCurrentProperty != nil) {
-		[contentsOfCurrentProperty release];
-	}
-	
-	if(results != nil)
-	{
-		[results release];
-	}
-		
-	[super dealloc];
-}
 
 
 @end

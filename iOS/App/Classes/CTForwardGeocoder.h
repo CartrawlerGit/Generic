@@ -52,15 +52,15 @@ enum {
 	NSString *googleAPiKey;
 	int status;
 	NSArray *results;
-	id delegate;
+	id __weak delegate;
 }
 
 - (id) initWithDelegate:(id<CTForwardGeocoderDelegate, NSObject>)del;
 - (void) findLocation:(NSString *)searchString;
 
-@property (assign) id delegate;
-@property (nonatomic, retain) NSString *searchQuery;
+@property (weak) id delegate;
+@property (nonatomic, strong) NSString *searchQuery;
 @property (nonatomic, readonly) int status;
-@property (nonatomic, retain) NSArray *results;
+@property (nonatomic, strong) NSArray *results;
 
 @end

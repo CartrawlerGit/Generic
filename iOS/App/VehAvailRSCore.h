@@ -37,6 +37,6 @@
 @property (nonatomic, copy) NSString *puLocationName;
 @property (nonatomic, copy) NSString *doLocationCode;
 @property (nonatomic, copy) NSString *doLocationName;
-@property (nonatomic, retain) NSMutableArray *availableVendors;
+@property (nonatomic, strong) NSMutableArray *availableVendors;
 
 @end

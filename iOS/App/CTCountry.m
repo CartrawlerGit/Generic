@@ -25,16 +25,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[isoCountryName release];
-	[isoCountryCode release];
-	[isoDialingCode release];
-	[currencyName release];
-	[currencyCode release];
-	[currencySymbol release];
-
-	[super dealloc];
-}
 
 @end

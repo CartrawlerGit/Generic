@@ -40,19 +40,19 @@
 	
 }
 
-@property (nonatomic,retain) NSString *namePrefix;
-@property (nonatomic,retain) NSString *givenName;
-@property (nonatomic,retain) NSString *surname;
-@property (nonatomic,retain) NSString *phoneAreaCode;
-@property (nonatomic,retain) NSString *phoneNumber;
-@property (nonatomic,retain) NSString *emailAddress;
-@property (nonatomic,retain) NSString *address;
-@property (nonatomic,retain) NSString *countryCode;
+@property (nonatomic,strong) NSString *namePrefix;
+@property (nonatomic,strong) NSString *givenName;
+@property (nonatomic,strong) NSString *surname;
+@property (nonatomic,strong) NSString *phoneAreaCode;
+@property (nonatomic,strong) NSString *phoneNumber;
+@property (nonatomic,strong) NSString *emailAddress;
+@property (nonatomic,strong) NSString *address;
+@property (nonatomic,strong) NSString *countryCode;
 
-@property (nonatomic,retain) NSString *ccHolderName;
-@property (nonatomic,retain) NSString *ccNumber;
-@property (nonatomic,retain) NSString *ccExpDate;
-@property (nonatomic,retain) NSString *ccSeriesCode;
+@property (nonatomic,strong) NSString *ccHolderName;
+@property (nonatomic,strong) NSString *ccNumber;
+@property (nonatomic,strong) NSString *ccExpDate;
+@property (nonatomic,strong) NSString *ccSeriesCode;
 @property (nonatomic,assign) NSInteger cardType;
 
 

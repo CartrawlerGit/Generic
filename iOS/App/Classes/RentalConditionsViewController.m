@@ -93,7 +93,6 @@ CTHudViewController *hud;
 								   cancelButtonTitle:@"OK" 
 								   otherButtonTitles:nil];
         [errorAlert show];
-        [errorAlert release];
     }
 	[spinner setHidden:YES];
 }
@@ -127,14 +126,6 @@ CTHudViewController *hud;
     [super viewDidUnload];
 }
 
-- (void) dealloc {
-	[session release];
-	[aWebView release];
-
-	[spinner release];
-	spinner = nil;
-    [super dealloc];
-}
 
 - (void) initUIWebView {
 
@@ -184,7 +175,6 @@ CTHudViewController *hud;
 		[htmlString appendString:@"<body></html>"];
 		
 		[aWebView loadHTMLString:htmlString baseURL:nil];
-		[htmlString release];
 	}
 	
 	[[self view] addSubview:aWebView];	

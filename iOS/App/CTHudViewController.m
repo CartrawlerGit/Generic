@@ -100,10 +100,8 @@
 	[roundRectView popIn:0.5f delegate:self];
 
 	[spinner startAnimating];
-	[spinner release];
 	
 	[w addSubview:blankingView];
-	[blankingView release];
 	
 	roundRectView.transform = CGAffineTransformMakeScale(0.5, 0.5);
 		
@@ -145,9 +143,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 -(void) setAlerttitle:(NSString *)_t {
 	alerttitle = _t;

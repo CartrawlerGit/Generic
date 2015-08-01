@@ -20,13 +20,5 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[currencyName release];
-	[currencyCode release];
-	[currencyDisplayString release];
-
-	[super dealloc];
-}
 
 @end

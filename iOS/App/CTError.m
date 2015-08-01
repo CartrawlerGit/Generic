@@ -12,14 +12,6 @@
 @synthesize errorShortTxt;
 @synthesize errorTxt;
 
-- (void)dealloc
-{
-	[errorType release];
-	[errorShortTxt release];
-	[errorTxt release];
-
-	[super dealloc];
-}
 
 
 - (id) initFromErrorRS:(NSDictionary *)err {
