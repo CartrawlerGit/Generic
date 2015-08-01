@@ -15,6 +15,15 @@
 
 #define SectionHeaderHeight 40
 
+@interface SettingsViewController ()
+
+@property (nonatomic, strong) UISegmentedControl *mileKMSegment;
+@property (nonatomic, strong) UISegmentedControl *radiusSegment;
+@property (nonatomic, assign) NSInteger searchRadius;
+@property (nonatomic, assign) NSInteger metric;
+@property (nonatomic, assign) NSInteger radius;
+
+@end
 
 @interface SettingsViewController (Private)
 
@@ -23,12 +32,6 @@
 - (void) showCurrencyPickerView;
 - (void) showCountryPickerView;
 - (void) resetTableOffset;
-
-@property (nonatomic, strong) UISegmentedControl *mileKMSegment;
-@property (nonatomic, strong) UISegmentedControl *radiusSegment;
-@property (nonatomic, assign) NSInteger searchRadius;
-@property (nonatomic, assign) NSInteger metric;
-@property (nonatomic, assign) NSInteger radius;
 
 @end
 

@@ -580,11 +580,11 @@
 	} else if (indexPath.section == 3) { // Insurance
         // INSURANCE TEMPORARY REMOVE
         return 0;
-		if (self.wantsMoreInsuranceInfo) {
+		/*if (self.wantsMoreInsuranceInfo) {
 			return 370;
 		} else {
 			return 92;
-		}
+		}*/
 	} 
 	else {
 		return 70;

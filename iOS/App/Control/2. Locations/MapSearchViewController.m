@@ -611,7 +611,7 @@
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 	Error(@"Location manager error: %@", [error description]);
 	
-	DLog(@"before the check kCLLErrorDenied is %i", kCLErrorDenied);
+	DLog(@"before the check kCLLErrorDenied is %li", kCLErrorDenied);
 	if (kCLErrorDenied) {
 		[CTHelper showAlert:@"Location Services Unavailable" message:@"You can re-enable Location Services for this app in the Location Services section of the iPhone's Settings."];
 	}

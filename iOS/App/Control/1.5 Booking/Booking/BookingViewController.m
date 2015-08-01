@@ -29,16 +29,20 @@
 #define SD_IS_IOS6 YES
 #endif
 
-@interface BookingViewController (Private)
-
-- (void) updateFieldColors;
-- (void) updateAccessoryViewsInTableView;
-- (void) showAccessoryTickForCell:(UITableViewCell*)cell withValue:(NSString*)value enabled:(BOOL)enabled;
+@interface BookingViewController ()
 
 @property (nonatomic, strong) CTHudViewController *hud;
 @property (nonatomic, strong) UIButton *visaButton;
 @property (nonatomic, strong) UIButton *mastercardButton;
 @property (nonatomic, strong) CTUserBookingDetails *ctUserBookingDetails;
+
+@end
+
+@interface BookingViewController (Private)
+
+- (void) updateFieldColors;
+- (void) updateAccessoryViewsInTableView;
+- (void) showAccessoryTickForCell:(UITableViewCell*)cell withValue:(NSString*)value enabled:(BOOL)enabled;
 
 @end
 
