@@ -14,3 +14,12 @@ limitations under the License.
 
 This the generic version of the Cartrawler IOS booking engine.
 
+IMPORTANT:
+
+To open the project, use the file CarTrawler.xcworkspace
+
+If you have CocoaPods installed in your machine, update the libraries running:
+
+```
+pod install
+```
