@@ -98,6 +98,7 @@
 		66F9FAE3121090A800351025 /* VehAvailRSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F9FAE2121090A800351025 /* VehAvailRSCore.m */; };
 		66F9FAEA121092A500351025 /* Vendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F9FAE9121092A500351025 /* Vendor.m */; };
 		66F9FAED121092CE00351025 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F9FAEC121092CE00351025 /* Car.m */; };
+		96F6E27770474117900F7FDD /* libPods-CarHireTargetTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA1E63151F40E95D172AC29 /* libPods-CarHireTargetTests.a */; };
 		C2A0F385183C142D00B0ACEE /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F384183C142D00B0ACEE /* libz.1.2.5.dylib */; };
 		C2A0F387183C162600B0ACEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F386183C162600B0ACEE /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C2A0F389183C164000B0ACEE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A0F388183C164000B0ACEE /* UIKit.framework */; };
@@ -130,9 +131,21 @@
 		E26E7A0B1B6EB27E0070C015 /* CTRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A0A1B6EB27E0070C015 /* CTRequester.m */; };
 		E26E7A0E1B6EB3B70070C015 /* CTBookingRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A0D1B6EB3B70070C015 /* CTBookingRequester.m */; };
 		E26E7A111B6EB4DD0070C015 /* CTBookingResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A101B6EB4DD0070C015 /* CTBookingResponseValidator.m */; };
+		E26E7A1B1B6EBD0F0070C015 /* CarHireTargetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A1A1B6EBD0F0070C015 /* CarHireTargetTests.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E26E7A1C1B6EBD0F0070C015 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = CarHireTarget;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1C81981BFE2296CCDC165729 /* Pods-CarHireTargetTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarHireTargetTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-CarHireTargetTests/Pods-CarHireTargetTests.distribution.xcconfig"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* CarTrawlerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTrawlerAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* CarTrawlerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTrawlerAppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +164,7 @@
 		3B8E687612BF92C20049355F /* CTSearchDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSearchDefaults.h; sourceTree = "<group>"; };
 		3B8E687712BF92C20049355F /* CTSearchDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSearchDefaults.m; sourceTree = "<group>"; };
 		467CCC0E43537E7084DED46B /* Pods-CarHireTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarHireTarget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarHireTarget/Pods-CarHireTarget.debug.xcconfig"; sourceTree = "<group>"; };
+		5948875DF37F13B1E0F22550 /* Pods-CarHireTargetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarHireTargetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarHireTargetTests/Pods-CarHireTargetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66043A9511E5BCE60099672C /* ManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageViewController.h; sourceTree = "<group>"; };
 		66043A9611E5BCE60099672C /* ManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageViewController.m; sourceTree = "<group>"; };
 		66043A9711E5BCE60099672C /* ManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageViewController.xib; sourceTree = "<group>"; };
@@ -317,6 +331,8 @@
 		C2A0F396183C16AE00B0ACEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		C2A0F398183C16C900B0ACEE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		C2A0F39A183C16DD00B0ACEE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		CFA1E63151F40E95D172AC29 /* libPods-CarHireTargetTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CarHireTargetTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0FADA2686F66259D949CFB /* Pods-CarHireTargetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarHireTargetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarHireTargetTests/Pods-CarHireTargetTests.release.xcconfig"; sourceTree = "<group>"; };
 		E2226D931B6D831A007FA854 /* CTResponseValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CTResponseValidator.h; path = Network/ResponseValidator/CTResponseValidator.h; sourceTree = "<group>"; };
 		E2226D9D1B6D8521007FA854 /* CTError+ResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CTError+ResponseValidator.h"; path = "Network/ResponseValidator/CTError+ResponseValidator.h"; sourceTree = "<group>"; };
 		E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CTError+ResponseValidator.m"; path = "Network/ResponseValidator/CTError+ResponseValidator.m"; sourceTree = "<group>"; };
@@ -355,6 +371,9 @@
 		E26E7A0D1B6EB3B70070C015 /* CTBookingRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTBookingRequester.m; path = Network/Requester/CTBookingRequester.m; sourceTree = "<group>"; };
 		E26E7A0F1B6EB4DD0070C015 /* CTBookingResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTBookingResponseValidator.h; path = Network/ResponseValidator/CTBookingResponseValidator.h; sourceTree = "<group>"; };
 		E26E7A101B6EB4DD0070C015 /* CTBookingResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTBookingResponseValidator.m; path = Network/ResponseValidator/CTBookingResponseValidator.m; sourceTree = "<group>"; };
+		E26E7A161B6EBD0F0070C015 /* CarHireTargetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarHireTargetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26E7A191B6EBD0F0070C015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E26E7A1A1B6EBD0F0070C015 /* CarHireTargetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarHireTargetTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +394,14 @@
 				C2A0F399183C16C900B0ACEE /* libsqlite3.dylib in Frameworks */,
 				C2A0F39B183C16DD00B0ACEE /* MessageUI.framework in Frameworks */,
 				42663DDC9B53ADA3D1B6B9E9 /* libPods-CarHireTarget.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E26E7A131B6EBD0F0070C015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96F6E27770474117900F7FDD /* libPods-CarHireTargetTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* GenericCarHire.app */,
+				E26E7A161B6EBD0F0070C015 /* CarHireTargetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,6 +450,7 @@
 				66C25F6E11F0B96400DD72F5 /* Utility */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				E26E7A171B6EBD0F0070C015 /* CarHireTargetTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				D054FDE7E71BF93B758923DA /* Pods */,
@@ -481,6 +510,7 @@
 				6663C61011F88C4D0098B77B /* QuartzCore.framework */,
 				668F384B12008ACA00580628 /* libsqlite3.dylib */,
 				223019B2CBB902BB1D8AFD73 /* libPods-CarHireTarget.a */,
+				CFA1E63151F40E95D172AC29 /* libPods-CarHireTargetTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1119,6 +1149,9 @@
 				467CCC0E43537E7084DED46B /* Pods-CarHireTarget.debug.xcconfig */,
 				B436CAB725EB3CEC84FAE374 /* Pods-CarHireTarget.release.xcconfig */,
 				7FDE7099FC33AB7014456632 /* Pods-CarHireTarget.distribution.xcconfig */,
+				5948875DF37F13B1E0F22550 /* Pods-CarHireTargetTests.debug.xcconfig */,
+				DD0FADA2686F66259D949CFB /* Pods-CarHireTargetTests.release.xcconfig */,
+				1C81981BFE2296CCDC165729 /* Pods-CarHireTargetTests.distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1193,6 +1226,23 @@
 			name = Requester;
 			sourceTree = "<group>";
 		};
+		E26E7A171B6EBD0F0070C015 /* CarHireTargetTests */ = {
+			isa = PBXGroup;
+			children = (
+				E26E7A1A1B6EBD0F0070C015 /* CarHireTargetTests.m */,
+				E26E7A181B6EBD0F0070C015 /* Supporting Files */,
+			);
+			path = CarHireTargetTests;
+			sourceTree = "<group>";
+		};
+		E26E7A181B6EBD0F0070C015 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E26E7A191B6EBD0F0070C015 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1216,6 +1266,26 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* GenericCarHire.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E26E7A151B6EBD0F0070C015 /* CarHireTargetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E26E7A1E1B6EBD0F0070C015 /* Build configuration list for PBXNativeTarget "CarHireTargetTests" */;
+			buildPhases = (
+				E1E9DC2F1297177DF3908BBB /* Check Pods Manifest.lock */,
+				E26E7A121B6EBD0F0070C015 /* Sources */,
+				E26E7A131B6EBD0F0070C015 /* Frameworks */,
+				E26E7A141B6EBD0F0070C015 /* Resources */,
+				28DD78C8900F1EABAA0AA0AF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E26E7A1D1B6EBD0F0070C015 /* PBXTargetDependency */,
+			);
+			name = CarHireTargetTests;
+			productName = CarHireTargetTests;
+			productReference = E26E7A161B6EBD0F0070C015 /* CarHireTargetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1228,6 +1298,10 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 3L8QU4R2JJ;
+					};
+					E26E7A151B6EBD0F0070C015 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -1244,6 +1318,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* CarHireTarget */,
+				E26E7A151B6EBD0F0070C015 /* CarHireTargetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1288,6 +1363,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E26E7A141B6EBD0F0070C015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1306,6 +1388,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarHireTarget/Pods-CarHireTarget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		28DD78C8900F1EABAA0AA0AF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarHireTargetTests/Pods-CarHireTargetTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		302260B019486DEA00BD15F5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -1318,6 +1415,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "version=`/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist`\nbuildNumber=`/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist`\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $buildNumber\" $SRCROOT/Other\\ Sources/CarTrawler-Info.plist\n/usr/libexec/PlistBuddy \"$SRCROOT/Resources/Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:1:DefaultValue $version\"\n/usr/libexec/PlistBuddy \"$SRCROOT/Resources/Settings.bundle/Root.plist\" -c \"set PreferenceSpecifiers:2:DefaultValue $buildNumber\"\n";
+		};
+		E1E9DC2F1297177DF3908BBB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		F6E0EBAF02434E988265412D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1422,7 +1534,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E26E7A121B6EBD0F0070C015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26E7A1B1B6EBD0F0070C015 /* CarHireTargetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E26E7A1D1B6EBD0F0070C015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* CarHireTarget */;
+			targetProxy = E26E7A1C1B6EBD0F0070C015 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		305AA1D619264C1000C2A12B /* Localizable.strings */ = {
@@ -1453,6 +1581,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
@@ -1485,6 +1614,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Other Sources/CarTrawler-Info.plist";
@@ -1546,6 +1676,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/CarTrawler_Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Other Sources/CarTrawler-Info.plist";
@@ -1630,6 +1761,106 @@
 			};
 			name = Release;
 		};
+		E26E7A1F1B6EBD0F0070C015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5948875DF37F13B1E0F22550 /* Pods-CarHireTargetTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CarHireTargetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenericCarHire.app/GenericCarHire";
+			};
+			name = Debug;
+		};
+		E26E7A201B6EBD0F0070C015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD0FADA2686F66259D949CFB /* Pods-CarHireTargetTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CarHireTargetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenericCarHire.app/GenericCarHire";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E26E7A211B6EBD0F0070C015 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C81981BFE2296CCDC165729 /* Pods-CarHireTargetTests.distribution.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = CarHireTargetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenericCarHire.app/GenericCarHire";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1649,6 +1880,16 @@
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
 				66BDBA3F1398E2B600E6A7AD /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E26E7A1E1B6EBD0F0070C015 /* Build configuration list for PBXNativeTarget "CarHireTargetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E26E7A1F1B6EBD0F0070C015 /* Debug */,
+				E26E7A201B6EBD0F0070C015 /* Release */,
+				E26E7A211B6EBD0F0070C015 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
