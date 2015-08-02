@@ -15,18 +15,23 @@
 	NSString *amount = [dictionary objectForKey:@"@Amount"];
 	NSString *currencyCode = [dictionary objectForKey:@"@CurrencyCode"];
 	NSString *purpose = [dictionary objectForKey:@"@Purpose"];
-	NSString *purposeDescription = nil;
-	
-	if ([purpose isEqualToString:@"22"]) {
-		purposeDescription = @"Deposit fee, taken at confirmation.";
-	} else if ([purpose isEqualToString:@"23"]) {
-		purposeDescription = @"Fee to pay on arrival.";
-	} else if ([purpose isEqualToString:@"6"]) {
-		purposeDescription = @"Cartrawler booking fee.";
-	}
-	
+	NSString *purposeDescription = [Fee parsePurpose:purpose];
+
 	Fee *fee = [[Fee alloc] initWithAmount:amount currencyCode:currencyCode andPurpose:purpose andPurposeDescription:purposeDescription];
+	
 	return fee;
+}
+
++ (NSString *)parsePurpose:(NSString *)purpose
+{
+	if ([purpose isEqualToString:@"22"]) {
+		return @"Deposit fee, taken at confirmation.";
+	} else if ([purpose isEqualToString:@"23"]) {
+		return @"Fee to pay on arrival.";
+	} else if ([purpose isEqualToString:@"6"]) {
+		return @"Cartrawler booking fee.";
+	}
+	return @"";
 }
 
 @end
