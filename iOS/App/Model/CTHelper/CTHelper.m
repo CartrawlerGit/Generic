@@ -21,6 +21,7 @@
 #import "Car.h"
 #import "Fee.h"
 #import "InsuranceObject.h"
+#import "CTVehMatchedLocsResponseValidator.h"
 
 @implementation CTHelper
 
@@ -288,7 +289,7 @@
 	
 	if ([[response allKeys] containsObject:@"VehMatchedLocs"])
 	{
-		
+		[CTVehMatchedLocsResponseValidator validateResponseObject:response];
 	}
 	else if ([[response allKeys] containsObject:@"LocationDetail"])
 		
