@@ -1,4 +1,4 @@
-Copyright 2014 Etrawler
+###Copyright 2014 Etrawler###
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -12,13 +12,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+###Generic###
+
 This the generic version of the Cartrawler IOS booking engine.
 
-IMPORTANT:
+**IMPORTANT:**
 
 To open the project, use the file CarTrawler.xcworkspace
 
-If you have CocoaPods installed in your machine, update the libraries running:
+If you have *[CocoaPods](https://cocoapods.org/)* installed in your machine, update the libraries running:
 
 ```
 pod install
