@@ -31,6 +31,8 @@
 
 - (instancetype) initWithIsoCountryName:(NSString *)isoCountryName isoCountryCode:(NSString *)isoCountryCode andIsoDialingCode:(NSString *)isoDailingCode;
 
+- (instancetype) initWithCurrencyName:(NSString *)currencyName currencyCode:(NSString *)currencyCode andCurrencySymbol:(NSString *)currencySymbol;
+
 - (instancetype) initWithCurrencyName:(NSString *)currencyName currencyCode:(NSString *)currencyCode currencySymbol:(NSString *)currencySymbol isoCountryName:(NSString *)isoCountryName isoCountryCode:(NSString *)isoCountryCode andIsoDialingCode:(NSString *)isoDailingCode;
 
 @end
