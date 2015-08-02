@@ -28,6 +28,8 @@
 	<string>567</string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to search for a retail near you</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UIApplicationExitsOnSuspend</key>

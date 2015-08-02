@@ -443,6 +443,10 @@
 	
 	self.locationManager.delegate = self;
 	
+	if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+		[self.locationManager requestWhenInUseAuthorization];
+	}
+	
 	[self.locationManager startUpdatingLocation];
 	
 	self.searchMap.showsUserLocation = YES;
