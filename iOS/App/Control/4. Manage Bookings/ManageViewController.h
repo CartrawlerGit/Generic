@@ -20,19 +20,8 @@
 
 @class Booking;
 
-@interface ManageViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate> {
-	
-    /*BOOL			pageControlIsChangingPage;
-	NSMutableArray	*arrayOfBookings;
-	NSMutableArray	*arrayOfReceiptViewControllers;
-	
-	UIBarButtonItem *storedBtn;
-	UIBarButtonItem *downloadBtn;
-	
-	NSNotification *n;*/
-}
+@interface ManageViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
-@property (nonatomic, strong) NSNotification *n;
 @property (nonatomic, strong) UIBarButtonItem *storedBtn;
 @property (nonatomic, strong) UIBarButtonItem *downloadBtn;
 @property (nonatomic, weak) IBOutlet UITextField *bookingEmailTB;

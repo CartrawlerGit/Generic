@@ -9,9 +9,12 @@
 #import "CarTrawlerAppDelegate.h"
 #import "CTHudViewController.h"
 #import "FindBookingViewController.h"
+#import "CTBookingRequester.h"
+#import "CTBookingResponseValidator.h"
 
-@interface ManageViewController()
+@interface ManageViewController() <ASIHTTPRequestDelegate>
 
+@property (nonatomic, strong) NSNotification *n;
 @property (nonatomic, strong) CTHudViewController *hud;
 @property (nonatomic, assign) NSInteger		numBookings;
 @property (nonatomic, assign) BOOL pageControlIsChangingPage;
@@ -43,26 +46,10 @@
 }
 
 - (void) getBookingDetails:(NSString *)bookingEmail bookingID:(NSString *)bookingID {
-	
-	NSString *jsonString = [NSString stringWithFormat:@"{%@%@}", [CTRQBuilder buildHeader:kGetExistingBookingHeader], [CTRQBuilder OTA_VehRetResRQ:bookingEmail bookingRefID:bookingID]];
-	
-	if (kShowResponse) {
-		DLog(@"Request is \n\n%@\n\n", jsonString);
-	}
-	
-	NSData *requestData = [NSData dataWithBytes: [jsonString UTF8String] length: [jsonString length]];
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kCTTestAPI, KOTA_VehRetResRQ]];
-	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-	[request setDelegate:self];
-	[request appendPostData:requestData];
-	[request setRequestMethod:@"POST"];
-	[request setShouldStreamPostDataFromDisk:YES];
-	[request setAllowCompressedResponse:YES];
-	
 	self.hud = [[CTHudViewController alloc] initWithTitle:@"Searching"];
 	[self.hud show];
 	
-	[request startAsynchronous];
+	[CTBookingRequester requestBookingWithEmail:bookingEmail bookingId:bookingID andDelegate:self];
 }
 
 - (void) requestFinished:(ASIHTTPRequest *)request {
@@ -78,10 +65,19 @@
 	//[hud autorelease];
 	self.hud = nil;
 	
-	if ([[CTHelper validateResponse:response] isKindOfClass:[NSMutableArray class]]) {
-		// We have errors
-		NSMutableArray *temp = (NSMutableArray *)[CTHelper validateResponse:response];
-		for (CTError *er in temp) 
+	[CTBookingResponseValidator validateCompleteResponse:response withSuccess:^(Booking *booking) {
+		if (booking) {
+			[self saveCustomObject:booking];
+			[self.arrayOfBookings addObject:booking];
+			DLog(@"Break");
+			[self setupPage];
+			[self hideGetBookingInfoView];
+		} else {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your booking has either been cancelled or is currently unconfirmed." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+			[alert show];
+		}
+	} andError:^(NSArray *errors) {
+		for (CTError *er in errors)
 		{
 			if ([er.errorShortTxt isEqualToString:@"No matching bookings found"]) {
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No matching bookings found" message:@"Check your Booking ID and Email Address and try again." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -93,26 +89,7 @@
 				//[alert release];
 			}
 		}
-	} else {
-		if ([[[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"] objectForKey:@"@Status"]) {
-			NSString *statusStr = [[[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"] objectForKey:@"@Status"];
-				
-			if ([statusStr isEqualToString:@"Confirmed"]) {
-				Booking *b = [[Booking alloc] initFromRetrievedBookingDictionary:[[response objectForKey:@"VehRetResRSCore"] objectForKey:@"VehReservation"]];
-				[b setCustomerEmail:self.bookingEmailTB.text];
-				[self saveCustomObject:b];
-				[self.arrayOfBookings addObject:b];
-				DLog(@"Break");
-				[self setupPage];
-				[self hideGetBookingInfoView];
-			} else {
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your booking has either been cancelled or is currently unconfirmed." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-				[alert show];
-				//[alert release];
-			}
-		}
-		
-	}
+	}];
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request {
@@ -129,10 +106,6 @@
 }
 
 - (IBAction) getBookingInfo {
-	//DLog(@"Requesting %@ & %@", self.self.bookingIDTB.text, self.bookingEmailTB.text);
-	
-	//[self getBookingDetails:@"ahicks@cartrawler.com" bookingID:@"AU265413880"];
-	//[self getBookingDetails:@"PEPSOLA@PEPSOLA.JAZZTEL.ES" bookingID:@"IE226600320"];
 	
 	if ([self.bookingIDTB.text isEqualToString:@""]) {
 		[CTHelper showAlert:@"Reference number required." message:@"Your reference number is required to use this facility."];
@@ -142,9 +115,6 @@
 		[CTHelper showAlert:@"Information missing." message:@"Enter your reference number & email address to download your booking details."];
 	} else if (!([self.bookingEmailTB.text isEqualToString:@""] && [self.bookingIDTB.text isEqualToString:@""])) {
 		[self getBookingDetails:self.bookingEmailTB.text bookingID:self.bookingIDTB.text];
-		
-	//	[FlurryAPI logEvent:@"Manage Booking: Has retrieved booking from web."];
-		
 	}
 }
 
@@ -209,7 +179,6 @@
 	self.n = notify;
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Remove receipt?" message:@"You are about to remove this receipt from the app, receipts can be added using the download button at the top right of the screen." delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
 	[alert show];
-	//[alert release];
 }
 
 #pragma mark -

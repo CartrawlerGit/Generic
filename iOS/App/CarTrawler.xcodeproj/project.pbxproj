@@ -127,6 +127,9 @@
 		E24A07871B6D73F300D7C41F /* CTCountry+NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A07861B6D73F300D7C41F /* CTCountry+NSArray.m */; };
 		E24A078D1B6D777900D7C41F /* CTCountry+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A078C1B6D777900D7C41F /* CTCountry+Coding.m */; };
 		E24A07901B6D799F00D7C41F /* CTCountry+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = E24A078F1B6D799F00D7C41F /* CTCountry+Factory.m */; };
+		E26E7A0B1B6EB27E0070C015 /* CTRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A0A1B6EB27E0070C015 /* CTRequester.m */; };
+		E26E7A0E1B6EB3B70070C015 /* CTBookingRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A0D1B6EB3B70070C015 /* CTBookingRequester.m */; };
+		E26E7A111B6EB4DD0070C015 /* CTBookingResponseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E7A101B6EB4DD0070C015 /* CTBookingResponseValidator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -346,6 +349,12 @@
 		E24A078C1B6D777900D7C41F /* CTCountry+Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTCountry+Coding.m"; sourceTree = "<group>"; };
 		E24A078E1B6D799F00D7C41F /* CTCountry+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTCountry+Factory.h"; sourceTree = "<group>"; };
 		E24A078F1B6D799F00D7C41F /* CTCountry+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTCountry+Factory.m"; sourceTree = "<group>"; };
+		E26E7A091B6EB27E0070C015 /* CTRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTRequester.h; path = Network/Requester/CTRequester.h; sourceTree = "<group>"; };
+		E26E7A0A1B6EB27E0070C015 /* CTRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTRequester.m; path = Network/Requester/CTRequester.m; sourceTree = "<group>"; };
+		E26E7A0C1B6EB3B70070C015 /* CTBookingRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTBookingRequester.h; path = Network/Requester/CTBookingRequester.h; sourceTree = "<group>"; };
+		E26E7A0D1B6EB3B70070C015 /* CTBookingRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTBookingRequester.m; path = Network/Requester/CTBookingRequester.m; sourceTree = "<group>"; };
+		E26E7A0F1B6EB4DD0070C015 /* CTBookingResponseValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTBookingResponseValidator.h; path = Network/ResponseValidator/CTBookingResponseValidator.h; sourceTree = "<group>"; };
+		E26E7A101B6EB4DD0070C015 /* CTBookingResponseValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTBookingResponseValidator.m; path = Network/ResponseValidator/CTBookingResponseValidator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1117,6 +1126,7 @@
 		E2226D911B6D821F007FA854 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E26E7A081B6EB2510070C015 /* Requester */,
 				E2226D921B6D82B8007FA854 /* ResponseValidator */,
 			);
 			name = Network;
@@ -1130,6 +1140,8 @@
 				E2226D9E1B6D8521007FA854 /* CTError+ResponseValidator.m */,
 				E2226DA21B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.h */,
 				E2226DA31B6D88F8007FA854 /* CTVehMatchedLocsResponseValidator.m */,
+				E26E7A0F1B6EB4DD0070C015 /* CTBookingResponseValidator.h */,
+				E26E7A101B6EB4DD0070C015 /* CTBookingResponseValidator.m */,
 			);
 			name = ResponseValidator;
 			sourceTree = "<group>";
@@ -1170,6 +1182,17 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		E26E7A081B6EB2510070C015 /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				E26E7A091B6EB27E0070C015 /* CTRequester.h */,
+				E26E7A0A1B6EB27E0070C015 /* CTRequester.m */,
+				E26E7A0C1B6EB3B70070C015 /* CTBookingRequester.h */,
+				E26E7A0D1B6EB3B70070C015 /* CTBookingRequester.m */,
+			);
+			name = Requester;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1199,6 +1222,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CT;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = www.cartrawler.com;
 				TargetAttributes = {
@@ -1330,12 +1354,14 @@
 				6663C3D311F82FB80098B77B /* CTLocation.m in Sources */,
 				6663C3E211F8310B0098B77B /* CTLocationAnnotation.m in Sources */,
 				666DD79211F9D5AC00580386 /* CustomLocationCell.m in Sources */,
+				E26E7A0E1B6EB3B70070C015 /* CTBookingRequester.m in Sources */,
 				66EF666911FD851D0048282A /* CTRQBuilder.m in Sources */,
 				66EF670D11FDCE5C0048282A /* CTError.m in Sources */,
 				668F37E21200830000580628 /* NSString+CSVParser.m in Sources */,
 				66441FBF12081BB50059ABCF /* LocationListViewController.m in Sources */,
 				66F195C2120D9F3C00342CB1 /* CTCountry.m in Sources */,
 				66F195E9120DA43100342CB1 /* CTCurrency.m in Sources */,
+				E26E7A0B1B6EB27E0070C015 /* CTRequester.m in Sources */,
 				668F1BF9120EBC6F00D71411 /* CTHudViewController.m in Sources */,
 				668F1DA3120F212B00D71411 /* SearchResultsViewController.m in Sources */,
 				6653EC5F1210389D00070877 /* NSData+HexOutput.m in Sources */,
@@ -1375,6 +1401,7 @@
 				E2226DAA1B6D8B1A007FA854 /* Booking+VehReservation.m in Sources */,
 				3B8E687812BF92C20049355F /* CTSearchDefaults.m in Sources */,
 				66C76B4E12C0AE1200D804FA /* CTSearchFilters.m in Sources */,
+				E26E7A111B6EB4DD0070C015 /* CTBookingResponseValidator.m in Sources */,
 				6653763612C2486600D27203 /* CallUsViewController.m in Sources */,
 				66E7898812D353C200B7D240 /* CTUserBookingDetails.m in Sources */,
 				66467E5F12F8204F00EAF7F8 /* UIColor-Expanded.m in Sources */,
