@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
+            <connections>
+                <outlet property="delegate" destination="3" id="99"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <customObject id="3" customClass="CarTrawlerAppDelegate">
+            <connections>
+                <outlet property="tabBarController" destination="106" id="113"/>
+                <outlet property="window" destination="2" id="9"/>
+            </connections>
+        </customObject>
+        <window clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="windowController" visibleAtLaunch="YES" resizesToFullScreen="NO" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="bottom" image="BGD_480x480" id="158">
+                    <rect key="frame" x="-90" y="0.0" width="480" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+        </window>
+        <tabBarController restorationIdentifier="tabController" id="106">
+            <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="top" selectedItem="162" id="107">
+                <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </tabBar>
+            <viewControllers>
+                <navigationController restorationIdentifier="tabController1" navigationBarHidden="YES" id="161">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="houseIcon.png" id="162"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="165">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController nibName="HomeViewController" id="163" customClass="HomeViewController">
+                            <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                            <toolbarItems/>
+                            <navigationItem key="navigationItem" title="Home" id="164"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController restorationIdentifier="tabController2" id="129">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="searchIcon.png" id="130"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="133">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController nibName="SearchViewController" modalTransitionStyle="flipHorizontal" id="131" customClass="SearchViewController">
+                            <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                            <toolbarItems/>
+                            <navigationItem key="navigationItem" title="Item" id="132"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController restorationIdentifier="tabController3" id="168">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="map.png" id="169"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="172">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.60887096770000004" blue="0.96370967740000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController nibName="MapSearchViewController" id="170" customClass="MapSearchViewController">
+                            <extendedEdge key="edgesForExtendedLayout"/>
+                            <toolbarItems/>
+                            <navigationItem key="navigationItem" id="171"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <viewController restorationIdentifier="tabController4" nibName="CallUsViewController" id="173" customClass="CallUsViewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Call" image="phone.png" id="174"/>
+                    <toolbarItems/>
+                </viewController>
+                <navigationController restorationIdentifier="tabController5" id="134">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="My Bookings" image="manageIcon.png" id="135"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="138">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController nibName="ManageViewController" id="136" customClass="ManageViewController">
+                            <extendedEdge key="edgesForExtendedLayout"/>
+                            <toolbarItems/>
+                            <navigationItem key="navigationItem" title="Item" id="137"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+            </viewControllers>
+        </tabBarController>
+    </objects>
+    <resources>
+        <image name="BGD_480x480" width="480" height="480"/>
+        <image name="houseIcon.png" width="22" height="22"/>
+        <image name="manageIcon.png" width="26" height="17"/>
+        <image name="map.png" width="26" height="21"/>
+        <image name="phone.png" width="24" height="24"/>
+        <image name="searchIcon.png" width="24" height="24"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
