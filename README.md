@@ -25,3 +25,7 @@ If you have *[CocoaPods](https://cocoapods.org/)* installed in your machine, upd
 ```
 pod install
 ```
+
+###Changes###
+
+All the changes documentation can be found on the [Project changes](iOS/docs/Project changes.pdf) file. To a better visualiztion of the screen shots of the changes, go to the folder [Screen shots](iOS/docs/Screen shots).
